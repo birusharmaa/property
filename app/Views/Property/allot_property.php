@@ -151,4 +151,4 @@
     </div>
 </div>
 
-<?= view('Property/scripts/allot_property_script') ?>
+<?= view('Property/Scripts/allot_property_script') ?>
