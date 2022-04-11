@@ -1,0 +1,100 @@
+{
+    "subsubmodules": [
+        {
+            "id": 1,
+            "ssm_name": "All Employees",
+            "ssm_class": "",
+            "ssm_url": "all-employees",
+            "sm_id": 14
+        },
+        {
+            "id": 2,
+            "ssm_name": "Add Employees",
+            "ssm_class": "",
+            "ssm_url": "add-employees",
+            "sm_id": 14
+        },
+        {
+            "id": 3,
+            "ssm_name": "All Teams & Agents",
+            "ssm_class": "",
+            "ssm_url": "all-teams",
+            "sm_id": 19
+        },
+        {
+            "id": 4,
+            "ssm_name": "Add Teams & Agents",
+            "ssm_class": "",
+            "ssm_url": "add-teams",
+            "sm_id": 19
+        },
+        
+        {
+            "id": 5,
+            "ssm_name": "All Expenses",
+            "ssm_class": "",
+            "ssm_url": "all-expenses",
+            "sm_id": 22
+        },
+        {
+            "id": 6,
+            "ssm_name": "Expense Type",
+            "ssm_class": "",
+            "ssm_url": "expense-type",
+            "sm_id": 22
+        },
+        {
+            "id": 7,
+            "ssm_name": "Expense Report",
+            "ssm_class": "",
+            "ssm_url": "expense-report",
+            "sm_id": 22
+        },
+        
+        {
+            "id": 8,
+            "ssm_name": "All Income",
+            "ssm_class": "",
+            "ssm_url": "all-income",
+            "sm_id": 23
+        },
+        {
+            "id": 9,
+            "ssm_name": "Add Income",
+            "ssm_class": "",
+            "ssm_url": "add-income",
+            "sm_id": 23
+        },
+        {
+            "id": 10,
+            "ssm_name": "Income Report",
+            "ssm_class": "",
+            "ssm_url": "income-report",
+            "sm_id": 23
+        },
+        
+        
+        {
+            "id": 11,
+            "ssm_name": "all-profit-loss",
+            "ssm_class": "",
+            "ssm_url": "all-profit-loss",
+            "sm_id": 24
+        },
+        {
+            "id": 12,
+            "ssm_name": "add-profit-loss",
+            "ssm_class": "",
+            "ssm_url": "add-profit-loss",
+            "sm_id": 24
+        },
+        {
+            "id": 13,
+            "ssm_name": "profile-loss-report",
+            "ssm_class": "",
+            "ssm_url": "profile-loss-report",
+            "sm_id": 24
+        }
+    ]
+}
+

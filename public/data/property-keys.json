@@ -1,0 +1,55 @@
+{
+    "propertykeys": [
+        {
+            "id": 1,
+            "title": "Property Features",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 2,
+            "title": "Society/ Building Features",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 3,
+            "title": "Additional Features",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 4,
+            "title": "Water Source",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 5,
+            "title": "Overlooking",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 6,
+            "title": "Other Features",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 7,
+            "title": "Power Back up",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 8,
+            "title": "Property Facing",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+        {
+            "id": 9,
+            "title": "Type of Flooring",
+            "key_for": "col-form-label fw-bold fs-6"
+        },
+      
+        {
+            "id": 10,
+            "title": "Location Advantages",
+            "key_for": "col-form-label fw-bold fs-6 p-0 m-0"
+        }
+    ]
+}

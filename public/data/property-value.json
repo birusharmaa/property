@@ -1,0 +1,400 @@
+{
+    "propertyvalues": [
+        {
+            "id": 1,
+            "title": "High Ceiling Height",
+            "short_name": "height",
+            "key_id": 1
+        },
+        {
+            "id": 2,
+            "title": "False Ceiling Lighting",
+            "short_name": "lighting",
+            "key_id": 1
+        },
+        {
+            "id": 3,
+            "title": "Piped-gas",
+            "short_name": "gas",
+            "key_id": 1
+        },
+        {
+            "id": 4,
+            "title": "Internet/wi-fi connectivity",
+            "short_name": "connectivity",
+            "key_id": 1
+        },
+        {
+            "id": 5,
+            "title": "Centrally air conditioned",
+            "short_name": "conitioned",
+            "key_id": 1
+        },
+        {
+            "id": 6,
+            "title": "Water Purifier",
+            "short_name": "purifier",
+            "key_id": 1
+        },
+        {
+            "id": 7,
+            "title": "Recently Renovated",
+            "short_name": "renovated",
+            "key_id": 1
+        },
+        {
+            "id": 8,
+            "title": "Private Garden/Terrace",
+            "short_name": "terrace",
+            "key_id": 1
+        },
+        {
+            "id": 9,
+            "title": "Natural Light",
+            "short_name": "light",
+            "key_id": 1
+        },
+        {
+            "id": 10,
+            "title": "Private Airy Rooms",
+            "short_name": "roooms",
+            "key_id": 1
+        },
+        {
+            "id": 10,
+            "title": "Private Spacious Interiors",
+            "short_name": "interior",
+            "key_id": 1
+        },
+        {
+            "id": 12,
+            "title": "Water Softening plant",
+            "short_name": "plant",
+            "key_id": 2
+        },
+        {
+            "id": 13,
+            "title": "Shopping Centre",
+            "short_name": "center",
+            "key_id": 2
+        },
+        {
+            "id": 14,
+            "title": "Fitness Centre/ GYM",
+            "short_name": "gym",
+            "key_id": 2
+        },
+        {
+            "id": 15,
+            "title": "Swimming Pool",
+            "short_name": "pool",
+            "key_id": 2
+        },
+        {
+            "id": 16,
+            "title": "Club house/ Community Centre",
+            "short_name": "community",
+            "key_id": 2
+        },
+        {
+            "id": 17,
+            "title": "Security Personnel",
+            "short_name": "personnel",
+            "key_id": 2
+        },
+        {
+            "id": 18,
+            "title": "Separate entry for servant room",
+            "short_name": "room",
+            "key_id": 3
+        },
+        {
+            "id": 19,
+            "title": "Waste Disposal",
+            "short_name": "disposal",
+            "key_id": 3
+        },
+        {
+            "id": 20,
+            "title": "No open drainage around",
+            "short_name": "around",
+            "key_id": 3
+        },
+        {
+            "id": 21,
+            "title": "Rain water Harvesting",
+            "short_name": "harvesting",
+            "key_id": 3
+        },
+        {
+            "id": 22,
+            "title": "Bank Attached Property",
+            "short_name": "property",
+            "key_id": 3
+        },
+        {
+            "id": 23,
+            "title": "Low Density Society",
+            "short_name": "society",
+            "key_id": 3
+        },
+        {
+            "id": 24,
+            "title": "Municipal Corporation",
+            "short_name": "corporation",
+            "key_id": 4
+        },
+        {
+            "id": 25,
+            "title": "Borewell/ Tank",
+            "short_name": "tank",
+            "key_id": 4
+        },
+        {
+            "id": 26,
+            "title": "24*7 Water",
+            "short_name": "water",
+            "key_id": 4
+        },
+        {
+            "id": 27,
+            "title": "Pool",
+            "short_name": "home",
+            "key_id": 5
+        },
+        {
+            "id": 28,
+            "title": "Park/ Garden",
+            "short_name": "garden",
+            "key_id": 5
+        },
+        {
+            "id": 29,
+            "title": "Club",
+            "short_name": "club",
+            "key_id": 5
+        },
+        {
+            "id": 30,
+            "title": "Main Road",
+            "short_name": "road",
+            "key_id": 5
+        },
+        {
+            "id": 31,
+            "title": "Others",
+            "short_name": "others",
+            "key_id": 5
+        },
+        {
+            "id": 32,
+            "title": "In a gated society",
+            "short_name": "gated-society",
+            "key_id": 6
+        },
+        {
+            "id": 33,
+            "title": "Corner Property",
+            "short_name": "corner-property",
+            "key_id": 6
+        },
+        {
+            "id": 34,
+            "title": "Pet Friendly",
+            "short_name": "pet-friendly",
+            "key_id": 6
+        },
+        {
+            "id": 35,
+            "title": "Wheelchair Friendly",
+            "short_name": "wheelchair-friendly",
+            "key_id": 6
+        },
+        {
+            "id": 36,
+            "title": "None",
+            "short_name": "backup",
+            "key_id": 7
+        },
+        {
+            "id": 37,
+            "title": "Partial",
+            "short_name": "backup",
+            "key_id": 7
+        },
+        {
+            "id": 38,
+            "title": "Full",
+            "short_name": "backup",
+            "key_id": 7
+        },
+        {
+            "id": 39,
+            "title": "North",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 40,
+            "title": "South",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 41,
+            "title": "East",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 42,
+            "title": "West",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 43,
+            "title": "North-East",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 44,
+            "title": "North-West",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 45,
+            "title": "South-East",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 46,
+            "title": "South-West",
+            "short_name": "facing",
+            "key_id": 8
+        },
+        {
+            "id": 48,
+            "title": "Marble",
+            "short_name": "Marble",
+            "key_id": 9
+        },
+        {
+            "id": 49,
+            "title": "Concerete",
+            "short_name": "Concerete",
+            "key_id": 9
+        },
+        {
+            "id": 50,
+            "title": "Polished Concerete",
+            "short_name": "facing",
+            "key_id": 9
+        },
+        {
+            "id": 51,
+            "title": "Granite",
+            "short_name": "facing",
+            "key_id": 9
+        },
+        {
+            "id": 52,
+            "title": "Ceramic",
+            "short_name": "facing",
+            "key_id": 9
+        },
+        {
+            "id": 53,
+            "title": "Mosaic",
+            "short_name": "facing",
+            "key_id": 9
+        },
+        {
+            "id": 54,
+            "title": "Cement",
+            "short_name": "Cement",
+            "key_id": 9
+        },
+        {
+            "id": 55,
+            "title": "Stone",
+            "short_name": "Stone",
+            "key_id": 9
+        },
+        {
+            "id": 56,
+            "title": "Vinyl",
+            "short_name": "Vinyl",
+            "key_id": 9
+        },
+        {
+            "id": 57,
+            "title": "Wood",
+            "short_name": "Wood",
+            "key_id": 9
+        },
+        {
+            "id": 58,
+            "title": "Vitrified",
+            "short_name": "facing",
+            "key_id": 9
+        },
+        {
+            "id": 59,
+            "title": "Spartex",
+            "short_name": "IPSFinish",
+            "key_id": 9
+        },
+        {
+            "id": 60,
+            "title": "Others",
+            "short_name": "facing",
+            "key_id": 9
+        },
+        {
+            "id": 61,
+            "title": "Close to Metro Station",
+            "short_name": "station",
+            "key_id": 10
+        },
+        {
+            "id": 62,
+            "title": "Close to School",
+            "short_name": "school",
+            "key_id": 10
+        },
+        {
+            "id": 63,
+            "title": "Close to Hospital",
+            "short_name": "hospital",
+            "key_id": 10
+        },
+        {
+            "id": 64,
+            "title": "Close to Market",
+            "short_name": "market",
+            "key_id": 10
+        },
+        {
+            "id": 65,
+            "title": "Close to Railway Station",
+            "short_name": "railway",
+            "key_id": 10
+        },
+        {
+            "id": 66,
+            "title": "Close to Airport",
+            "short_name": "airports",
+            "key_id": 10
+        },
+        {
+            "id": 67,
+            "title": "Close to Mall",
+            "short_name": "facing",
+            "key_id": 10
+        }
+    ]
+}

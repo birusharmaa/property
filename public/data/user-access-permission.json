@@ -1,0 +1,232 @@
+[
+    {
+        "id": 1,
+        "user_id": 1,
+        "user_role_id":1,
+        "full_access":true,
+        "permission": [{
+            "module_id": 1,
+            "full_access":true,
+            "role_id":1,
+            "submodule": [
+                    {
+                        "id": 1,
+                        "role_id": 1
+                    },
+                    {
+                        "id": 2,
+                        "role_id": 1
+                    },
+                    {
+                        "id": 3,
+                        "role_id": 1
+                    }
+            ]
+        }]
+    },
+    {
+        "id": 2,
+        "user_id": 2,
+        "user_role_id":2,
+        "full_access":true,
+        "permission": [{
+            "module_id": 1,
+            "full_access":true,
+            "role_id":1,
+            "submodule": [
+                    {
+                        "id": 1,
+                        "role_id": 1
+                    },
+                    {
+                        "id": 2,
+                        "role_id": 1
+                    },
+                    {
+                        "id": 3,
+                        "role_id": 1
+                    }
+            ]
+        }]
+    },
+    {
+        "id": 3,
+        "user_id": 3,
+        "user_role_id":3,
+        "full_access":false,
+        "permission": [
+            {
+                "module_id": 1,
+                "full_access":false,
+                "role_id":3
+            },
+            {
+                "module_id": 2,
+                "full_access":true,
+                "role_id":3,
+                "submodule": [
+                        {
+                            "id": 1,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 2,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 3,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 4,
+                            "role_id": 3
+                        }
+                ]
+            },
+            {
+                "module_id": 3,
+                "full_access":true,
+                "role_id":3,
+                "submodule": [
+                        {
+                            "id": 1,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 2,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 3,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 4,
+                            "role_id": 3
+                        }
+                ]
+            },
+            {
+                "module_id": 4,
+                "full_access":true,
+                "role_id":3,
+                "submodule": [
+                        {
+                            "id": 1,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 2,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 3,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 4,
+                            "role_id": 3
+                        }
+                ]
+            },
+            {
+                "module_id": 5,
+                "full_access":true,
+                "role_id":3,
+                "submodule": [
+                        {
+                            "id": 1,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 2,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 3,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 4,
+                            "role_id": 3
+                        }
+                ]
+            },
+            {
+                "module_id": 6,
+                "full_access":true,
+                "role_id":3,
+                "submodule": [
+                        {
+                            "id": 1,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 2,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 3,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 4,
+                            "role_id": 3
+                        }
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "user_id": 4,
+        "user_role_id":4,
+        "full_access":true,
+        "permission": [
+            {
+                "module_id": 2,
+                "full_access":true,
+                "role_id":4,
+                "submodule": [
+                        {
+                            "id": 2,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 3,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 4,
+                            "role_id": 3
+                        }
+                ]
+            },
+
+            {
+                "module_id": 3,
+                "full_access":true,
+                "role_id":4,
+                "submodule": [
+                        {
+                            "id": 1,
+                            "role_id": 4
+                        },
+                        {
+                            "id": 2,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 3,
+                            "role_id": 3
+                        },
+                        {
+                            "id": 4,
+                            "role_id": 3
+                        }
+                ]
+            }
+        ]
+    }
+    
+]

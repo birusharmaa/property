@@ -1,0 +1,36 @@
+{
+    "units": [
+        {
+            "id": 1,
+            "title": "Sq.yards"
+        },
+        {
+            "id": 2,
+            "title": "Sq.m."
+        },
+        {
+            "id": 3,
+            "title": "acres"
+        },
+        {
+            "id": 4,
+            "title": "cents"
+        },
+        {
+            "id": 5,
+            "title": "bigha"
+        },
+        {
+            "id": 6,
+            "title": "kottah"
+        },
+        {
+            "id": 7,
+            "title": "Kanal"
+        },
+        {
+            "id": 9,
+            "title": "ground"
+        }
+    ]
+}

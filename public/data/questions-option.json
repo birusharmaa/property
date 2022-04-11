@@ -1,0 +1,164 @@
+{
+    "questionsoptions": [
+        {
+            "id": 1,
+            "title": "Ready to move office space",
+            "value": "Ready to move office space",
+            "name": "office",
+            "class": "office-type",
+            "ques_id": 1
+        },
+        {
+            "id": 2,
+            "title": "Bare shell office space",
+            "value": "Bare shell office space",
+            "name": "office",
+            "class": "office-type",
+            "ques_id": 1
+        },
+        {
+            "id": 3,
+            "title": "Co-working office space",
+            "value": "Co-working office space",
+            "name": "office",
+            "class": "office-type",
+            "ques_id": 1
+        },
+        {
+            "id": 4,
+            "title": "Commercial Shops",
+            "value": "Commercial Shops",
+            "name": "retail",
+            "class": "office-type shop-location office-text1",
+            "ques_id": 2
+        },
+        {
+            "id": 5,
+            "title": "Commercial Showrooms",
+            "value": "commercial-showrooms",
+            "name": "retail",
+            "class": "office-type shop-location ",
+            "ques_id": 2
+        },
+        {
+            "id": 6,
+            "title": "Agricultural/Farm Land",
+            "value": "Agricultural/Farm Land",
+            "name": "land",
+            "class": "office-type",
+            "ques_id": 3
+        },
+        {
+            "id": 7,
+            "title": "Industrial Lands/Plots",
+            "value": "Industrial Lands/Plots",
+            "name": "land",
+            "class": "office-type",
+            "ques_id": 3
+        },
+        {
+            "id": 8,
+            "title": "Ware House",
+            "value": "Ware House",
+            "name": "storage",
+            "class": "office-type",
+            "ques_id": 4
+        },
+        {
+            "id": 9,
+            "title": "Cold Storage",
+            "value": "cold-storage",
+            "name": "storage",
+            "class": "office-type",
+            "ques_id": 4
+        },
+        {
+            "id": 10,
+            "title": "Factory",
+            "value": "Factory",
+            "name": "industry",
+            "class": "office-type",
+            "ques_id": 5
+        },
+        {
+            "id": 11,
+            "title": "Manufacturing",
+            "value": "Manufacturing",
+            "name": "industry",
+            "class": "office-type",
+            "ques_id": 5
+        },
+        {
+            "id": 12,
+            "title": "Hotel/Resorts",
+            "value": "Hotel/Resorts",
+            "name": "hospitality",
+            "class": "office-type",
+            "ques_id": 6
+        },
+        {
+            "id": 13,
+            "title": "Guest-House/Banquet-Halls",
+            "value": "guest-house",
+            "name": "hospitality",
+            "class": "office-type",
+            "ques_id": 6
+        },
+        {
+            "id": 14,
+            "title": "Mall",
+            "value": "Ready to move office space",
+            "name": "location",
+            "class": "",
+            "ques_id": 7
+        },
+        {
+            "id": 14,
+            "title": "Commercial Project",
+            "value": "Ready to move office space",
+            "name": "location",
+            "class": "",
+            "ques_id": 7
+        },
+        {
+            "id": 14,
+            "title": "Residential Project",
+            "value": "Ready to move office space",
+            "name": "location",
+            "class": "",
+            "ques_id": 7
+        },
+        {
+            "id": 14,
+            "title": "Retail Complex/Building",
+            "value": "Ready to move office space",
+            "name": "location",
+            "class": "",
+            "ques_id": 7
+        },
+        {
+            "id": 14,
+            "title": "Market/High Street",
+            "value": "Ready to move office space",
+            "name": "location",
+            "class": "",
+            "ques_id": 7
+        },
+        {
+            "id": 14,
+            "title": "Others",
+            "value": "Ready to move office space",
+            "name": "location",
+            "class": "show-other field",
+            "ques_id": 7
+        },
+        {
+            "id": 14,
+            "title": "Mall",
+            "value": "Ready to move office space",
+            "name": "location",
+            "class": "office-type",
+            "ques_id": 7
+        }
+    ]
+}

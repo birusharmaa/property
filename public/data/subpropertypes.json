@@ -1,0 +1,126 @@
+{
+    "subpropertypes": [
+        {
+            "id": 1,
+            "title": "Apartment",
+            "value": "apartment",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 2,
+            "title": "Independent House/ Villa",
+            "value": "independent-house",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 3,
+            "title": "Independent/Builder Floor",
+            "value": "builder-Floor",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 4,
+            "title": "Land",
+            "value": "Land",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 5,
+            "title": "1Rk/Studio Apartment",
+            "value": "studio-apartment",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+
+        {
+            "id": 6,
+            "title": "Serviced Apartment",
+            "value": "serviced-apartment",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+
+        {
+            "id": 7,
+            "title": "Farmhouse",
+            "value": "farmhouse",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 8,
+            "title": "Others",
+            "value": "others",
+            "class":"property-for",
+            "cat_id": 1,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 9,
+            "title": "Office",
+            "value": "Office",
+            "class":"radio question1",
+            "cat_id": 2,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 10,
+            "title": "Retail",
+            "value": "Retail",
+            "class":"radio question2",
+            "cat_id": 2,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 11,
+            "title": "Land",
+            "value": "Land",
+            "class":"radio question3",
+            "cat_id": 2,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 12,
+            "title": "Storage",
+            "value": "Storage",
+            "class":"radio question4",
+            "cat_id": 2,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 13,
+            "title": "Industry",
+            "value": "Industry",
+            "class":"radio question5",
+            "cat_id": 2,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 14,
+            "title": "Hospitality",
+            "value": "Hospitality",
+            "class":"radio question6",
+            "cat_id": 2,
+            "data_for": "sell rent pg"
+        },
+        {
+            "id": 15,
+            "title": "Others",
+            "value": "Others",
+            "class":"radio question7",
+            "cat_id": 2,
+            "data_for": "sell rent pg"
+        }
+    ]
+}

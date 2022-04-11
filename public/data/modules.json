@@ -1,0 +1,71 @@
+{
+    "modules": [
+        {
+            "id": 1,
+            "mod_name": "Dashboard",
+            "mod_class": "fa fa-dashboard",
+            "mod_url": "dashboard"
+        },
+        {
+            "id": 2,
+            "mod_name": "Property Inventory",
+            "mod_class": "fa fa-building-o",
+            "mod_url": "properties"
+        },
+        {
+            "id": 3,
+            "mod_name": "Lead Management",
+            "mod_class": "fa-solid fa-list-check",
+            "mod_url": "all-leads"
+        },
+        {
+            "id": 4,
+            "mod_name": "HR Management",
+            "mod_class": "fa-solid fa-users",
+            "mod_url": "all-employees"
+        },
+        {
+            "id": 5,
+            "mod_name": "Finance Management",
+            "mod_class": "fa fa-money",
+            "mod_url": "all-expenses"
+        },
+        {
+            "id": 6,
+            "mod_name": "Meetings",
+            "mod_class": "fa fa-handshake-o",
+            "mod_url": "meetings"
+        },
+        {
+            "id": 7,
+            "mod_name": "Front Office",
+            "mod_class": "fas fa-business-time",
+            "mod_url": "front-office"
+        },
+        {
+            "id": 8,
+            "mod_name": "Software Tutorial",
+            "mod_class": "fa fa-desktop",
+            "mod_url": "soft-tutorial"
+        },
+        {
+            "id": 9,
+            "mod_name": "Reports & Statistics",
+            "mod_class": "fa fa-file",
+            "mod_url": "lead-status-report"
+        },
+        {
+            "id": 10,
+            "mod_name": "Security",
+            "mod_class": "fa fa-shield",
+            "mod_url": "data-storage"
+        },
+        
+        {
+            "id": 11,
+            "mod_name": "Feedback ",
+            "mod_class": "fa fa-comments-o",
+            "mod_url": "feedback"
+        }
+    ]
+}

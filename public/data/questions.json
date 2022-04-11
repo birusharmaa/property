@@ -1,0 +1,42 @@
+{
+    "questions": [
+        {
+            "id": 1,
+            "title": "What kind of office is it?",
+            "class":"office-text fw-bold fs-6 hide-office-text"
+        },
+        {
+            "id": 2,
+            "title": "What type of retail space do you have?",
+            "class":"office-text1 fw-bold fs-6 hide-office-text"
+        },
+        {
+            "id": 3,
+            "title": "What kind of land is it?",
+            "class":"office-text2 fw-bold fs-6 hide-office-text"
+        },
+        {
+            "id": 4,
+            "title": "What kind of storage is it?",
+            "class":"office-text3 fw-bold fs-6 hide-office-text"
+        },
+        {
+            "id": 5,
+            "title": "What kind of Industry is it?",
+            "class":"office-text4 fw-bold fs-6 hide-office-tex"
+        },
+
+        {
+            "id": 6,
+            "title": "What kind of hospitality is it?",
+            "class":"office-text5 fw-bold fs-6 hide-office-text"
+        },
+        {
+            "id": 7,
+            "title": "Your shop is located inside?",
+            "class":"office-text5 fw-bold fs-6 hide-office-text"
+        }
+
+       
+    ]
+}

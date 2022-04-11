@@ -1,0 +1,48 @@
+{
+    "zonetypes": [
+        {
+            "id": 1,
+            "title": "Industrial"
+        },
+        {
+            "id": 2,
+            "title": "Commercial"
+        },
+        {
+            "id": 3,
+            "title": "Residential"
+        },
+        {
+            "id": 4,
+            "title": "Transport and Communication"
+        },
+        {
+            "id": 5,
+            "title": "Public Utilities"
+        },
+        {
+            "id": 6,
+            "title": "Public and Semi Public Use"
+        },
+        {
+            "id": 7,
+            "title": "Open Spaces"
+        },
+        {
+            "id": 8,
+            "title": "Agricultural Zone"
+        },
+        {
+            "id": 9,
+            "title": "Natural Conservation Zone"
+        },
+        {
+            "id": 10,
+            "title": "Government Use"
+        },
+        {
+            "id": 11,
+            "title": "Others"
+        }
+    ]
+}

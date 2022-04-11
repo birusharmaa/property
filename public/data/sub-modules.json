@@ -1,0 +1,255 @@
+{
+    "submodules": [
+        {
+            "id": 1,
+            "sm_name": "All Properties",
+            "sm_class": "",
+            "sm_url": "properties",
+            "sm_mod_id": 2
+        },
+        {
+            "id": 2,
+            "sm_name": "Add Properties",
+            "sm_class": "",
+            "sm_url": "add-properties",
+            "sm_mod_id": 2
+        },
+        {
+            "id": 3,
+            "sm_name": "Duplicate Properties",
+            "sm_class": "",
+            "sm_url": "duplicate-properties",
+            "sm_mod_id": 2
+        },
+        {
+            "id": 4,
+            "sm_name": "Property History",
+            "sm_class": "",
+            "sm_url": "property-history",
+            "sm_mod_id": 2
+        },
+        {
+            "id": 5,
+            "sm_name": "Allot Property",
+            "sm_class": "",
+            "sm_url": "allot-property",
+            "sm_mod_id": 2
+        },
+        
+        
+        
+        
+        
+        {
+            "id": 6,
+            "sm_name": "All Leads",
+            "sm_class": "",
+            "sm_url": "all-leads",
+            "sm_mod_id": 3
+        },
+        {
+            "id": 7,
+            "sm_name": "Add Leads",
+            "sm_class": "",
+            "sm_url": "add-leads",
+            "sm_mod_id": 3
+        },
+        {
+            "id": 8,
+            "sm_name": "Leads Status",
+            "sm_class": "",
+            "sm_url": "leads-status",
+            "sm_mod_id": 3
+        },
+        {
+            "id": 9,
+            "sm_name": "Leads Category",
+            "sm_class": "",
+            "sm_url": "leads-category",
+            "sm_mod_id": 3
+        },
+        {
+            "id": 10,
+            "sm_name": "Leads Sub Category",
+            "sm_class": "",
+            "sm_url": "leads-sub-category",
+            "sm_mod_id": 3
+        },
+        {
+            "id": 11,
+            "sm_name": "Duplicate Leads",
+            "sm_class": "",
+            "sm_url": "leads-duplicate",
+            "sm_mod_id": 3
+        },
+        {
+            "id": 12,
+            "sm_name": "Assign Leads",
+            "sm_class": "",
+            "sm_url": "assign-leads",
+            "sm_mod_id": 3
+        },
+        {
+            "id": 13,
+            "sm_name": "Agent Lead Commission",
+            "sm_class": "",
+            "sm_url": "agent-lead-commission",
+            "sm_mod_id": 3
+        },
+        
+        
+        
+        
+        {
+            "id": 14,
+            "sm_name": "Employees",
+            "sm_class": "",
+            "sm_url": "all-employees",
+            "sm_mod_id": 4
+        },
+        {
+            "id": 15,
+            "sm_name": "Departments",
+            "sm_class": "",
+            "sm_url": "all-departments",
+            "sm_mod_id": 4
+        },
+        {
+            "id": 16,
+            "sm_name": "Designation",
+            "sm_class": "",
+            "sm_url": "all-designation",
+            "sm_mod_id": 4
+        },
+        {
+            "id": 17,
+            "sm_name": "Add Roles & Permissions",
+            "sm_class": "",
+            "sm_url": "all-roles",
+            "sm_mod_id": 4
+        },
+        {
+            "id": 18,
+            "sm_name": "Attandance",
+            "sm_class": "",
+            "sm_url": "attandance",
+            "sm_mod_id": 4
+        },
+        {
+            "id": 19,
+            "sm_name": "Teams & Agents",
+            "sm_class": "",
+            "sm_url": "all-teams",
+            "sm_mod_id": 4
+        },
+        {
+            "id": 20,
+            "sm_name": "Payroll",
+            "sm_class": "",
+            "sm_url": "payroll",
+            "sm_mod_id": 4
+        },
+        {
+            "id": 21,
+            "sm_name": "Leaves",
+            "sm_class": "",
+            "sm_url": "leaves",
+            "sm_mod_id": 4
+        },
+        
+        
+        
+        
+        {
+            "id": 22,
+            "sm_name": "Expenses",
+            "sm_class": "",
+            "sm_url": "all-expenses",
+            "sm_mod_id": 5
+        },
+        {
+            "id": 23,
+            "sm_name": "Income",
+            "sm_class": "",
+            "sm_url": "all-income",
+            "sm_mod_id": 5
+        },
+        {
+            "id": 24,
+            "sm_name": "Profit & Loss",
+            "sm_class": "",
+            "sm_url": "all-profit-loss",
+            "sm_mod_id": 5
+        },
+        
+        
+        
+        
+        {
+            "id": 25,
+            "sm_name": "Lead Status Report",
+            "sm_class": "",
+            "sm_url": "lead-status-report",
+            "sm_mod_id": 9
+        },
+        {
+            "id": 26,
+            "sm_name": "Agent Commission Report",
+            "sm_class": "",
+            "sm_url": "agent-commission-report",
+            "sm_mod_id": 9
+        },
+        {
+            "id": 27,
+            "sm_name": "Employee Sales Report",
+            "sm_class": "",
+            "sm_url": "employee-sales-report",
+            "sm_mod_id": 9
+        },
+        {
+            "id": 28,
+            "sm_name": "Sales Report",
+            "sm_class": "",
+            "sm_url": "sales-report",
+            "sm_mod_id": 9
+        },
+        {
+            "id": 29,
+            "sm_name": "Visit Report",
+            "sm_class": "",
+            "sm_url": "visit-report",
+            "sm_mod_id": 9
+        },
+        
+        
+        
+        {
+            "id": 30,
+            "sm_name": "data-storage",
+            "sm_class": "",
+            "sm_url": "data-storage",
+            "sm_mod_id": 10
+        },
+        {
+            "id": 31,
+            "sm_name": "data-backup",
+            "sm_class": "",
+            "sm_url": "data-backup",
+            "sm_mod_id": 10
+        },
+        {
+            "id": 32,
+            "sm_name": "Data Extraction",
+            "sm_class": "",
+            "sm_url": "data-extraction",
+            "sm_mod_id": 10
+        },
+        {
+            "id": 33,
+            "sm_name": "System",
+            "sm_class": "",
+            "sm_url": "system",
+            "sm_mod_id": 10
+        }
+    ]
+}
