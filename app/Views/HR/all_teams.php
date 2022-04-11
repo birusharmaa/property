@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="avatar lg rounded no-thumbnail mb-4">
                                             <img class="avatar lg rounded"
-                                                src="https://alui.thememakker.com/html/assets/images/xs/avatar3.jpg"
+                                                src="https://alui.thememakker.com/html/assets/public/images/xs/avatar3.jpg"
                                                 data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                 alt="friend">
                                         </div>
@@ -43,19 +43,19 @@
                                         <div class="project-members mb-4">
                                             <label class="me-3"><span class="badge bg-warning text-black">Teams :</span></label>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                         </div>
@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="avatar lg rounded no-thumbnail mb-4">
                                             <img class="avatar lg rounded"
-                                                src="https://alui.thememakker.com/html/assets/images/xs/avatar4.jpg"
+                                                src="https://alui.thememakker.com/html/assets/public/images/xs/avatar4.jpg"
                                                 data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                 alt="friend">
                                         </div>
@@ -85,19 +85,19 @@
                                         <div class="project-members mb-4">
                                             <label class="me-3"><span class="badge bg-warning text-black">Teams :</span></label>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                         </div>
@@ -119,7 +119,7 @@
                                         </div>
                                         <div class="avatar lg rounded no-thumbnail mb-4">
                                             <img class="avatar lg rounded"
-                                                src="https://alui.thememakker.com/html/assets/images/xs/avatar6.jpg"
+                                                src="https://alui.thememakker.com/html/assets/public/images/xs/avatar6.jpg"
                                                 data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                 alt="friend">
                                         </div>
@@ -127,19 +127,19 @@
                                         <div class="project-members mb-4">
                                             <label class="me-3"><span class="badge bg-warning text-black">Teams :</span></label>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                             <a href="#" title=""><img class="avatar sm rounded"
-                                                    src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                    src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Name" alt="friend"> </a>
                                         </div>
@@ -177,7 +177,7 @@
                                                 </div>
                                                 <div class="avatar my-2 mx-4 lg rounded no-thumbnail mb-4">
                                                     <img class="rounded-circle avatar xl shadow"
-                                                        src="<?= base_url(); ?>/assets/img/avatar1.jpg"
+                                                        src="<?= base_url(); ?>/assets/public/img/avatar1.jpg"
                                                         data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                         alt="friend">
                                                 </div>
@@ -189,27 +189,27 @@
                                                         <i
                                                             class="fa fa-circle small me-2"></i><span>Teams:</span></label>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                 </div>
@@ -236,7 +236,7 @@
                                                 </div>
                                                 <div class="avatar my-2 mx-4 lg rounded no-thumbnail mb-4">
                                                     <img class="rounded-circle avatar xl shadow"
-                                                        src="<?= base_url(); ?>/assets/img/avatar2.jpg"
+                                                        src="<?= base_url(); ?>/assets/public/img/avatar2.jpg"
                                                         data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                         alt="friend">
                                                 </div>
@@ -248,27 +248,27 @@
                                                         <i
                                                             class="fa fa-circle small me-2"></i><span>Teams:</span></label>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                 </div>
@@ -295,7 +295,7 @@
                                                 </div>
                                                 <div class="avatar my-2 mx-4 lg rounded no-thumbnail mb-4">
                                                     <img class="rounded-circle avatar xl shadow"
-                                                        src="<?= base_url(); ?>/assets/img/avatar1.jpg"
+                                                        src="<?= base_url(); ?>/assets/public/img/avatar1.jpg"
                                                         data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                         alt="friend">
                                                 </div>
@@ -307,27 +307,27 @@
                                                         <i
                                                             class="fa fa-circle small me-2"></i><span>Teams:</span></label>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar1.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar1.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                     <a href="#" title=""><img class="avatar sm rounded-circle"
-                                                            src="http://localhost:8080/assets/img/avatar2.jpg"
+                                                            src="http://localhost:8080/assets/public/img/avatar2.jpg"
                                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                                             title="Name" alt="friend"> </a>
                                                 </div>

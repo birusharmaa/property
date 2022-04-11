@@ -111,7 +111,7 @@ $propAmenities = json_decode($pageData['propAmenities']['pa_amenities']) ?? '';
                                                 </div>
                                             </div>
                                             <div class="col-md-8 col-12 text-center">
-                                                <img src="<?= base_url(); ?>/assets/img/house1.png" width="60%" height="200px" alt="">
+                                                <img src="<?= base_url(); ?>/assets/public/img/house1.png" width="60%" height="200px" alt="">
                                             </div>
 
                                             <div class="col-md-4 col-12">

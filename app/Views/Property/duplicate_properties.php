@@ -32,7 +32,7 @@
                                                     <div class="selected1 p-3">
                                                         <div class="row">
                                                             <div class="col-md-12">
-                                                                <img src="<?=base_url();?>/assets/img/house1.png"
+                                                                <img src="<?=base_url();?>/assets/public/img/house1.png"
                                                                     class="img-fluid mx-auto lg rounded" width="200"
                                                                     alt="">
                                                             </div>

@@ -20,7 +20,7 @@
                         <form class="row g-1 p-0 px-3" id="password-form" action="#" method="post">
                             <div class="col-12 text-center  mb-5">
                                
-                                    <img class="rounded-circle" src="<?=base_url();?>/assets/img/password.png" width="180px"/>
+                                    <img class="rounded-circle" src="<?=base_url();?>/assets/public/img/password.png" width="180px"/>
                       
                                 <h2 class="fw-bold red-text pt-3">Forgot Password ?</h2>
                                 <span class="fw-bold">Enter your registered email address below and we will send you an OTP.</span>

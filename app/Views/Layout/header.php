@@ -46,7 +46,7 @@
                                     <ul class="list-unstyled list mb-0">
                                         <li class="py-2 mb-1 border-bottom">
                                             <a href="javascript:void(0);" class="d-flex">
-                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/images/xs/avatar1.jpg" alt="">
+                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/public/images/xs/avatar1.jpg" alt="">
                                                 <div class="flex-fill ms-2">
                                                     <p class="d-flex justify-content-between mb-0 color-700"><span>Chris Morise</span> <small>2MIN</small></p>
                                                     <span class="text-muted">changed an issue from "In Progress" to <span class="badge bg-success">Review</span></span>
@@ -64,7 +64,7 @@
                                         </li>
                                         <li class="py-2 mb-1 border-bottom">
                                             <a href="javascript:void(0);" class="d-flex">
-                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/images/xs/avatar3.jpg" alt="">
+                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/public/images/xs/avatar3.jpg" alt="">
                                                 <div class="flex-fill ms-3">
                                                     <p class="d-flex justify-content-between mb-0 color-700"><span>Lentz</span> <small>1HR</small></p>
                                                     <span class="text-muted">There are many variations of passages</span>
@@ -73,7 +73,7 @@
                                         </li>
                                         <li class="py-2 mb-1 border-bottom">
                                             <a href="javascript:void(0);" class="d-flex">
-                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/images/xs/avatar4.jpg" alt="">
+                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/public/images/xs/avatar4.jpg" alt="">
                                                 <div class="flex-fill ms-3">
                                                     <p class="d-flex justify-content-between mb-0 color-700"><span>Kelly</span> <small>1DAY</small></p>
                                                     <span class="text-muted">Contrary to popular belief <span class="badge bg-danger">Code</span></span>
@@ -82,7 +82,7 @@
                                         </li>
                                         <li class="py-2 mb-1 border-bottom">
                                             <a href="javascript:void(0);" class="d-flex">
-                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/images/xs/avatar5.jpg" alt="">
+                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/public/images/xs/avatar5.jpg" alt="">
                                                 <div class="flex-fill ms-3">
                                                     <p class="d-flex justify-content-between mb-0 color-700"><span>Hammer</span> <small>13MIN</small></p>
                                                     <span class="text-muted">making it over 2000 years old</span>
@@ -91,7 +91,7 @@
                                         </li>
                                         <li class="py-2 mb-1 border-bottom">
                                             <a href="javascript:void(0);" class="d-flex">
-                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/images/xs/avatar6.jpg" alt="">
+                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/public/images/xs/avatar6.jpg" alt="">
                                                 <div class="flex-fill ms-3">
                                                     <p class="d-flex justify-content-between mb-0 color-700"><span>Lentz</span> <small>1HR</small></p>
                                                     <span class="text-muted">There are many variations of passages</span>
@@ -100,7 +100,7 @@
                                         </li>
                                         <li class="py-2">
                                             <a href="javascript:void(0);" class="d-flex">
-                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/images/xs/avatar7.jpg" alt="">
+                                                <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/public/images/xs/avatar7.jpg" alt="">
                                                 <div class="flex-fill ms-3">
                                                     <p class="d-flex justify-content-between mb-0 color-700"><span>savera</span> <small>1DAY</small></p>
                                                     <span class="text-muted">The generated Lorem Ipsum</span>
@@ -117,13 +117,13 @@
                 <a class="nav-link text-primary p-1 me-lg-3 me-2" href="#" title="Settings" data-bs-toggle="modal" data-bs-target="#SettingsModal"><i class="fa fa-gear"></i></a>
                 <div class="dropdown user-profile ms-2">
                     <a class="nav-link dropdown-toggle pulse p-0" href="#" role="button" data-bs-toggle="dropdown">
-                        <img class="avatar rounded-circle p-1" src="https://alui.thememakker.com/html/assets/images/profile_av.png" alt="">
+                        <img class="avatar rounded-circle p-1" src="https://alui.thememakker.com/html/assets/public/images/profile_av.png" alt="">
                     </a>
                     <div class="dropdown-menu rounded-lg shadow border-0 dropdown-menu-end">
                         <div class="card border-0 w240">
                             <div class="card-body border-bottom">
                                 <div class="d-flex py-1">
-                                    <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/images/profile_av.png" alt="">
+                                    <img class="avatar rounded-circle" src="https://alui.thememakker.com/html/assets/public/images/profile_av.png" alt="">
                                     <div class="flex-fill ms-3">
                                         <p class="mb-0 text-muted"><span class="fw-bold">Chris Morise</span></p>
                                         <small class="text-muted">chris.fox@gamil.com</small>
