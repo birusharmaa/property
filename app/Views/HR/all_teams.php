@@ -35,7 +35,7 @@
                                         </div>
                                         <div class="avatar lg rounded no-thumbnail mb-4">
                                             <img class="avatar lg rounded"
-                                                src="https://alui.thememakker.com/html/public/assets/images/xs/avatar3.jpg"
+                                                src="https://alui.thememakker.com/html/assets/images/xs/avatar3.jpg"
                                                 data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                 alt="friend">
                                         </div>
@@ -77,7 +77,7 @@
                                         </div>
                                         <div class="avatar lg rounded no-thumbnail mb-4">
                                             <img class="avatar lg rounded"
-                                                src="https://alui.thememakker.com/html/public/assets/images/xs/avatar4.jpg"
+                                                src="https://alui.thememakker.com/html/assets/images/xs/avatar4.jpg"
                                                 data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                 alt="friend">
                                         </div>
@@ -119,7 +119,7 @@
                                         </div>
                                         <div class="avatar lg rounded no-thumbnail mb-4">
                                             <img class="avatar lg rounded"
-                                                src="https://alui.thememakker.com/html/public/assets/images/xs/avatar6.jpg"
+                                                src="https://alui.thememakker.com/html/assets/images/xs/avatar6.jpg"
                                                 data-bs-toggle="tooltip" data-bs-placement="right" title="Name"
                                                 alt="friend">
                                         </div>
