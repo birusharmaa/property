@@ -80,4 +80,4 @@
             </div>
         </div>
     </div>
-    <script src="<?= base_url('assets/js/custom/prop-list.js') ?>"></script>
+    <script src="<?= base_url('/public/assets/js/custom/prop-list.js') ?>"></script>
