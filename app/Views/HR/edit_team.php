@@ -74,7 +74,7 @@
                                                                             data-bs-placement="top" title="Name Id">
                                                                             <span class="check-icon"></span>
                                                                             <div class="card-content">
-                                                                                <img src="<?=base_url();?>/assets/public/img/avatar1.jpg"
+                                                                                <img src="<?=base_url();?>/public/assets/img/avatar1.jpg"
                                                                                     alt="" class="rounded" />
                                                                             </div>
                                                                         </div>
@@ -89,7 +89,7 @@
                                                                             data-bs-placement="top" title="Name Id">
                                                                             <span class="check-icon"></span>
                                                                             <div class="card-content">
-                                                                                <img src="<?=base_url();?>/assets/public/img/avatar2.jpg"
+                                                                                <img src="<?=base_url();?>/public/assets/img/avatar2.jpg"
                                                                                     alt="" class="rounded" />
                                                                             </div>
                                                                         </div>
@@ -104,7 +104,7 @@
                                                                             data-bs-placement="top" title="Name Id">
                                                                             <span class="check-icon"></span>
                                                                             <div class="card-content">
-                                                                                <img src="<?=base_url();?>/assets/public/img/avatar1.jpg"
+                                                                                <img src="<?=base_url();?>/public/assets/img/avatar1.jpg"
                                                                                     alt="" class="rounded" />
                                                                             </div>
                                                                         </div>
@@ -119,7 +119,7 @@
                                                                             data-bs-placement="top" title="Name Id">
                                                                             <span class="check-icon"></span>
                                                                             <div class="card-content">
-                                                                                <img src="<?=base_url();?>/assets/public/img/avatar2.jpg"
+                                                                                <img src="<?=base_url();?>/public/assets/img/avatar2.jpg"
                                                                                     alt="" class="rounded" />
                                                                             </div>
                                                                         </div>
@@ -134,7 +134,7 @@
                                                                             data-bs-placement="top" title="Name Id">
                                                                             <span class="check-icon"></span>
                                                                             <div class="card-content">
-                                                                                <img src="<?=base_url();?>/assets/public/img/avatar1.jpg"
+                                                                                <img src="<?=base_url();?>/public/assets/img/avatar1.jpg"
                                                                                     alt="" class="rounded" />
                                                                             </div>
                                                                         </div>
@@ -149,7 +149,7 @@
                                                                             data-bs-placement="top" title="Name Id">
                                                                             <span class="check-icon"></span>
                                                                             <div class="card-content">
-                                                                                <img src="<?=base_url();?>/assets/public/img/avatar2.jpg"
+                                                                                <img src="<?=base_url();?>/public/assets/img/avatar2.jpg"
                                                                                     alt="" class="rounded" />
                                                                             </div>
                                                                         </div>

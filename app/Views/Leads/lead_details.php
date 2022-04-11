@@ -273,7 +273,7 @@
                                     <div class="timeline-item card ti-danger border-bottom ms-2">
                                         <div class="d-flex">
                                             <img class="avatar sm rounded"
-                                                src="<?=base_url();?>/assets/public/img/avatar1.jpg" alt="">
+                                                src="<?=base_url();?>/public/assets/img/avatar1.jpg" alt="">
                                             <div class="flex-fill ms-3">
                                                 <div class="mb-1"> <strong>Gerald Vaughn </strong>
                                                     changed the
@@ -291,7 +291,7 @@
                                     <div class="timeline-item ti-info border-bottom ms-2">
                                         <div class="d-flex">
                                             <img class="avatar sm rounded"
-                                                src="<?=base_url();?>/assets/public/img/avatar2.jpg" alt="">
+                                                src="<?=base_url();?>/public/assets/img/avatar2.jpg" alt="">
                                             <div class="flex-fill ms-3">
                                                 <div class="mb-1"><strong>Gerald Vaughn </strong>changed
                                                     the
@@ -309,7 +309,7 @@
                                     <div class="timeline-item card ti-danger border-bottom ms-2">
                                         <div class="d-flex">
                                             <img class="avatar sm rounded"
-                                                src="<?=base_url();?>/assets/public/img/avatar1.jpg" alt="">
+                                                src="<?=base_url();?>/public/assets/img/avatar1.jpg" alt="">
                                             <div class="flex-fill ms-3">
                                                 <div class="mb-1"><strong>Gerald Vaughn </strong>changed
                                                     the
@@ -327,7 +327,7 @@
                                     <div class="timeline-item ti-primary border-bottom ms-2">
                                         <div class="d-flex">
                                             <img class="avatar sm rounded"
-                                                src="<?=base_url();?>/assets/public/img/avatar2.jpg" alt="">
+                                                src="<?=base_url();?>/public/assets/img/avatar2.jpg" alt="">
                                             <div class="flex-fill ms-3">
                                                 <div class="mb-1"><strong>Gerald Vaughn </strong>changed
                                                     the
@@ -345,7 +345,7 @@
                                     <div class="timeline-item card ti-warning border-bottom ms-2">
                                         <div class="d-flex">
                                             <img class="avatar sm rounded"
-                                                src="<?=base_url();?>/assets/public/img/avatar1.jpg" alt="">
+                                                src="<?=base_url();?>/public/assets/img/avatar1.jpg" alt="">
                                             <div class="flex-fill ms-3">
                                                 <div class="mb-1">Gerald Vaughn changed the status of
                                                     Property

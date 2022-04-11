@@ -49,7 +49,7 @@ function write_scss($files) {
     //prepare css from color scss
     //scan the scss files for theme color
     try {
-        $dir = getcwd() . '/assets/public/scss/color/';
+        $dir = getcwd() . '/public/assets/scss/color/';
         $files = scandir($dir);
         if ($files && is_array($files)) {
             foreach ($files as $file) {

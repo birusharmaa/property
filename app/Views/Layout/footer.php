@@ -83,11 +83,11 @@
                         </div>
                         <div class="bg-images">
                             <ul class="list-unstyled d-flex justify-content-between">
-                                <li class="sidebar-img-1 sidebar-img-active"><a class="rounded sidebar-img" id="img-1" href="#"><img src="https://alui.thememakker.com/html/assets/public/images/sidebar-bg/sidebar-1.jpg" alt="" /></a></li>
-                                <li class="sidebar-img-2"><a class="rounded sidebar-img" id="img-2" href="#"><img src="https://alui.thememakker.com/html/assets/public/images/sidebar-bg/sidebar-2.jpg" alt="" /></a></li>
-                                <li class="sidebar-img-3"><a class="rounded sidebar-img" id="img-3" href="#"><img src="https://alui.thememakker.com/html/assets/public/images/sidebar-bg/sidebar-3.jpg" alt="" /></a></li>
-                                <li class="sidebar-img-4"><a class="rounded sidebar-img" id="img-4" href="#"><img src="https://alui.thememakker.com/html/assets/public/images/sidebar-bg/sidebar-4.jpg" alt="" /></a></li>
-                                <li class="sidebar-img-5"><a class="rounded sidebar-img" id="img-5" href="#"><img src="https://alui.thememakker.com/html/assets/public/images/sidebar-bg/sidebar-5.jpg" alt="" /></a></li>
+                                <li class="sidebar-img-1 sidebar-img-active"><a class="rounded sidebar-img" id="img-1" href="#"><img src="https://alui.thememakker.com/html/public/assets/images/sidebar-bg/sidebar-1.jpg" alt="" /></a></li>
+                                <li class="sidebar-img-2"><a class="rounded sidebar-img" id="img-2" href="#"><img src="https://alui.thememakker.com/html/public/assets/images/sidebar-bg/sidebar-2.jpg" alt="" /></a></li>
+                                <li class="sidebar-img-3"><a class="rounded sidebar-img" id="img-3" href="#"><img src="https://alui.thememakker.com/html/public/assets/images/sidebar-bg/sidebar-3.jpg" alt="" /></a></li>
+                                <li class="sidebar-img-4"><a class="rounded sidebar-img" id="img-4" href="#"><img src="https://alui.thememakker.com/html/public/assets/images/sidebar-bg/sidebar-4.jpg" alt="" /></a></li>
+                                <li class="sidebar-img-5"><a class="rounded sidebar-img" id="img-5" href="#"><img src="https://alui.thememakker.com/html/public/assets/images/sidebar-bg/sidebar-5.jpg" alt="" /></a></li>
                             </ul>
                         </div>
                     </div>
