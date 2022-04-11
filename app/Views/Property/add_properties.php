@@ -1215,4 +1215,4 @@
 </div>
 
 
-<?= view('Property/Scripts/add-property') ?>
+<?= view('Property/scripts/add-property') ?>
