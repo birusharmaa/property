@@ -57,7 +57,7 @@
                 <!-- <div class="col-12"> -->
                 <div class="timeline-item card ti-danger border-bottom ms-2">
                     <div class="d-flex">
-                        <img class="avatar sm rounded" src="<?=base_url();?>/public/assets/img/avatar1.jpg" alt="">
+                        <img class="avatar sm rounded" src="<?=base_url();?>/assets/img/avatar1.jpg" alt="">
                         <div class="flex-fill ms-3">
                             <div class="mb-1"> <strong>Gerald Vaughn </strong> changed the Income status of
                                 Property on <strong>Date:- 02/01/2021 - Property No. 12</strong>
@@ -69,7 +69,7 @@
                 <!-- timeline item end  -->
                 <div class="timeline-item ti-info border-bottom ms-2">
                     <div class="d-flex">
-                        <img class="avatar sm rounded" src="<?=base_url();?>/public/assets/img/avatar2.jpg" alt="">
+                        <img class="avatar sm rounded" src="<?=base_url();?>/assets/img/avatar2.jpg" alt="">
                         <div class="flex-fill ms-3">
                             <div class="mb-1"><strong>Gerald Vaughn </strong>changed the Income status of
                                 Property on<strong> Date:- 02/01/2021 - Property No. 12</strong>
@@ -81,7 +81,7 @@
                 <!-- timeline item end  -->
                 <div class="timeline-item card ti-success border-bottom ms-2">
                     <div class="d-flex">
-                        <img class="avatar sm rounded" src="<?=base_url();?>/public/assets/img/avatar1.jpg" alt="">
+                        <img class="avatar sm rounded" src="<?=base_url();?>/assets/img/avatar1.jpg" alt="">
                         <div class="flex-fill ms-3">
                             <div class="mb-1"><strong>Gerald Vaughn </strong>changed the Income status of
                                 Property on <strong>Date:- 02/01/2021 - Property No. 12</strong>
@@ -93,7 +93,7 @@
                 <!-- timeline item end  -->
                 <div class="timeline-item ti-primary border-bottom ms-2">
                     <div class="d-flex">
-                        <img class="avatar sm rounded" src="<?=base_url();?>/public/assets/img/avatar2.jpg" alt="">
+                        <img class="avatar sm rounded" src="<?=base_url();?>/assets/img/avatar2.jpg" alt="">
                         <div class="flex-fill ms-3">
                             <div class="mb-1"><strong>Gerald Vaughn </strong>changed the Income status of
                                 Property on <strong>Date:- 02/01/2021 - Property No. 12</strong>
@@ -105,7 +105,7 @@
                 <!-- timeline item end  -->
                 <div class="timeline-item card ti-warning border-bottom ms-2">
                     <div class="d-flex">
-                        <img class="avatar sm rounded" src="<?=base_url();?>/public/assets/img/avatar1.jpg" alt="">
+                        <img class="avatar sm rounded" src="<?=base_url();?>/assets/img/avatar1.jpg" alt="">
                         <div class="flex-fill ms-3">
                             <div class="mb-1">Gerald Vaughn changed the Income status of Property <strong>on
                                     Date:- 02/01/2021 - Property No. 12</strong>
