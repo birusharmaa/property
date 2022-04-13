@@ -124,14 +124,14 @@
 
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="col-form-label fw-bold">Visitoer Document Name</label>
+                                <label class="col-form-label fw-bold">Visitor Document Name</label>
                                 <input type="text" class="form-control py-1" placeholder="Doc_No..." id="visitor-doc-name" name="visitor-doc-name">
                                 <small id="visitor-doc-name-error" for></small>
                             </div>
                         </div>
                         <div class="col-md-4">
                             <div class="mb-3">
-                                <label class="col-form-label fw-bold">Visitoer Document Number</label>
+                                <label class="col-form-label fw-bold">Visitor Document Number</label>
                                 <input type="text" class="form-control py-1" placeholder="Doc_No..." id="visitor-doc-id-number" name="visitor-doc-id-number">
                                 <small id="visitor-doc-id-number-error" for></small>
 

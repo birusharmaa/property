@@ -127,7 +127,9 @@ class AppController extends BaseController
             'QuestionOptionModel',
             'QuestionModel',
             'VisitorBookModel',
-            'EmployeesModel'
+            'EmployeesModel',
+            'UnitsModel',
+            'PossessionByModel'
         ];
     }
     /**

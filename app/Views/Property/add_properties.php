@@ -204,7 +204,7 @@
                                         <div class="col-md-6">
                                             <div class="mb-3">
                                                 <label class="col-form-label fw-bold">House Number</label>
-                                                <input type="text" name="inputhouse_number" id="inputhouse_number" class="form-control form-control2 w-100" placeholder="Enter house number" required>
+                                                <input type="text" name="inputhouse_number" id="inputhouse_number" class="form-control form-control2 w-100" placeholder="Enter house number">
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -238,7 +238,7 @@
                                             <div class="mb-3">
                                                 <label class="col-form-label fw-bold">Located Inside</label>
                                                 <select class="form-select py-2 w-100 text-dark input-border" id="located-inside" name="loacated-inside" required>
-                                                    <option selected="">Located Inside
+                                                    <option selected="" disabled="">Select....
                                                     </option>
                                                     <?php if (!empty($locatedinsde)) : ?>
                                                         <?php foreach ($locatedinsde as $key => $value) : ?>
@@ -253,7 +253,7 @@
                                             <div class="mb-3">
                                                 <label class="col-form-label fw-bold">Zone Type</label>
                                                 <select class="form-select py-2 w-100 text-dark input-border" id="zone-type" name="zone-type" required>
-                                                    <option selected="" disabled="">Zone Type....
+                                                    <option selected="" disabled="">Select....
                                                     </option>
 
                                                     <?php if (!empty($zonetypemodel)) : ?>
@@ -313,8 +313,29 @@
                                                         <div class="col-md-5 pe-0">
                                                             <input type="text" name="no_of_bedrooms_other" id="no_of_bedrooms_other" class="form-control form-control2 w-100 text-dark">
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <button type="button" class="btn red-bg text-white pb-2 done-btn">Done</button>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3 mt-4 show-apartment">
+
+                                            <div class="mb-3">
+                                                <label class="col-form-label">No. of Dining Room </label>
+                                                <div class="row">
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_diningrooms" value="1"> <span class="span-padding">1</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_diningrooms" value="2"> <span class="span-padding">2</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_diningrooms" value="3"> <span class="span-padding">3</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_diningrooms" value="4"> <span class="span-padding">4</span> </label> </div>
+                                                </div>
+                                                <div>
+                                                    <p class="fw-bold red-text pt-3 add-other add-other1 cursor">+ Add Other</p>
+                                                </div>
+
+                                                <div class="col-md-12 add-other-field d-none mt-3 add-other-field1">
+                                                    <div class="row">
+                                                        <div class="col-md-5 pe-0">
+                                                            <input type="text" name="no_of_bedrooms_other" id="no_of_diningrooms_other" class="form-control form-control2 w-100 text-dark">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -340,9 +361,7 @@
                                                         <div class="col-md-5 pe-0">
                                                             <input type="text" name="no_of_bathrooms_other" id="no_of_bathrooms_other" class="form-control form-control2 w-100 text-dark">
                                                         </div>
-                                                        <div class="col-md-3">
-                                                            <button type="button" class="btn red-bg text-white pb-2 done-btn-cls">Done</button>
-                                                        </div>
+
                                                     </div>
                                                 </div>
                                             </div>
@@ -356,7 +375,7 @@
                                                     <div class="col-md-1 me-1"> <label class="radio"> <input type="radio" name="no_of_balconies" value="1"> <span class="span-padding">1</span> </label> </div>
                                                     <div class="col-md-1 me-1"> <label class="radio"> <input type="radio" name="no_of_balconies" value="2"> <span class="span-padding">2</span> </label> </div>
                                                     <div class="col-md-1 me-1"> <label class="radio"> <input type="radio" name="no_of_balconies" value="3"> <span class="span-padding">3</span> </label> </div>
-                                                    <div class="col-md-6"> <label class="radio"> <input type="radio" name="no_of_balconies" value="More than 2"> <span class="span-padding">More than 3</span> </label> </div>
+                                                    <div class="col-md-6"> <label class="radio"> <input type="radio" name="no_of_balconies" value="More than 3"> <span class="span-padding">More than 3</span> </label> </div>
 
                                                 </div>
 
@@ -375,7 +394,7 @@
                                                     <div class="col-md-4 p-0">
 
                                                         <select class="form-select py-2 w-100 text-dark input-border" id="txt_carpetarea_unit" name="txt_carpetarea_unit">
-                                                            <option selected="" disabled="">Sq.ft.
+                                                            <option selected="" disabled="">Select...
                                                             </option>
                                                             <?php if (!empty($units)) : ?>
                                                                 <?php foreach ($units as $key => $value) : ?>
@@ -394,8 +413,8 @@
                                                     </div>
                                                     <div class="col-md-4 p-0">
 
-                                                        <select class="form-select py-2 w-100 text-dark input-border" id="sel1" name="txt_build_up_area_unit">
-                                                            <option selected="" disabled="">Sq.ft.
+                                                        <select class="form-select py-2 w-100 text-dark input-border" id="txt_build_up_area_unit" name="txt_build_up_area_unit">
+                                                            <option selected="" disabled="">Select...
                                                             </option>
                                                             <?php if (!empty($units)) : ?>
                                                                 <?php foreach ($units as $key => $value) : ?>
@@ -413,8 +432,8 @@
                                                     </div>
                                                     <div class="col-md-4 p-0">
 
-                                                        <select class="form-select py-2 w-100 text-dark input-border" id="sel1" name="txt_super_build_up_area_unit">
-                                                            <option selected="" disabled="">Sq.ft.
+                                                        <select class="form-select py-2 w-100 text-dark input-border" id="txt_super_build_up_area_unit" name="txt_super_build_up_area_unit">
+                                                            <option selected="" disabled="">Select...
                                                             </option>
                                                             <?php if (!empty($units)) : ?>
                                                                 <?php foreach ($units as $key => $value) : ?>
@@ -443,7 +462,7 @@
                                                 <div class="col-md-4 p-0">
 
                                                     <select class="form-select py-2 w-100 text-dark input-border" id="shop_facade_size_unit" name="shop_facade_size_unit">
-                                                        <option selected="" disabled="">Sq.ft.
+                                                        <option selected="" disabled="">Select...
                                                         </option>
                                                         <?php if (!empty($units)) : ?>
                                                             <?php foreach ($units as $key => $value) : ?>
@@ -463,10 +482,10 @@
                                                 <label class="col-form-label fw-bold fs-6">Other Rooms </label>
                                                 <span class="ps-1">(Optional)</span>
                                                 <ul class="custom-checkboxes">
-                                                    <li><input type="checkbox" id="checkboxOne" value="Pooja Room" name="oth_room_pooja"><label for="checkboxOne">Pooja Room</label></li>
-                                                    <li><input type="checkbox" id="checkboxTwo" value="Study Room" name="oth_room_study"><label for="checkboxTwo">Study Room</label></li>
-                                                    <li><input type="checkbox" id="checkboxThree" value="Servant Room" name="oth_room_servent"><label for="checkboxThree">Servant Room</label></li>
-                                                    <li><input type="checkbox" id="checkboxFour" value="Store Room" name="oth_room_store"><label for="checkboxFour">Store Room</label></li>
+                                                    <li><input type="checkbox" id="checkboxOne" value="Pooja Room" name="other_rooms[]"><label for="checkboxOne">Pooja Room</label></li>
+                                                    <li><input type="checkbox" id="checkboxTwo" value="Study Room" name="other_rooms[]"><label for="checkboxTwo">Study Room</label></li>
+                                                    <li><input type="checkbox" id="checkboxThree" value="Servant Room" name="other_rooms[]"><label for="checkboxThree">Servant Room</label></li>
+                                                    <li><input type="checkbox" id="checkboxFour" value="Store Room" name="other_rooms[]"><label for="checkboxFour">Store Room</label></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -475,7 +494,7 @@
                                             <span>(optional)</span>
                                             <ul class="li-space mb-4">
                                                 <li> <label class="radio"> <input class="furnishing" type="radio" name="furnishing" value="furnished"> <span>Furnished</span> </label> </li>
-                                                <li> <label class="radio"> <input class="furnishing" type="radio" name="furnishing" value="furnished"> <span>Semi-furnished</span> </label> </li>
+                                                <li> <label class="radio"> <input class="semi-furnishing" type="radio" name="furnishing" value="semi-furnished"> <span>Semi-furnished</span> </label> </li>
                                                 <li> <label class="radio"> <input class="furnishing" type="radio" name="furnishing" value="unfurnished"> <span>Un-furnished</span> </label> </li>
                                             </ul>
                                         </div>
@@ -626,7 +645,7 @@
                                                         <div class="col-md-6 mb-3 ">
                                                             <div class="form-check pt-2 ">
                                                                 <input class="form-check-input" type="checkbox" value="Exhaust Fan" id="exhaust_fan" name="furnishing_exh_fan">
-                                                                <label class="form-check-label" for="exh_fan">
+                                                                <label class="form-check-label" for="exhaust_fan">
                                                                     Exhaust Fan
                                                                 </label>
                                                             </div>
@@ -668,7 +687,7 @@
                                         <div class="col-md-7">
                                             <div class="row mt-3">
                                                 <h6 class="fw-bold m-0">Floor Details</h6>
-                                                <p>Total no of floors and your floor details</p>
+                                                <p>Total no of floors in the building and your floor details(floor noumber)</p>
                                                 <div class="col-md-7">
                                                     <div class="mb-3">
                                                         <input type="text" name="floor_details_floor_no" id="floors" class="form-control form-control2 w-100 text-dark" placeholder="Total Floors">
@@ -681,7 +700,7 @@
                                                             <option value="Lower Ground">Lower Ground</option>
                                                             <option value="Ground">Ground</option>
                                                             <option value="Basement">Basement</option>
-                                                            <?php for ($i = 1; $i <= 10; $i++) : ?>
+                                                            <?php for ($i = 1; $i <= 50; $i++) : ?>
                                                                 <option value="<?= $i ?>"><?= $i ?></option>
                                                             <?php endfor; ?>
                                                         </select>
@@ -716,28 +735,11 @@
                                                     <div class="mb-3">
                                                         <label class="col-form-label fw-bold">Possession by</label>
                                                         <select class="form-select py-2 w-100 text-dark input-border" id="underConstruction_possession_years" name="underConstruction_possession_years">
-                                                            <option value="1" selected>Expected By
+                                                            <option selected>Expected By
                                                             </option>
-                                                            <option value="2">WithIn 3 Months
-                                                            </option>
-                                                            <option value="3">Within 6 Months
-                                                            </option>
-                                                            <option value="4">By 2022
-                                                            </option>
-                                                            <option value="5">By 2023
-                                                            </option>
-                                                            <option value="6">By 2024
-                                                            </option>
-                                                            <option value="7">By 2025
-                                                            </option>
-                                                            <option value="8">By 2026
-                                                            </option>
-                                                            <option value="9">By 2027
-                                                            </option>
-                                                            <option value="10">By 2028
-                                                            </option>
-                                                            <option value="11">By 2029
-                                                            </option>
+                                                            <?php if (!empty($possessionyear)) : foreach ($possessionyear as $key => $item) : ?> <option value="<?= $item['id'] ?>"><?= $item['title'] ?></option>
+                                                        <?php endforeach;
+                                                        endif; ?>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -746,18 +748,9 @@
                                                 <div class="col-md-5">
                                                     <select class="form-select py-2 w-100 text-dark input-border d-none" name="underConstruction_possession_month" id="underConstruction_possession_month">
                                                         <option selected>Month</option>
-                                                        <option value="January">January</option>
-                                                        <option value="February">February</option>
-                                                        <option value="March">March</option>
-                                                        <option value="April">April</option>
-                                                        <option value="May">May</option>
-                                                        <option value="June">June </option>
-                                                        <option value="July">July </option>
-                                                        <option value="August">August</option>
-                                                        <option value="September">September</option>
-                                                        <option value="October">October</option>
-                                                        <option value="November">November</option>
-                                                        <option value="December">December</option>
+                                                        <?php if (!empty($possessionmonth)) : foreach ($possessionmonth as $key => $item) : ?> <option value="<?= $item['id'] ?>"><?= $item['title'] ?></option>
+                                                        <?php endforeach;
+                                                        endif; ?>
                                                     </select>
                                                 </div>
                                             </div>
@@ -844,34 +837,34 @@
                                                     <h5 class="fw-bold">Expected Price</h5>
                                                     <div class="col-md-7">
                                                         <div class="mb-3">
-                                                            <label class="col-form-label fw-bold">Please Specify the Price</label>
-                                                            <input type="text" name="expectd_price" id="expectd_price" class="form-control form-control2 w-100 text-dark" placeholder="Expected Price">
+                                                            <label class="col-form-label fw-bold" for="expectd_price">Please Specify the Price</label>
+                                                            <input type="text" name="expectd_price" id="expectd_price" class="form-control form-control2 w-100 text-dark" placeholder="Expected Price" required>
                                                         </div>
                                                     </div>
                                                     <div class="col-md-5">
                                                         <div class="mb-3">
-                                                            <label class="col-form-label fw-bold">Price per Sq.ft.</label>
-                                                            <input type="text" name="price_per_sqft" id="price_per_sqft" class="form-control form-control2 w-100 text-dark" placeholder="Enter price per Sq.ft.">
+                                                            <label class="col-form-label fw-bold" for="price_per_sqft">Price per Sq.ft.</label>
+                                                            <input type="text" name="price_per_sqft" id="price_per_sqft" class="form-control form-control2 w-100 text-dark" placeholder="Enter price per Sq.ft." required>
                                                         </div>
                                                     </div>
 
                                                     <div class="col-md-7 mt-4">
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="All Inclusive Price" name="inclusive_tax_price" id="inclusive-tax-price">
-                                                            <label class="form-check-label" for="inclusive-price">
+                                                            <input class="form-check-input" type="checkbox" value="1" name="inclusive_tax_price" id="inclusive-tax-price">
+                                                            <label class="form-check-label" for="inclusive-tax-price">
                                                                 All Inclusive Price
                                                             </label>
                                                         </div>
 
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" value="Tax the Govt. charges excluded" name="tax_gove_charge_excld" id="tax_gove_charge_excld">
-                                                            <label class="form-check-label" for="tax">
+                                                            <input class="form-check-input" type="checkbox" value="1" name="tax_gove_charge_excld" id="tax_gove_charge_excld">
+                                                            <label class="form-check-label" for="tax_gove_charge_excld">
                                                                 Tax the Govt. charges excluded
                                                             </label>
                                                         </div>
                                                         <div class="form-check">
-                                                            <input class="form-check-input" type="checkbox" name="negotiable_price" value="Price Negotiable" id="negotiable_price">
-                                                            <label class="form-check-label" for="price">
+                                                            <input class="form-check-input" type="checkbox" name="negotiable_price" value="1" id="negotiable_price">
+                                                            <label class="form-check-label" for="negotiable_price">
                                                                 Price Negotiable
                                                             </label>
                                                         </div>
@@ -925,8 +918,8 @@
                                                         <label class="col-form-label fw-bold fs-6 p-0 m-0">Is it Pre-leased/ Pre-Rented </label>
                                                         <p>for properties that are already rented out</p>
                                                         <ul class="li-space">
-                                                            <li> <label class="radio open-prerented-details"> <input type="radio" name="rented-properties" value="Yes"> <span>Yes</span> </label> </li>
-                                                            <li> <label class="radio hide-prerented-details"> <input type="radio" name="rented-properties" value="No"> <span>No</span> </label> </li>
+                                                            <li> <label class="radio open-prerented-details"> <input type="radio" name="rented-properties" value="1"> <span>Yes</span> </label> </li>
+                                                            <li> <label class="radio hide-prerented-details"> <input type="radio" name="rented-properties" value="0"> <span>No</span> </label> </li>
                                                         </ul>
                                                     </div>
 
@@ -962,23 +955,23 @@
                                                     <div class="col-md-7 mt-3">
                                                         <label class="col-form-label fw-bold fs-6 p-0">Is your office fire NOC certified </label>
                                                         <ul class="li-space">
-                                                            <li> <label class="radio "> <input type="radio" name="NOC-certified" value="Yes"> <span>Yes</span> </label> </li>
-                                                            <li> <label class="radio"> <input type="radio" name="NOC-certified" value="No"> <span>No</span> </label> </li>
+                                                            <li> <label class="radio "> <input type="radio" name="NOC-certified" value="1"> <span>Yes</span> </label> </li>
+                                                            <li> <label class="radio"> <input type="radio" name="NOC-certified" value="0"> <span>No</span> </label> </li>
                                                         </ul>
                                                     </div>
 
                                                     <div class="col-md-7 mt-3">
                                                         <label class="col-form-label fw-bold fs-6 p-0">Occupancy Certificate</label>
                                                         <ul class="li-space">
-                                                            <li> <label class="radio "> <input type="radio" name="occupancy-certificate" value="Yes"> <span>Yes</span> </label> </li>
-                                                            <li> <label class="radio"> <input type="radio" name="occupancy-certificate" value="No"> <span>No</span> </label> </li>
+                                                            <li> <label class="radio "> <input type="radio" name="occupancy-certificate" value="1"> <span>Yes</span> </label> </li>
+                                                            <li> <label class="radio"> <input type="radio" name="occupancy-certificate" value="0"> <span>No</span> </label> </li>
                                                         </ul>
                                                     </div>
 
                                                     <div class="col-md-10 mt-3">
                                                         <div class="dropdown office-priviously" data-name='office_previously'>
                                                             <div class="d-flex">
-                                                                <p class="fw-bold  fs-6">Your office was previously used for</p>
+                                                                <p class="fw-bold  fs-6">Your property was previously used for</p>
                                                                 <span class="ps-2">(Optional)</span>
                                                             </div>
 
@@ -987,13 +980,13 @@
                                                             <ul class="dropdown-menu hide-dropdown d-none mt-2 py-2 px-4 w-50" aria-labelledby="btndropdown">
                                                                 <li>
                                                                     <label class="radio-btn d-flex">
-                                                                        <input type="checkbox" class="form-check-input fs-6" value='backend-office' checked>
+                                                                        <input type="checkbox" class="form-check-input fs-6" value='backend-office'>
                                                                         <span class="pt-1 ps-1"> Backend Office</span>
                                                                     </label>
                                                                 </li>
                                                                 <li>
                                                                     <label class="radio-btn d-flex">
-                                                                        <input type="checkbox" class="form-check-input fs-6" value='ca-office' checked>
+                                                                        <input type="checkbox" class="form-check-input fs-6" value='ca-office'>
                                                                         <span class="pt-1 ps-1">CA Office</span>
                                                                     </label>
                                                                 </li>
@@ -1107,7 +1100,7 @@
                                                                     <select class="form-select py-2 w-100 text-dark input-border" id="type_of_flooring" name="type_of_flooring">
                                                                         <option selected="" disabled="">Select</option>
                                                                         <?php foreach ($question['subQuestion'] as $item_key => $item) : ?>
-                                                                            <option value="<?= $item['short_name'] ?>"><?= $item['title'] ?></option>
+                                                                            <option value="<?= $item['id'] ?>"><?= $item['title'] ?></option>
                                                                         <?php endforeach; ?>
                                                                     </select>
                                                                 <?php endif; ?>

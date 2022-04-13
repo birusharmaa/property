@@ -39,6 +39,22 @@ class PropertyAdditionalFeaturesModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+
+    public function getPropertyAdditionalDetails($prop_id = null)
+    {
+
+
+        $builder = $this->db->table($this->table);
+        $builder->select(' property_additional_features.*,propertymastervalues.title as type_of_flooring_title');
+        $builder->join('propertymastervalues', 'propertymastervalues.id = property_additional_features.type_of_flooring', 'left');
+        $builder->where(['property_id' => $prop_id]);
+        $query   = $builder->get();
+        if ($query->getResult() > 0) {
+            return $query->getRowArray();
+        } else {
+            return false;
+        }
+    }
 }
-
-

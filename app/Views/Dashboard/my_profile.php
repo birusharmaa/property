@@ -37,7 +37,7 @@
                                 <div class="row mx-auto mb-5">
                                     <div class="col-md-5">
                                         <div class="card w-100 bg-white" >
-                                            <img class="card-img-top profile m-auto px-4 pt-4 w-100" src="<?= base_url();?>/public/assets/img/profile.jpg" alt="Card image cap"  >
+                                            <img class="card-img-top profile m-auto px-4 pt-4 w-100" src="<?= base_url();?>/assets/img/profile.jpg" alt="Card image cap"  >
                                                 <div class="card-body">
                                                     <div class="row mx-auto">
                                                         <div class="col-md-5 bg-white  mb-2">
@@ -243,17 +243,17 @@
                                                             </thead>
                                                             <tbody class="border text-center">
                                                                 <tr>
-                                                                    <td class="border ">  <img src="http://localhost:8080/public/assets/img/house1.png"   height="100px" alt=""></td>
+                                                                    <td class="border ">  <img src="http://localhost:8080/assets/img/house1.png"   height="100px" alt=""></td>
                                                                     <td class="border ">Property_001</td>
                                                                     <td class="border">Noida</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="border">  <img src="http://localhost:8080/public/assets/img/house1.png"   height="100px" alt=""></td>
+                                                                    <td class="border">  <img src="http://localhost:8080/assets/img/house1.png"   height="100px" alt=""></td>
                                                                     <td class="border">Property_002</td>
                                                                     <td class="border">Noida</td>
                                                                 </tr>
                                                                 <tr>
-                                                                    <td class="border">  <img src="http://localhost:8080/public/assets/img/house1.png"   height="100px" alt=""></td>
+                                                                    <td class="border">  <img src="http://localhost:8080/assets/img/house1.png"   height="100px" alt=""></td>
                                                                     <td class="border">Property_003</td>
                                                                     <td class="border">Noida</td>
                                                                 </tr>

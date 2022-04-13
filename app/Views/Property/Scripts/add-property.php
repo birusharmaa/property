@@ -28,7 +28,7 @@
                 let finalarr = array1.concat(array2);
 
                 // loadImages(finalarr);
-                
+
                 finalarr = JSON.stringify(finalarr);
                 $('#imgPath').val(finalarr);
                 Swal.fire({
@@ -94,7 +94,10 @@
                         Swal.fire({
                             icon: status,
                             text: data.message,
-                        })
+                        });
+                        setTimeout(()=>{
+                            location.href= BASEURL+"/properties";
+                        });
                     },
                     error: function(jqxhr, status) {
                         let res = JSON.parse(jqxhr.responseText);
@@ -170,15 +173,25 @@
             $('.add-other-field').removeClass('d-none');
             $('.add-other').addClass('d-none');
         }); // add more input button show
+
         $('.add-other-cls').on('click', function() {
             $('.add-other-field-cls').removeClass('d-none');
             $('.add-other-cls').addClass('d-none');
         }); // add more input second button show
+
         $('.furnishing').on('click', function() {
             const cls = '#' + $(this).val();
             $('.furnishing-div').addClass('d-none');
             $(cls).removeClass('d-none');
+          
         }); // show hide furnishing
+
+        $('.semi-furnishing').on('click', function() {
+            const cls = '#' + $(this).val();
+            $('.furnishing-div').removeClass('d-none');
+        }); // show hide furnishing
+
+
         $('.status').on('click', function() {
             const cls = '#' + $(this).val();
             $('.age-of-property').addClass('d-none');
@@ -238,11 +251,14 @@
         }) // your shop location show
 
 
-        $("#possession").change(function() {
+        $("#underConstruction_possession_years").change(function() {
+            let val = $(this).val();
+            console.log(val);
+
             if ($(this).val() == 1 || $(this).val() == 2 || $(this).val() == 3) {
-                $("#select-month").addClass('d-none');
+                $("#underConstruction_possession_month").addClass('d-none');
             } else {
-                $("#select-month").removeClass('d-none');
+                $("#underConstruction_possession_month").removeClass('d-none');
             } // enabled month field when choose years in possession
         });
 

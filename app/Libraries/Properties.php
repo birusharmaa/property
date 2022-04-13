@@ -268,6 +268,12 @@ class Properties
     {
         if ($formData) {
 
+            
+
+            // echo '<pre>';
+
+            // print_r($formData);
+            // die;
             /**
              * Preparing data for property basic details 
              * start
@@ -323,7 +329,7 @@ class Properties
                 'project' => $this->checkPropertiesProject(xss_clean($formData['project_optinal'])),
                 'house_number' => xss_clean($formData['inputhouse_number']),
                 'locality' => $this->checkPropertiesLocality($formData['locality']),
-                'sub_locality' => $this->checkPropertiesSubLocality($formData['sublocality']),
+                'sub_locality' => xss_clean($formData['sublocality'])??"",
                 'located_inside' => xss_clean($formData['loacated-inside']),
                 'zone' => xss_clean($formData['zone-type']),
                 'address' => xss_clean($formData['_address']),
@@ -337,12 +343,7 @@ class Properties
              * Preparing Property profileData start
              */
 
-            $otherRooms = [
-                'pooja' => isset($formData['oth_room_pooja']) ? true : false,
-                'study' => isset($formData['oth_room_study']) ? true : false,
-                'servent' => isset($formData['oth_room_servent']) ? true : false,
-                'store' => isset($formData['oth_room_store']) ? true : false,
-            ];
+            $otherRooms = json_encode($formData['other_rooms']);
 
             $furnishing_app = [
                 'furnishing_light' => xss_clean($formData['furnishing_light']) ?? 0,
@@ -365,26 +366,28 @@ class Properties
 
             $this->propertyProfile = [
                 'appartment_is' => xss_clean($formData['apartment_is']) ?? 0,
-                'no_of_room' => xss_clean($formData['no_of_bedrooms']) ?? xss_clean($formData['no_of_bedrooms_other']) ?? 0,
-                'no_of_bedroom' => xss_clean($formData['no_of_bathrooms']) ?? xss_clean($formData['no_of_bathrooms_other']) ?? 0,
+                'no_of_bedroom' => xss_clean($formData['no_of_bedrooms']) ?? xss_clean(!empty($formData['no_of_bedrooms_other'])) ?? 0,
+                'no_of_bathroom' => xss_clean($formData['no_of_bathrooms']) ?? xss_clean(!empty($formData['no_of_bathrooms_other'])) ?? 0,
+                'no_of_diningrooms' => xss_clean($formData['no_of_diningrooms']) ?? xss_clean(!empty($formData['no_of_diningrooms_other'])) ?? 0,
                 'no_of_balconies' => xss_clean($formData['no_of_bathrooms']) ?? 0,
                 'carpet_area' => xss_clean($formData['txt_carpetarea']) ?? '0x0',
                 'carpet_area_unit' => xss_clean($formData['txt_carpetarea_unit']) ?? 1,
                 'build_up_area' => xss_clean($formData['txt_build_up_area']) ?? '0x0',
                 'build_up_area_unit' => xss_clean($formData['txt_build_up_area_unit']) ?? 1,
                 'super_build_up_area' =>  xss_clean($formData['txt_super_build_up_area']) ?? '0x0',
-                'super_build_up_area_unit' =>  xss_clean($formData['txt_super_build_up_area']) ?? '0x0',
+                'super_build_up_area_unit' =>  xss_clean($formData['txt_super_build_up_area_unit']) ?? '0x0',
                 'shop_facade_size' =>  xss_clean($formData['shop_facade_size']) ?? '0x0',
+                'shop_facade_size_unit' =>  xss_clean($formData['shop_facade_size_unit']) ??1,
                 'other_rooms' => json_encode($otherRooms),
-                'furnishing' => xss_clean($formData['furnishing']) ?? 0,
+                'furnishing' => xss_clean($formData['furnishing']) ?? "unfurnished",
                 'furnishing_app' => json_encode($furnishing_app),
-                'peserved_parking' => "",
                 'cover_parking' => xss_clean($formData['parking_cover']) ?? 0,
                 'open_parking' => xss_clean($formData['parking_open']) ?? 0,
                 'total_no_of_floors' => xss_clean($formData['floor_details_floor_no']) ?? 0,
                 'property_on_floor' => xss_clean($formData['floor_no']),
                 'availability_status' => xss_clean($formData['availability_status']) ?? 0,
                 'possession_year' => xss_clean($formData['underConstruction_possession_years']) ?? 0,
+                'possession_month' => xss_clean($formData['underConstruction_possession_month']) ?? 0,
                 'property_age' => xss_clean($formData['year']),
                 'status' => true,
                 'created_at' => $this->timestamp,
@@ -413,7 +416,6 @@ class Properties
                 'booking_amount' => xss_clean($formData['additional_price_amount']) ?? "",
                 'annual_dues_payable' => xss_clean($formData['additional_price_payable']) ?? "",
                 'membership_charge' => xss_clean($formData['additional_price_charge']) ?? "",
-                'is_pre_leased' => xss_clean($formData['rented-properties']) ?? "",
                 'is_pre_leased_or_rent' => xss_clean($formData['rented-properties']) ?? "",
                 'current_rent_pr_month' => xss_clean($formData['pre_rented_leased_current_rent_pmonth']) ?? "",
                 'less_tiy' => xss_clean($formData['pre_rented_leased_lease_tenure_in_years']) ?? "",
@@ -682,7 +684,7 @@ class Properties
         $propInfo['locationDetails'] = $this->PropertyLocationDetails->getPropertyDetailsById($propertyId);
         $propInfo['ownerInfo'] = $this->PropertyOwnerInfoModel->select('id,name,phone_number,alt_number,email,property_id,status,name')->where('property_id', $propertyId)->first();
         $propInfo['propPropfile'] = $this->PropertyProfileModel->where('property_id', $propertyId)->first();
-        $propInfo['propOtherFeatures'] = $this->PropertyAdditionalFeaturesModel->where('property_id', $propertyId)->first();
+        $propInfo['propOtherFeatures'] = $this->PropertyAdditionalFeaturesModel->getPropertyAdditionalDetails($propertyId);
         $propInfo['priceing'] = $this->PropertyPriceingModel->where('property_id', $propertyId)->first();
         $propInfo['propImages'] = $this->PropertyImagesModel->where('property_id', $propertyId)->first();
 

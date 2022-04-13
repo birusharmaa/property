@@ -33,10 +33,6 @@ class Property extends Security_Controller
     {
 
         $pageData['propertyList'] =   $this->property->getPropertyInfo(10, 0);
-        // echo '<pre>';
-        // print_r($pageData['propertyList']);
-        // die;
-
         return $this->template->rander("Property/index", $pageData);
     }
 
@@ -81,6 +77,8 @@ class Property extends Security_Controller
     {
         $pageData['PropertyTypes'] =   $this->property->getPropertyType();
         $pageData['Amenities'] =   $this->property->getAmenities();
+        $pageData['possessionyear'] =   $this->PossessionByModel->where(['status' => true, 'p_for'=>"y"])->findAll();
+        $pageData['possessionmonth'] =   $this->PossessionByModel->where(['status' => true, 'p_for'=>"m"])->findAll();
 
         // $pageData['states'] =   $this->Common->getState();
         // $pageData['cities'] =   $this->Common->getCities();

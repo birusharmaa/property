@@ -51,7 +51,7 @@ class PropertyBasicDetailsModel extends Model
         $builder->join($propertiesavailablefors, 'property_category.cat_id=property_basic_details.property_type', 'left');
         $builder->join($propertyOwner, 'properties_owner_info.property_id=property_basic_details.id', 'left');
         $builder->where(['property_basic_details.isDeleted' => false]);
-
+        $builder->orderBy('property_basic_details.created_at','DESC');
         if ($limit && $offset)
             $query   = $builder->get($limit, $offset);
         else
@@ -75,8 +75,7 @@ class PropertyBasicDetailsModel extends Model
         $builder->join($propertiesavailablefors, 'property_category.cat_id=property_basic_details.property_type', 'left');
         $builder->join($propertyOwner, 'properties_owner_info.property_id=property_basic_details.id', 'left');
         $builder->where(['property_basic_details.id' =>$id]);
-        // echo   $builder->getCompiledSelect();
-        // die;
+
         $query   = $builder->get();
         if ($query->getResult() > 0) {
             return $query->getRow();
