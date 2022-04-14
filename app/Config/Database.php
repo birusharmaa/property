@@ -33,9 +33,9 @@ class Database extends Config
     public $default = [
         'DSN'      => '',
         'hostname' => 'localhost',
-        'username' => 'thewings_vishalproperty',
-        'password' => 'qTgjcMJBZob@',
-        'database' => 'thewings_vishalproperty',
+        'username' => 'root',
+        'password' => '',
+        'database' => 'property-listing',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,

@@ -1,5 +1,4 @@
 <script>
-
     const DrawTable = (obj) => {
         var table = $('#allotProperties').DataTable();
         let data = [];
@@ -33,7 +32,7 @@
                 DrawTable(res.data);
             },
             error: function(res, data) {
-            
+
                 DrawTable(res.responseJSON.messages.data);
             }
         });
@@ -103,7 +102,7 @@
                         $(`#propertyFor option[value=${res.pur_allot_status_id}]`).prop('selected', true);
                         $('#allotPropertyForm').append(rowId);
                     }
-                   
+
                     $('#allotpropertyModal').modal('show');
                 },
                 error: function(res, data) {
@@ -151,7 +150,7 @@
                             loadTableData();
                         },
                         error: function(res, data) {
-                        
+
                             Swal.fire({
                                 icon: 'info',
                                 title: 'Oops...',
@@ -166,5 +165,5 @@
                 }
             })
         });
-    })
+    });
 </script>

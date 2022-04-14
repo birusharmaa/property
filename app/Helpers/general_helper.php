@@ -1464,7 +1464,7 @@ if (!function_exists("get_custom_theme_color_list")) {
     {
         //scan the css files for theme color and show a list
         try {
-            $dir = getcwd() . '/public/assets/css/color/';
+            $dir = getcwd() . '/assets/css/color/';
             $files = scandir($dir);
             if ($files && is_array($files)) {
 
@@ -2201,6 +2201,35 @@ if (!function_exists('getQuestionTitle')) {
     {
         $ci = new AppController();
         $data = $ci->QuestionModel->where(['id' => $id])->find();
+        if ($data)
+            return $data[0]['title'];
+        else
+            return false;
+    }
+}
+
+/**
+ * Function for get question title
+ */
+if (!function_exists('getUnitTitle')) {
+
+    function getUnitTitle($id = null)
+    {
+        $ci = new AppController();
+        $data = $ci->UnitsModel->where(['id' => $id])->find();
+        if ($data)
+            return $data[0]['title'];
+        else
+            return false;
+    }
+}
+
+if (!function_exists('getPossessionTitle')) {
+
+    function getPossessionTitle($id = null)
+    {
+        $ci = new AppController();
+        $data = $ci->PossessionByModel->where(['id' => $id])->find();
         if ($data)
             return $data[0]['title'];
         else

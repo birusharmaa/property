@@ -57,9 +57,9 @@
                                                         <a href="<?= base_url('property-detail/') . '/' . base64_encode($item->id) ?>">
                                                             <i class="fa fa-eye view-details text-white me-1 text-center rounded"></i>
                                                         </a>
-                                                        <a href="<?= base_url('edit-property-detail/') .'/'. base64_encode($item->id) ?>">
+                                                        <!-- <a href="<?= base_url('edit-property-detail/') .'/'. base64_encode($item->id) ?>">
                                                             <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i>
-                                                        </a>
+                                                        </a> -->
                                                         <a href="#" class="delete-property" data-prop-id="<?= $item->id ?>">
                                                             <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i>
                                                         </a>
@@ -80,4 +80,4 @@
             </div>
         </div>
     </div>
-    <script src="<?= base_url('/public/assets/js/custom/prop-list.js') ?>"></script>
+    <script src="<?= base_url('/assets/js/custom/prop-list.js') ?>"></script>

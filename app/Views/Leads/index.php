@@ -16,25 +16,14 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <!-- <div class="red-bg text-center text-white rounded py-2 mb-3">
-                    <h1 class=" fw-bolder">All Leads</h1>
-                </div> -->
-
                 <div class="card p-4">
                     <table id="buyerslead" class="table table-striped display dataTable table-hover"
                         style="width:100%">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="row mb-2">
-                                    <div class="col-md-6">
-                                        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                                            <button class="btn btn-primary me-md-2"
-                                                type="button">buyers Lead</button>
-                                            <button class="btn btn-primary"
-                                                type="button">Sellers Lead</button>
-                                        </div>
-                                    </div>
-                                    <div class="col-md-6">
+                                    
+                                    <div class="col-md-6 offset-6">
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                                             <button class="btn btn-primary me-md-2"
                                                 type="button" id="importLeadModaL">Import Lead</button>
@@ -133,10 +122,6 @@
         </div>
     </div>
 </div>
-
-
-<?php include __DIR__ . '/../Layout/footer.php'; ?>
-<?php include __DIR__ . '/../Layout/jsLinks.php'; ?>
 
 <script>
 $(document).ready(function() {
@@ -380,9 +365,5 @@ $('#import_form').on('submit', function (e) {
 function closeModal(){
     $('#leadModelImport').modal('hide');
 }
-
-
-
-
 </script>
     

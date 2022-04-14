@@ -23,7 +23,7 @@
                                 <form class="row g-1 p-0 px-3" id="signUp-form" action="<?=base_url();?>/signin" method="post">
                                     <div class="col-12 text-center  mb-3">
                                         <!-- 
-                                        <img class="rounded-circle " src="<?= base_url(); ?>/public/assets/img/admin1.png"
+                                        <img class="rounded-circle " src="<?= base_url(); ?>/assets/img/admin1.png"
                                             width="100px" /> -->
                                         <i class="fa fa-unlock-alt lock-icon red-text mb-3" aria-hidden="true"></i>
 
