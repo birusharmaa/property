@@ -63,13 +63,14 @@ class Login extends AppController
                 if (!empty($user)) {
                     //password verify
                     if (password_verify($password, $user['password'])) {
-
                         //Session declaration and store
 
                         $newdata = [
                             "user_id" => $user['id'],
                             'user_name' => $user['name'],
                             'user_email' => $user['email'],
+                            'user_role_id' => $user['user_role_id'],
+                            'emp_id' => $user['emp_id'],
                             'logged_in' => true
                         ];
 

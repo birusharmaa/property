@@ -168,7 +168,7 @@
                                                 <datalist id="cities">
                                                     <?php if (!empty($citieslist)) : ?>
                                                         <?php foreach ($citieslist as $key => $city) : ?>
-                                                            <option value="<?= ucfirst($city['ct_title']) ?>">
+                                                            <option value="<?= ucfirst($city['city']) ?>">
                                                             <?php endforeach; ?>
                                                         <?php endif; ?>
                                                 </datalist>
@@ -738,8 +738,8 @@
                                                             <option selected>Expected By
                                                             </option>
                                                             <?php if (!empty($possessionyear)) : foreach ($possessionyear as $key => $item) : ?> <option value="<?= $item['id'] ?>"><?= $item['title'] ?></option>
-                                                        <?php endforeach;
-                                                        endif; ?>
+                                                            <?php endforeach;
+                                                            endif; ?>
                                                         </select>
                                                     </div>
                                                 </div>

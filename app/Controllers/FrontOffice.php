@@ -32,7 +32,6 @@ class FrontOffice extends Security_Controller
         if (!$this->validate([
             'visitor-name' => 'required',
             'visitor-phone' => 'required|min_length[10]|max_length[10]',
-            'visitor-email' => 'required',
             'meeting-with' => 'required',
             'visitor-meeting-purpose' => 'required|max_length[255]',
         ])) {

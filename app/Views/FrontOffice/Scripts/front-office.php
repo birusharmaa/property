@@ -95,20 +95,15 @@
                 "visitor-name": {
                     required: true,
                 },
-                "visitor-email": {
-                    required: true,
-                },
+              
                 "visitor-phone": {
                     required: true,
                     minlength: 10,
                     maxlength: 10,
                 },
-                "visitor-doc-name": {
-                    required: true,
-                    maxlength: 100,
-                },
+             
                 "visitor-doc-id-number": {
-                    required: true,
+
                     maxlength: 20,
                 },
                 "meeting-with": {
@@ -126,7 +121,7 @@
                     maxlength: "This field must accept max 10 disit only"
                 },
                 "visitor-doc-id-number": {
-                    required: "This field must be filled",
+                 
                     maxlength: "This field must accept max characters disit only"
                 },
                 "visitor-meeting-purpose": {
