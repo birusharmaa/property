@@ -155,6 +155,20 @@ $routes->group('api', function ($routes) {
         $routes->get('delete/(:any)', 'FrontOffice::delete/$1');
         $routes->get('out-time/(:any)', 'FrontOffice::updateOutTime/$1');
     });
+
+    $routes->group('meeting', function ($routes) {
+        $routes->get('list', 'Meetings::index');
+        $routes->get('get-list', 'Meetings::getMeetingList');
+        $routes->get('show/(:any)', 'Meetings::show/$1');
+        $routes->post('save', 'Meetings::insert');
+        $routes->post('update', 'Meetings::update');
+        $routes->get('delete/(:any)', 'Meetings::delete/$1');
+        $routes->post('update-remark/(:any)', 'Meetings::updateRemark/$1');
+        $routes->post('get-location', 'Meetings::getLocations');
+        $routes->post('get-meeting-locations', 'Meetings::getMeetingLocations');
+        $routes->post('update-visited-location', 'Meetings::updateVisitedLocation');
+    });
+
     $routes->post('city/(:any)', 'Property::getCities/$1');
 });
 
@@ -179,6 +193,8 @@ $routes->group('leadsApi', function ($routes) {
     $routes->get('all-subcategory', 'Leads::getsubcategory');
     $routes->post('import', 'Leads::import');
     $routes->get('all-cities', 'Leads::allcities');
+    $routes->post('all-subproperty-type', 'Leads::getAllSubproperty');
+
 });
 
 

@@ -13,15 +13,19 @@ class AppController extends BaseController
     public    $form_validation;
     public    $timestamp;
     public    $userid;
+    public    $userRoleId;
 
     public function __construct()
     {
         $session = session();
+        $data = $session->get('loginInfo');
         //main template to make frame of this app
         $this->template = new Template();
-        $data = $session->get('loginInfo');
+
         $this->userid = $data['user_id'];
+        $this->userRoleId = $data['user_role_id'];
         $this->timestamp = date('Y-m-d H:i:s');
+
         //load helpers
         helper(array('url', 'file', 'form', 'language', 'number', 'general', 'plugin', 'date_time', 'app_files', 'widget', 'activity_logs', 'currency'));
 
@@ -129,7 +133,16 @@ class AppController extends BaseController
             'VisitorBookModel',
             'EmployeesModel',
             'UnitsModel',
-            'PossessionByModel'
+            'PossessionByModel',
+            'MeetingModel',
+            'LeadsModal',
+            'MeetingLocationModel',
+            'MeetingStatusModel',
+            'MeetingTimelineModel',
+            'CityModel',
+            'StatesModel',
+            'SubPropertyTypes'
+
         ];
     }
     /**

@@ -1,9 +1,3 @@
-<?php 
-// echo "<pre>";
-// print_r($lead_details);
-//exit;
-
-?>
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
@@ -104,7 +98,7 @@
                                                         <label>Looking For</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <strong><?= $lead_details['looking_for'];?></strong>
+                                                        <strong><?= $lead_details['looking_for_title'];?></strong>
                                                     </div>
                                                 </div>
                                             </div>
@@ -190,7 +184,7 @@
                                                         <label>Type Of Property</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <strong><?= $lead_details['property_type'];?></strong>
+                                                        <strong><?= $lead_details['cat_title'];?></strong>
                                                     </div>
                                                 </div>
                                             </div>
@@ -200,10 +194,10 @@
                                             <div class="card py-3 px-0">
                                                 <div class="row px-3">
                                                     <div class="col-md-6">
-                                                        <label>Commercial</label>
+                                                        <label>Type Of Sub-Property</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <strong><?= $lead_details['commercial'];?></strong>
+                                                        <strong><?= $lead_details['subproperty_type'];?></strong>
                                                     </div>
                                                 </div>
                                             </div>
@@ -241,7 +235,7 @@
                                                         <label>City</label>
                                                     </div>
                                                     <div class="col-md-6">
-                                                        <strong><?= $lead_details['city_name'];?></strong>
+                                                        <strong><?= $lead_details['city'];?></strong>
                                                     </div>
                                                 </div>
                                             </div>
@@ -369,10 +363,3 @@
     </div>
 </div>
 
-<?php include __DIR__ . '/../Layout/footer.php'; ?>
-</div>
-</div>
-
-<?php include __DIR__ . '/../Layout/jsLinks.php'; ?>
-</body>
-</html>

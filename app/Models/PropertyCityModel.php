@@ -7,14 +7,14 @@ use CodeIgniter\Model;
 class PropertyCityModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'propertycities';
+    protected $table            = 'cities';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['ct_title', 'state_id', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by'];
+    protected $allowedFields    = ['city', 'state_id'];
 
     // Dates
     protected $useTimestamps = false;

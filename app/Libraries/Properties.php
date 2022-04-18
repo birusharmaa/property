@@ -499,16 +499,15 @@ class Properties
     private function checkPropertiesCity($city = null)
     {
 
-        $cityRes =  $this->PropertyCityModel->where(['ct_title' => $city])->first();
+        $cityRes =  $this->PropertyCityModel->where(['city' => $city])->first();
         if ($cityRes) {
             $this->cityid = $cityRes['id'];
             return  $cityRes['id'];
         } else {
             try {
                 $cityData = [
-                    'ct_title' => xss_clean($city),
-                    'status' => true,
-                    'created_by' => $this->userId,
+                    'city' => xss_clean($city),
+                    'state_id' => 23,
                 ];
                 $this->PropertyCityModel->insert($cityData);
                 $this->cityid = $this->PropertyCityModel->insertID;

@@ -1107,3 +1107,8 @@ button.increment {
 .filepond--drip-blob {
   background-color: #7f8a9a;
 }
+.furnishing-list {
+  grid-column-gap: 10px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}

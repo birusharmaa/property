@@ -80,8 +80,7 @@ class Property extends Security_Controller
         $pageData['possessionyear'] =   $this->PossessionByModel->where(['status' => true, 'p_for'=>"y"])->findAll();
         $pageData['possessionmonth'] =   $this->PossessionByModel->where(['status' => true, 'p_for'=>"m"])->findAll();
 
-        // $pageData['states'] =   $this->Common->getState();
-        // $pageData['cities'] =   $this->Common->getCities();
+       
         $pageData['lookingfor'] =   $this->Common->getPropertyFor();
         $pageData['propertyType'] =   $this->property->getPropertyCategories();
         $pageData['SubPropertyType'] =   $this->property->getSubPropertyCategories();
@@ -93,7 +92,7 @@ class Property extends Security_Controller
         $pageData['keyMaster'] =   $this->property->getMasterQuestions();
         $pageData['keyMaster2'] =   $this->property->getMasterQuestionsL2();
         $pageData['locationAdvantage'] =   $this->property->getLocationAdvantage();
-        $pageData['citieslist'] = $this->PropertyCityModel->where(['status' => 1])->findAll();
+        $pageData['citieslist'] = $this->CityModel->findAll();
         $pageData['appartmentslist'] = $this->ApartmentModel->where(['status' => 1])->findAll();
         $pageData['localitieslist'] = $this->LocalityModel->where(['status' => 1])->findAll();
         $pageData['sublocalitieslist'] = $this->SubLocalityModel->where(['status' => 1])->findAll();

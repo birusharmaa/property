@@ -51,7 +51,7 @@ class PropertyBasicDetailsModel extends Model
         $builder->join($propertiesavailablefors, 'property_category.cat_id=property_basic_details.property_type', 'left');
         $builder->join($propertyOwner, 'properties_owner_info.property_id=property_basic_details.id', 'left');
         $builder->where(['property_basic_details.isDeleted' => false]);
-        $builder->orderBy('property_basic_details.created_at','DESC');
+        $builder->orderBy('property_basic_details.created_at', 'DESC');
         if ($limit && $offset)
             $query   = $builder->get($limit, $offset);
         else
@@ -74,11 +74,40 @@ class PropertyBasicDetailsModel extends Model
         $builder->join($propertyForTable, 'propertiesavailablefors.id = property_basic_details.looking_for', 'left');
         $builder->join($propertiesavailablefors, 'property_category.cat_id=property_basic_details.property_type', 'left');
         $builder->join($propertyOwner, 'properties_owner_info.property_id=property_basic_details.id', 'left');
-        $builder->where(['property_basic_details.id' =>$id]);
+        $builder->where(['property_basic_details.id' => $id]);
 
         $query   = $builder->get();
         if ($query->getResult() > 0) {
             return $query->getRow();
+        } else {
+            return false;
+        }
+    }
+
+
+    public function getRecommendedPropertyForMeetings($conditions = [])
+    {
+
+        $builder = $this->db->table($this->table);
+
+        $builder->select('property_basic_details.*,propertiesavailablefors.title as lookingfor_title, property_category.cat_title as property_type_title');
+        $builder->join('propertiesavailablefors', 'propertiesavailablefors.id = property_basic_details.looking_for', 'left');
+        $builder->join('property_category', 'property_category.cat_id=property_basic_details.property_type', 'left');
+        $builder->select('property_location_details.*');
+        $builder->join('property_location_details', 'property_location_details.property_id=property_basic_details.id', 'left');
+        $builder->select('cities.city as city_title');
+        $builder->join('cities', 'cities.id=property_location_details.city', 'left');
+        $builder->select('`localities`.`locality_title`');
+        $builder->join('localities', 'localities.id=property_location_details.locality', 'left');
+
+        $builder->where(['looking_for' => $conditions['looking_for'], 'property_type' => $conditions['property_type'],'cities.city'=>$conditions['city'],'localities.locality_title'=>$conditions['property_in_location']]);
+
+      
+        // $builder->where(['looking_for' => $conditions['looking_for'], 'property_type' => $conditions['property_type']]);
+
+        $query   = $builder->get();
+        if ($query->getResult() > 0) {
+            return $query->getResult();
         } else {
             return false;
         }
