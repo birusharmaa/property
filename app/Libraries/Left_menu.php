@@ -44,6 +44,7 @@ class Left_menu
     private function _prepare_sidebar_menu_items($type = "", $return_sub_menu_data = false)
     {
         $final_items_array = array();
+
         $items_array = $this->_get_sidebar_menu_items($type);
 
         foreach ($items_array as $item) {
@@ -200,16 +201,13 @@ class Left_menu
     function rander_left_menu($is_preview = false, $type = "default")
     {
 
-
         $final_left_menu_items = array();
         $custom_left_menu_items = $this->_get_left_menu_from_setting_for_rander($is_preview, $type);
-
 
         if ($custom_left_menu_items) {
 
             $left_menu_items = $this->_prepare_sidebar_menu_items($type);
             $last_final_menu_item = ""; //store the last menu item of final left menu to add submenu to this item
-
             foreach ($custom_left_menu_items as $custom_left_menu_item) {
                 $item_value_array = $this->_get_item_array_value($custom_left_menu_item, $left_menu_items);
                 $is_sub_menu = get_array_value($custom_left_menu_item, "is_sub_menu");
@@ -224,8 +222,6 @@ class Left_menu
                 }
             }
         }
-
-
         if (count($final_left_menu_items)) {
             $view_data["sidebar_menu"] = $final_left_menu_items;
         } else {
@@ -234,7 +230,6 @@ class Left_menu
 
         $view_data["is_preview"] = $is_preview;
         $view_data["login_user"] = $this->ci->login_user;
-
         return view("Layout/sidebar", $view_data);
     }
 
@@ -267,16 +262,19 @@ class Left_menu
         $sidebar_menu = ["dashboard" => $dashboard_menu];
 
         if ($this->ci->login_user) {
+
+
             if ($this->ci->login_user->access_right) {
+
                 $sidebar_menu = $this->getMenusListByPermission($this->ci->login_user->access_right);
             }
 
-            /////new/////
-            //if ($this->ci->login_user->is_admin && $this->ci->login_user->access_right == '') {
             if ($this->ci->login_user->type == "Admin" || $this->ci->login_user->type == "Super Admin") {
+
                 $sidebar_menu = $this->getDefaultAdminMenus();
             }
         } else {
+
             $sidebar_menu = app_hooks()->apply_filters('app_filter_client_left_menu', $sidebar_menu);
         }
 
@@ -284,7 +282,7 @@ class Left_menu
     }
 
     //position items for plugins
-    private function position_items_for_default_left_menu($sidebar_menu = array())
+    private function position_items_for_default_left_menu($sidebar_menu = [])
     {
         foreach ($sidebar_menu as $key => $menu) {
             $position = get_array_value($menu, "position");
@@ -295,7 +293,6 @@ class Left_menu
                     array_slice($sidebar_menu, $position, NULL, true);
             }
         }
-
         return $sidebar_menu;
     }
 

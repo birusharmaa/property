@@ -1,9 +1,10 @@
 <?php
+
 namespace App\Controllers;
 
 class Dashboard extends Security_Controller
 {
-    
+
     private $show_staff_on_staff = true;
     protected $Custom_widgets_model;
 
@@ -15,19 +16,13 @@ class Dashboard extends Security_Controller
 
     public function index()
     {
-        // $widgets = $this->_check_widgets_permissions();
         $view_data["dashboards"] = array();
         $view_data["dashboard_type"] = "default";
         $view_data["pageTitle"] = "Dashboard | Property Listing";
-        
-        if( $this->session->get('loginInfo')){
-            if (($this->login_user->type === 'Admin' || $this->login_user->type === 'Super Admin') && $this->show_staff_on_staff) {
-                return $this->template->rander("Dashboard/index", $view_data);
-            } else {
-                $view_data["dashboard_type"] = $this->login_user->type;
-                return $this->template->rander("Dashboard/index", $view_data);
-            }
-        }else{
+        if ($this->session->get('loginInfo')) {
+            $view_data["dashboard_type"] = $this->login_user->user_role_id;
+            return $this->template->rander("Dashboard/index", $view_data);
+        } else {
             return redirect()->to(base_url());
         }
     }
@@ -200,7 +195,7 @@ class Dashboard extends Security_Controller
         //check widgets permission for client users
 
         $widget = array();
-      
+
         // $options = array("id" => $this->login_user->user_type);
         // echo '<pre>';
         // print_r($this->login_user);
@@ -869,7 +864,7 @@ class Dashboard extends Security_Controller
                 return $this->template->view("clients/info_widgets/tab", array("tab" => "payments", "client_info" => $client_info));
             } else if ($widget == "total_due") {
                 return $this->template->view("clients/info_widgets/tab", array("tab" => "due", "client_info" => $client_info));
-            } 
+            }
 
             $plugin_widget = $this->_get_plugin_widgets($widget);
             if ($plugin_widget) {
@@ -972,26 +967,7 @@ class Dashboard extends Security_Controller
 
         return $this->template->rander("settings/client_default_dashboard/edit_dashboard", $view_data);
     }
-
-    function save_client_default_dashboard()
-    {
-        $this->access_only_admin_or_settings_admin();
-
-        $dashboard_data = json_decode($this->request->getPost("data"));
-        $serialized_data = $dashboard_data ? serialize($dashboard_data) : serialize(array());
-
-        $this->Settings_model->save_setting("client_default_dashboard", $serialized_data);
-
-        echo json_encode(array("success" => true, 'message' => app_lang('record_saved')));
-    }
-
-    function restore_to_default_client_dashboard()
-    {
-        $this->access_only_admin_or_settings_admin();
-        $this->Settings_model->save_setting("client_default_dashboard", "");
-        app_redirect("dashboard/client_default_dashboard");
-    }
-
+    
     public function profile()
     {
         return view('Dashboard/profile');
@@ -999,7 +975,7 @@ class Dashboard extends Security_Controller
 
     public function my_profile()
     {
-        if( $this->session->get('loginInfo')){
+        if ($this->session->get('loginInfo')) {
             return view('Dashboard/my_profile');
         }
         return view('login');

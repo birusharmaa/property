@@ -57,7 +57,8 @@ class HR extends Security_Controller
 
     public function all_roles()
     {
-        return $this->template->rander('HR/all_roles');
+        $pageData['roles'] = $this->RoleModel->findAll();
+        return $this->template->rander('HR/all_roles',$pageData);
     }
     public function attandance()
     {
