@@ -141,7 +141,8 @@ class AppController extends BaseController
             'MeetingTimelineModel',
             'CityModel',
             'StatesModel',
-            'SubPropertyTypes'
+            'SubPropertyTypes',
+            'RoleModel'
 
         ];
     }

@@ -23,17 +23,13 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-12">
-                <div class="col-md-12 p-0">
+                <!-- <div class="col-md-12 p-0">
                     <div class="red-bg text-center text-white rounded py-2 mb-3">
                         <h1 class=" fw-bolder">Add Employees</h1>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-md-12 m-auto p-0">
-                    <?php
-                    // echo '<pre>';
-                    // print_r($employee);
-                    // die('adfd');
-                    ?>
+
                     <div class="card">
                         <div class="card-body">
                             <form class="row g-3" id="employee-form">
@@ -149,7 +145,7 @@
                                                     <option>Select</option>
                                                     <?php if (!empty($countries)) : ?>
                                                         <?php foreach ($countries as $key => $item) :
-                                                            $id =  isset($employee) ?  $employee->empadd_country ?? 101 : 101;
+                                                            $id =  isset($employee) ?  $employee->empadd_country ?? 105 : 105;
                                                             $selected =  $item->id == $id ? 'selected' : '';
                                                         ?>
                                                             <option value="<?= $item->id ?>" <?= $selected ?>><?= $item->name ?></option>
@@ -163,7 +159,7 @@
                                                     <option>Select</option>
                                                     <?php if (!empty($states)) : ?>
                                                         <?php foreach ($states as $key => $item) :
-                                                            $id =  isset($employee) ?  $employee->empadd_state ?? 38 : 38;
+                                                            $id =  isset($employee) ?  $employee->empadd_state ?? 23 : 23;
                                                             $selected =  $item->id == $id ? 'selected' : '';
                                                         ?>
                                                             <option value="<?= $item->id ?>" <?= $selected ?>><?= $item->name ?></option>
@@ -180,7 +176,7 @@
                                                             $id =  isset($employee) ?  $employee->empadd_country ?? 5022 : 5022;
                                                             $selected =  $item->id == $id ? 'selected' : '';
                                                         ?>
-                                                            <option value="<?= trim($item->id) ?>" <?= $selected ?>><?= $item->name ?></option>
+                                                            <option value="<?= trim($item->id) ?>" <?= $selected ?>><?= $item->city ?></option>
                                                     <?php endforeach;
                                                     endif ?>
                                                 </select>
@@ -260,6 +256,20 @@
                                     <section>
                                         <div class="row gx-4">
                                             <div class="col-md-3">
+                                                <label class="form-label">Department</label>
+                                                <select class="form-select form-control1" name="department" aria-label="Default select example">
+                                                    <option>Select</option>
+                                                    <?php if (!empty($departments)) : ?>
+                                                        <?php foreach ($departments as $key => $item) :
+                                                            $id = isset($employee) ? (int)trim($employee->emp_department) : '';
+                                                            $selected = ($id == $item['id']) ? 'selected' : '';
+                                                        ?>
+                                                            <option value="<?= $item['id'] ?>" <?= $selected ?>><?= $item['title'] ?></option>
+                                                    <?php endforeach;
+                                                    endif ?>
+                                                </select>
+                                            </div>
+                                            <div class="col-md-3">
                                                 <label class="form-label">Designation</label>
                                                 <select class="form-select form-control1" name="designation" aria-label="Default select example">
                                                     <option>Select</option>
@@ -290,20 +300,7 @@
                                                     endif ?>
                                                 </select>
                                             </div>
-                                            <div class="col-md-3">
-                                                <label class="form-label">Department</label>
-                                                <select class="form-select form-control1" name="department" aria-label="Default select example">
-                                                    <option>Select</option>
-                                                    <?php if (!empty($departments)) : ?>
-                                                        <?php foreach ($departments as $key => $item) :
-                                                            $id = isset($employee) ? (int)trim($employee->emp_department) : '';
-                                                            $selected = ($id == $item['id']) ? 'selected' : '';
-                                                        ?>
-                                                            <option value="<?= $item['id'] ?>" <?= $selected ?>><?= $item['title'] ?></option>
-                                                    <?php endforeach;
-                                                    endif ?>
-                                                </select>
-                                            </div>
+
                                             <div class="col-md-3">
                                                 <label for="worklocation" class="form-label">Work
                                                     Location</label>

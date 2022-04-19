@@ -144,6 +144,14 @@ $routes->group('api', function ($routes) {
             $routes->post('delete', 'Employees::delete');
             $routes->post('uploadfile', 'Employees::uploadFiles');
         });
+
+        $routes->group('role', function ($routes) {
+            $routes->get('list', 'RoleController::index');
+            $routes->get('show/(:any)', 'RoleController::show/$1');
+            $routes->post('save', 'RoleController::save');
+            $routes->post('update', 'RoleController::update');
+            $routes->post('delete', 'RoleController::delete');
+        });
     });
 
     $routes->group('front-office', function ($routes) {

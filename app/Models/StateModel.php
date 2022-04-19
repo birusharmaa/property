@@ -7,8 +7,8 @@ use CodeIgniter\Model;
 class StateModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'state';
-    protected $primaryKey       = 'st_id';
+    protected $table            = 'states';
+    protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
@@ -19,9 +19,9 @@ class StateModel extends Model
     // Dates
     protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
-    protected $createdField  = 'st_created_at';
-    protected $updatedField  = 'st_updated_at';
-    protected $deletedField  = 'st_deleted_at';
+    protected $createdField  = 'created_at';
+    protected $updatedField  = 'updated_at';
+    protected $deletedField  = 'deleted_at';
 
     // Validation
     protected $validationRules      = [];
@@ -60,7 +60,7 @@ class StateModel extends Model
         if ($countryid) {
             $res = $builder->getWhere(['country_id' => $countryid]);
         } else {
-            $res = $builder->getWhere(['country_id' => 101]);
+            $res = $builder->getWhere(['country_id' => 105]);
         }
         if ($res->getResultArray() > 0) {
             return $res->getResult();
@@ -78,7 +78,7 @@ class StateModel extends Model
         if ($stateId) {
             $res = $builder->getWhere(['state_id' => $stateId]);
         } else {
-            $res = $builder->getWhere(['state_id' =>38]);
+            $res = $builder->getWhere(['state_id' =>23]);
         }
         if ($res->getResultArray() > 0) {
             return $res->getResult();
