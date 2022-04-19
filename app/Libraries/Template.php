@@ -13,9 +13,12 @@ class Template
     
         $session = session();
         if($session->get('loginInfo')){
+
             $view_data['content_view'] = $view;
             $view_data['topbar'] = "Layout/header";
+
             if (!isset($data["left_menu"])) {
+                
                 $left_menu = new Left_menu();
                 $view_data['left_menu'] = $left_menu->rander_left_menu();
             }
