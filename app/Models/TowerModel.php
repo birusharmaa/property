@@ -4,32 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class PropertyOwnerInfoModel extends Model
+class TowerModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'properties_owner_info';
+    protected $table            = 'tower';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = [
-        'name',
-        'phone_number',
-        'alt_number',
-        'email',
-        'customer_type',
-        'anniversary',
-        'birthday',
-        'property_id',
-        'status',
-        'created_at',
-        'update_at',
-        'update_by',
-        'created_by'
-    ];
-   
+    protected $allowedFields    = ['tower','status','created_by','created_at','updated_by','updated_at','deleted_by','deleted_at'];
 
     // Dates
     protected $useTimestamps = false;

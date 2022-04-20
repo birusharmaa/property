@@ -242,84 +242,152 @@ class Leads extends Security_Controller
         if ($this->session->has('loginInfo')) {
             $created_by = $this->session->get('loginInfo')['user_id'];
         }
-
-        if ($this->request->getPost()) {
-            $first_name      = $this->request->getPost('firstName');
-            $last_name       = $this->request->getPost('lastName');
-            $email           = $this->request->getPost('email');
-            $phone           = $this->request->getPost('number');
-            $looking_for     = $this->request->getPost('lookingFor');
-            $no_of_beds      = $this->request->getPost('noOfBed');
-            $no_of_bathroom  = $this->request->getPost('noOfBathroom');
-            $price_range     = $this->request->getPost('priceRange');
-            $property_type   = $this->request->getPost('propertyType');
-            $city            = $this->request->getPost('city');
-            $state           = $this->request->getPost('state');
-            $square_feet     = $this->request->getPost('squareFeet');
-            $property_in_location = $this->request->getPost('location');
-            $facing          = $this->request->getPost('facing');
-            $floor           = $this->request->getPost('floor');
-            $propertySubType      = $this->request->getPost('propertySubType');
-            $posted_by       = $this->request->getPost('postedBy');
-            $owner_id        = $created_by;
-            $created_by      = $created_by;
-
-            $i = 0;
-            $final_data = [];
-            foreach ($first_name as $key => $value) {
-                $data = [
-                    'category'        => $property_type[$i],
-                    'sub_category'    => $propertySubType[$i],
-                    'first_name'      => $first_name[$i],
-                    'last_name'       => $last_name[$i],
-                    'email'           => $email[$i],
-                    'phone'           => $phone[$i],
-                    'looking_for'     => $looking_for[$i],
-                    'no_of_beds'      => $no_of_beds[$i],
-                    'no_of_bathroom'  => $no_of_bathroom[$i],
-                    'price_range'     => $price_range[$i],
-                    'property_type'   => $property_type[$i],
-                    'subproperty_type' => $propertySubType[$i],
-                    'city'            => $city[$i],
-                    'state'           => $state[$i],
-                    'property_in_location' => $property_in_location[$i],
-                    'square_feet'     => $square_feet[$i],
-                    'facing'          => $facing[$i],
-                    'floor'           => $floor[$i],
-                    'posted_by'       => $posted_by[$i],
-                    'sub_category'    => $propertySubType[$i],
-                    'owner_id'        => $created_by,
-                    'created_by'      => $created_by,
-                ];
-
-                if (!empty($first_name[$i]) && !empty($email[$i]) && !empty($phone[$i])) {
-                    $final_data[] = $data;
-                }
-                $i++;
-            }
-
-            if (count($final_data) > 0) {
-
-                if ($this->leads->insertBatch($final_data)) {
-                    $msg = [
-                        'success' => true,
-                        'message' => "Leads saved successfully",
-                    ];
-                    return $this->respond($msg, 201);
-                } else {
-                    return $this->fail($data, false);
-                }
-            } else {
-                $msg = [
-                    'success' => false,
-                    'message' => "Please enter atleast one proper row.",
-                ];
-                return $this->fail($msg, false);
-            }
-        } else {
-            //$data['validation'] = $this->validation->getErrors();
+       
+        if (! $this->validate([
+            'firstName' => 'required',
+            'number' => 'required|max_length[10]',
+            'email'    => 'required|valid_email',
+            'noOfBed'    => 'required',
+            'noOfBathroom'    => 'required',
+            'priceRange'    => 'required',
+            'square_feet'    => 'required',
+            'facing'    => 'required',
+            'lookingFor'    => 'required',
+            'propertyType'    => 'required',
+            'propertySubType'    => 'required',
+            'state'    => 'required',
+            'city'    => 'required',
+            'location'    => 'required',
+            'floor'    => 'required'            
+        ])) {
+            
             return $this->fail($this->validation->getErrors(), 400);
-        }
+        }else{
+            $lead_data = array(
+                'category'        => $this->request->getPost('propertyType'),
+                'sub_category'    => $this->request->getPost('propertySubType'),
+                'first_name'      => $this->request->getPost('firstName'),
+                'last_name'       => $this->request->getPost('lastName'),
+                'email'           => $this->request->getPost('email'),
+                'phone'           => $this->request->getPost('number'),
+                'looking_for'     => $this->request->getPost('lookingFor'),
+                'no_of_beds'      => $this->request->getPost('noOfBed'),
+                'no_of_bathroom'  => $this->request->getPost('noOfBathroom'),
+                'price_range'     => $this->request->getPost('priceRange'),
+                'property_type'   => $this->request->getPost('propertyType'),
+                'subproperty_type' => $this->request->getPost('propertySubType'),
+                'city'            => $this->request->getPost('city'),
+                'state'           => $this->request->getPost('state'),
+                'property_in_location' => $this->request->getPost('location'),
+                'square_feet'     => $this->request->getPost('square_feet'),
+                'facing'          => $this->request->getPost('facing'),
+                'floor'           => $this->request->getPost('floor'),
+                'posted_by'       => $this->request->getPost('postedBy'),                
+                'owner_id'        => $created_by,
+                'created_by'      => $created_by,
+            );
+
+            if ($this->leads->insert($lead_data)) {
+                $msg = [
+                    'success' => true,
+                    'message' => "Leads saved successfully",
+                    'path' => base_url('all-leads'),
+                ];
+                return $this->respond($msg, 201);
+            } else {
+                $data = [
+                    'success' => false,
+                    'message' => "Their is some problem. Please try again.",
+                ];
+                return $this->fail($data, false);
+            }           
+        }        
+    }
+
+    function addLeads_old()
+    {
+        // $created_by   = '';
+        // if ($this->session->has('loginInfo')) {
+        //     $created_by = $this->session->get('loginInfo')['user_id'];
+        // }
+
+        // if ($this->request->getPost()) {
+        //     $first_name      = $this->request->getPost('firstName');
+        //     $last_name       = $this->request->getPost('lastName');
+        //     $email           = $this->request->getPost('email');
+        //     $phone           = $this->request->getPost('number');
+        //     $looking_for     = $this->request->getPost('lookingFor');
+        //     $no_of_beds      = $this->request->getPost('noOfBed');
+        //     $no_of_bathroom  = $this->request->getPost('noOfBathroom');
+        //     $price_range     = $this->request->getPost('priceRange');
+        //     $property_type   = $this->request->getPost('propertyType');
+        //     $city            = $this->request->getPost('city');
+        //     $state           = $this->request->getPost('state');
+        //     $square_feet     = $this->request->getPost('squareFeet');
+        //     $property_in_location = $this->request->getPost('location');
+        //     $facing          = $this->request->getPost('facing');
+        //     $floor           = $this->request->getPost('floor');
+        //     $propertySubType      = $this->request->getPost('propertySubType');
+        //     $posted_by       = $this->request->getPost('postedBy');
+        //     $owner_id        = $created_by;
+        //     $created_by      = $created_by;
+
+        //     $i = 0;
+        //     $final_data = [];
+        //     foreach ($first_name as $key => $value) {
+        //         $data = [
+        //             'category'        => $property_type[$i],
+        //             'sub_category'    => $propertySubType[$i],
+        //             'first_name'      => $first_name[$i],
+        //             'last_name'       => $last_name[$i],
+        //             'email'           => $email[$i],
+        //             'phone'           => $phone[$i],
+        //             'looking_for'     => $looking_for[$i],
+        //             'no_of_beds'      => $no_of_beds[$i],
+        //             'no_of_bathroom'  => $no_of_bathroom[$i],
+        //             'price_range'     => $price_range[$i],
+        //             'property_type'   => $property_type[$i],
+        //             'subproperty_type' => $propertySubType[$i],
+        //             'city'            => $city[$i],
+        //             'state'           => $state[$i],
+        //             'property_in_location' => $property_in_location[$i],
+        //             'square_feet'     => $square_feet[$i],
+        //             'facing'          => $facing[$i],
+        //             'floor'           => $floor[$i],
+        //             'posted_by'       => $posted_by[$i],
+        //             'sub_category'    => $propertySubType[$i],
+        //             'owner_id'        => $created_by,
+        //             'created_by'      => $created_by,
+        //         ];
+
+        //         if (!empty($first_name[$i]) && !empty($email[$i]) && !empty($phone[$i])) {
+        //             $final_data[] = $data;
+        //         }
+        //         $i++;
+        //     }
+
+        //     if (count($final_data) > 0) {
+
+        //         if ($this->leads->insertBatch($final_data)) {
+        //             $msg = [
+        //                 'success' => true,
+        //                 'message' => "Leads saved successfully",
+        //             ];
+        //             return $this->respond($msg, 201);
+        //         } else {
+        //             return $this->fail($data, false);
+        //         }
+        //     } else {
+        //         $msg = [
+        //             'success' => false,
+        //             'message' => "Please enter atleast one proper row.",
+        //         ];
+        //         return $this->fail($msg, false);
+        //     }
+        // } else {
+        //     //$data['validation'] = $this->validation->getErrors();
+        //     return $this->fail($this->validation->getErrors(), 400);
+        // }
     }
 
 

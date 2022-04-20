@@ -67,6 +67,7 @@ class Properties
             'PropertyMasterKeyModel',
             'PropertyCityModel',
             'ApartmentModel',
+            'TowerModel',
             'LocalityModel',
             'SubLocalityModel',
             'ProjectModel',
@@ -326,6 +327,7 @@ class Properties
             $this->propertyLocation = [
                 'city' => $this->checkPropertiesCity(xss_clean($formData['city'])),
                 'appartment' => $this->checkPropertiesApartment(xss_clean($formData['apartment_society'])),
+                'tower' => $this->checkTower(xss_clean($formData['tower_name'])),
                 'project' => $this->checkPropertiesProject(xss_clean($formData['project_optinal'])),
                 'house_number' => xss_clean($formData['inputhouse_number']),
                 'locality' => $this->checkPropertiesLocality($formData['locality']),
@@ -383,12 +385,14 @@ class Properties
                 'furnishing_app' => json_encode($furnishing_app),
                 'cover_parking' => xss_clean($formData['parking_cover']) ?? 0,
                 'open_parking' => xss_clean($formData['parking_open']) ?? 0,
+                'parking_option' => xss_clean($formData['parking_option']) ?? '',
                 'total_no_of_floors' => xss_clean($formData['floor_details_floor_no']) ?? 0,
                 'property_on_floor' => xss_clean($formData['floor_no']),
                 'availability_status' => xss_clean($formData['availability_status']) ?? 0,
                 'possession_year' => xss_clean($formData['underConstruction_possession_years']) ?? 0,
                 'possession_month' => xss_clean($formData['underConstruction_possession_month']) ?? 0,
                 'property_age' => xss_clean($formData['year']),
+                'property_registered' => xss_clean($formData['property_registered']),
                 'status' => true,
                 'created_at' => $this->timestamp,
                 'created_by' => $this->userId,
@@ -482,6 +486,9 @@ class Properties
                     'phone_number' => xss_clean($formData['owner-email']),
                     'alt_number' => xss_clean($formData['owner-phone']),
                     'email' => xss_clean($formData['owner-alt-number']),
+                    'customer_type' => xss_clean($formData['customer_type']),
+                    'birthday' => xss_clean($formData['birthday']),
+                    'anniversary' => xss_clean($formData['anniversary']),
                     'status' => true,
                     'created_at' => $this->timestamp
                 ];
@@ -877,4 +884,24 @@ class Properties
 
         return $subQuestionData;
     }
+    
+    //======== shalu code start ===
+    private function checkTower($tower = null)
+    {
+        $apt =  $this->TowerModel->where(['tower' => $tower])->first();
+
+        if ($apt) {
+            return $this->aptId = $apt['id'];
+        } else {
+            $towerData = [
+                'tower' =>  xss_clean($tower),                
+                'status' => true,
+                'created_by' => $this->userId,
+            ];
+            $this->TowerModel->insert($towerData);
+            $this->aptId = $this->TowerModel->insertID;
+            return $this->aptId;
+        }
+    }
+    //======== shalu code end ===
 }

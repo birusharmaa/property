@@ -14,7 +14,41 @@ class PropertyProfileModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['property_id', 'appartment_is', 'no_of_bedroom', 'no_of_bathroom', 'no_of_balconies', 'carpet_area','shop_facade_size_unit', 'carpet_area_unit', 'build_up_area', 'build_up_area_unit', 'super_build_up_area', 'super_build_up_area_unit', 'shop_facade_size', 'other_rooms', 'furnishing', 'furnishing_app', 'peserved_parking', 'cover_parking', 'open_parking', 'total_no_of_floors', 'property_on_floor', 'availability_status', 'possession_year', 'possession_month', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by', 'property_age'];
+   // protected $allowedFields    = ['property_id', 'appartment_is', 'no_of_bedroom', 'no_of_bathroom', 'no_of_balconies', 'carpet_area','shop_facade_size_unit', 'carpet_area_unit', 'build_up_area', 'build_up_area_unit', 'super_build_up_area', 'super_build_up_area_unit', 'shop_facade_size', 'other_rooms', 'furnishing', 'furnishing_app', 'peserved_parking', 'cover_parking', 'open_parking', 'total_no_of_floors', 'property_on_floor', 'availability_status', 'possession_year', 'possession_month','property_registered', 'status', 'created_at', 'created_by', 'updated_at', 'updated_by', 'deleted_at', 'deleted_by', 'property_age'];
+    protected $allowedFields    = ['property_id', 
+    'appartment_is', 
+    'no_of_bedroom', 
+    'no_of_bathroom', 
+    'no_of_balconies', 
+    'carpet_area',
+    'shop_facade_size_unit', 
+    'carpet_area_unit', 
+    'build_up_area', 
+    'build_up_area_unit', 
+    'super_build_up_area', 
+    'super_build_up_area_unit', 
+    'shop_facade_size', 
+    'other_rooms', 
+    'furnishing', 
+    'furnishing_app', 
+    'peserved_parking', 
+    'cover_parking', 
+    'open_parking', 
+    'parking_option',
+    'total_no_of_floors', 
+    'property_on_floor', 
+    'availability_status', 
+    'possession_year', 
+    'possession_month',
+    'property_registered', 
+    'status', 
+    'created_at', 
+    'created_by', 
+    'updated_at', 
+    'updated_by', 
+    'deleted_at', 
+    'deleted_by', 
+    'property_age'];
 
     // Dates
     protected $useTimestamps = false;

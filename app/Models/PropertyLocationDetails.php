@@ -14,7 +14,7 @@ class PropertyLocationDetails extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['property_id', 'city', 'appartment', 'project', 'house_number', 'locality', 'sub_locality', 'located_inside', 'zone', 'address', 'status', 'created_by', 'updated_by', 'deleted_by'];
+    protected $allowedFields    = ['property_id','tower', 'city', 'appartment', 'project', 'house_number', 'locality', 'sub_locality', 'located_inside', 'zone', 'address', 'status', 'created_by', 'updated_by', 'deleted_by'];
 
     // Dates
     protected $useTimestamps = true;

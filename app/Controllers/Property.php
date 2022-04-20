@@ -94,6 +94,7 @@ class Property extends Security_Controller
         $pageData['locationAdvantage'] =   $this->property->getLocationAdvantage();
         $pageData['citieslist'] = $this->CityModel->findAll();
         $pageData['appartmentslist'] = $this->ApartmentModel->where(['status' => 1])->findAll();
+        $pageData['towerlist'] = $this->TowerModel->where(['status' => 1])->findAll();       
         $pageData['localitieslist'] = $this->LocalityModel->where(['status' => 1])->findAll();
         $pageData['sublocalitieslist'] = $this->SubLocalityModel->where(['status' => 1])->findAll();
         $pageData['projectslist'] = $this->ProjectModel->where(['status' => 1])->findAll();

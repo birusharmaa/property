@@ -142,7 +142,8 @@ class AppController extends BaseController
             'CityModel',
             'StatesModel',
             'SubPropertyTypes',
-            'RoleModel'
+            'RoleModel',
+            'TowerModel'
 
         ];
     }

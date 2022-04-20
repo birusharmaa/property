@@ -211,6 +211,11 @@
             $('.details-hide').addClass('d-none');
         }); // add more pricing detials show
 
+        $('.carpet-area').on('click', function() {            
+            $('.carpet-area-class').removeClass('d-none');
+            $('.added1').addClass('d-none');
+        }); // add carpet area show
+
         $(document).on('click', '.decrement', function() {
             let value = $(this).parent().find('.input-field').val();
             if (value > 0) {
@@ -450,4 +455,104 @@
         localStorage.setItem('lookingforobj', JSON.stringify(lookingforObj));
         console.log(lookingforObj);
     });
+    
+    
+
+    function ShowOtherBox(){       
+        hideBox();
+        $('#other_apartment').show();
+        $('#other_apartment').attr("required", true);
+        $('#no_of_bedrooms_other2').show();
+        $('#no_of_bedrooms_other2').attr("required", true);
+    }
+
+    function HideOtherBox(value){
+        $('#other_apartment').hide();
+        $('#other_apartment').attr("required", false);
+        $('#other_apartment').val('');
+        $('#no_of_bedrooms_other2').hide();
+        $('#no_of_bedrooms_other2').attr("required", false);
+        AutoSelectRadio(value);
+    }
+
+    function AutoSelectRadio (value){
+       let count = $('#apartment_li').children().length;     
+             
+        for (let i = 0; i < count; i++) {
+            var display_id = i+'_BHK';
+            if(value == display_id){
+                hideBox();
+                $('#'+value).attr('checked', true);
+            }else if(value == 'Studio Apartment') {
+                hideBox();
+                $('#0_BHK').attr('checked', true);                
+            }else if(value == 'Other') {
+                hideBox();
+                $('#other_badroom_option').show();
+                $('#no_of_bedrooms_other').attr("required", true);                
+            }
+         }
+    }
+
+    function hideBox(){
+        for (let i = 0; i < 7; i++) {
+            var display_id = i+'_BHK';
+            $('#'+display_id).attr('checked', false);
+        }
+    }
+
+    
+    function parking_cover_decrement(){
+        var total_parking =0;
+        var parking_open = parseInt($('#parking_open').val());
+        var parking_cover = parseInt($('#parking_cover').val()); 
+        parking_cover = --parking_cover;
+        total_parking = parking_open + parking_cover;
+        if(total_parking>1){
+            $('#parking_option_row').show();
+        }else{
+            $('#parking_option_row').hide();
+        }
+    }
+
+    function parking_cover_increment(){
+        var total_parking =0;
+        var parking_open = parseInt($('#parking_open').val());
+        var parking_cover = parseInt($('#parking_cover').val()); 
+        parking_cover = ++parking_cover;
+        total_parking = parking_open + parking_cover;
+        if(total_parking>1){
+            $('#parking_option_row').show();
+        }else{
+            $('#parking_option_row').hide();
+        }  
+    }
+
+    function parking_open_decrement(){
+        var total_parking =0;
+        var parking_open = parseInt($('#parking_open').val());
+        var parking_cover = parseInt($('#parking_cover').val()); 
+        parking_open = --parking_open;
+        total_parking = parking_open + parking_cover;
+        if(total_parking>1){
+            $('#parking_option_row').show();
+        }else{
+            $('#parking_option_row').hide();
+        }    
+    }
+
+    function parking_open_increment(){
+        var total_parking =0;
+        var parking_open = parseInt($('#parking_open').val());
+        var parking_cover = parseInt($('#parking_cover').val()); 
+        parking_open = ++parking_open;
+        total_parking = parking_open + parking_cover;
+        if(total_parking>1){
+            $('#parking_option_row').show();
+        }else{
+            $('#parking_option_row').hide();
+        } 
+    }
+
+  
 </script>

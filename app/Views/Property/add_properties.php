@@ -151,6 +151,52 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="row g-3">
+                                        <!-- <div class="col-12 mt-2"> -->
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="col-form-label fw-bold">Full Name (Optional)</label>
+                                                    <input type="text" name="owner-name" id="owner-name" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Full Name">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="col-form-label fw-bold">Email (Optional)</label>
+                                                    <input type="email" name="owner-email" id="owner-email" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Email">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="col-form-label fw-bold">Phone (Optional)</label>
+                                                    <input type="phone" name="owner-phone" id="owner-phone" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Phone">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="col-form-label fw-bold">Alternate Phone Number (Optional)</label>
+                                                    <input type="phone" name="owner-alt-number" id="owner-alt-number" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Alternate Phone Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="col-form-label fw-bold">Customer Type (Optional)</label>
+                                                    <input type="text" name="customer_type" id="customer_type" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Alternate Phone Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="col-form-label fw-bold">Birthday</label>
+                                                    <input type="date" name="birthday" id="birthday" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Alternate Phone Number">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="mb-3">
+                                                    <label class="col-form-label fw-bold">Anniversary</label>
+                                                    <input type="date" name="anniversary" id="anniversary" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Alternate Phone Number">
+                                                </div>
+                                            </div>
+                                        <!-- </div> -->
+                                    </div>
                                 </section>
                                 <h3>Location Details</h3>
                                 <section>
@@ -176,12 +222,25 @@
                                         </div>
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label class="col-form-label fw-bold">Aprtment/Society</label>
+                                                <label class="col-form-label fw-bold">Apartment/Society</label>
                                                 <input type="text" name="apartment_society" list="aprtmentsList" id="apartment_society" class="form-control form-control2 w-100 text-dark" placeholder="Enter apartment" required>
                                                 <datalist id="aprtmentsList">
                                                     <?php if (!empty($appartmentslist)) : ?>
                                                         <?php foreach ($appartmentslist as $key => $apt) : ?>
                                                             <option value="<?= ucfirst($apt['ap_title']) ?>">
+                                                            <?php endforeach; ?>
+                                                        <?php endif; ?>
+                                                </datalist>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="mb-3">
+                                                <label class="col-form-label fw-bold">Tower Name/Number</label>
+                                                <input type="text" name="tower_name" list="towerNameList" id="apartment_society" class="form-control form-control2 w-100 text-dark" placeholder="Enter Tower Name/Number" required>
+                                                <datalist id="towerNameList">
+                                                    <?php if (!empty($towerlist)) : ?>
+                                                        <?php foreach ($towerlist as $key => $tower) : ?>
+                                                            <option value="<?= ucfirst($tower['tower']) ?>">
                                                             <?php endforeach; ?>
                                                         <?php endif; ?>
                                                 </datalist>
@@ -278,17 +337,27 @@
                                         <h3 class="fw-bolder red-text ">
                                             Tell us about your property
                                         </h3>
+                                        <div class="col-md-7 mt-4" id="registeres_property">
+                                            <label class="col-form-label fw-bold fs-6">Is the property registered under an authority?</label>
+                                            <ul class="li-space">
+                                                <li> <label class="radio"> <input type="radio" name="property_registered" value="yes"> <span>Yes</span> </label> </li>
+                                                <li> <label class="radio"> <input type="radio" name="property_registered" value="no"> <span>No</span> </label> </li>
+                                            </ul>
+                                        </div>
                                         <div class="col-md-12 show-apartment">
                                             <div class="mb-3">
                                                 <label class="col-form-label fw-bold">Your apartment is a</label>
-                                                <ul class="li-space">
-                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="2 BHK"> <span>2 BHK</span> </label> </li>
-                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="3 BHK"> <span>3 BHK</span> </label> </li>
-                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="4 BHK"> <span>4 BHK</span> </label> </li>
-                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="5 BHk"> <span>5 BHk</span> </label> </li>
-                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="6 BHK"> <span>6 BHK</span> </label> </li>
-                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="Other"> <span>Other</span> </label> </li>
-                                                </ul>
+                                                <ul class="li-space" id="apartment_li">
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="1_BHK" onclick="HideOtherBox(this.value)"> <span>1 BHK</span> </label> </li>
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="2_BHK" onclick="HideOtherBox(this.value)"> <span>2 BHK</span> </label> </li>
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="3_BHK" onclick="HideOtherBox(this.value)"> <span>3 BHK</span> </label> </li>
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="4_BHK" onclick="HideOtherBox(this.value)"> <span>4 BHK</span> </label> </li>
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="5_BHK" onclick="HideOtherBox(this.value)"> <span>5 BHK</span> </label> </li>
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="6_BHK" onclick="HideOtherBox(this.value)"> <span>6 BHK</span> </label> </li>
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="Studio Apartment" onclick="HideOtherBox(this.value)"> <span>Studio Apartment</span> </label> </li>
+                                                    <li class="mb-3"> <label class="radio"> <input type="radio" name="apartment_is" value="Other" onclick="ShowOtherBox()"><span>Other</span> </label> </li>
+                                                 </ul>
+                                                <input type="text" class="form-control" name="apartment_is" placeholder="Enter Other text.." id="other_apartment" style="display:none; width:50%;">
                                             </div>
                                         </div>
 
@@ -296,29 +365,35 @@
                                             <h6 class="fw-bold">
                                                 Add Room Details
                                             </h6>
+                                           
                                             <div class="mb-3">
                                                 <label class="col-form-label">No. of Bedrooms </label>
                                                 <div class="row">
-                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="1"> <span class="span-padding">1</span> </label> </div>
-                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="2"> <span class="span-padding">2</span> </label> </div>
-                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="3"> <span class="span-padding">3</span> </label> </div>
-                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="4"> <span class="span-padding">4</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="0" id="0_BHK"> <span class="span-padding">0</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="1" id="1_BHK"> <span class="span-padding">1</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="2" id="2_BHK"> <span class="span-padding">2</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="3" id="3_BHK"> <span class="span-padding">3</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="4" id="4_BHK"> <span class="span-padding">4</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="5" id="5_BHK"> <span class="span-padding">5</span> </label> </div>
+                                                    <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bedrooms" value="6" id="6_BHK"> <span class="span-padding">6</span> </label> </div>
                                                 </div>
-                                                <div>
+                                                <input type="text" name="no_of_bedrooms_other" id="no_of_bedrooms_other2" placeholder="please enter this" style="display:none" class="form-control form-control2 w-100 text-dark">
+                                                
+                                                <!-- <div>
                                                     <p class="fw-bold red-text pt-3 add-other add-other1 cursor">+ Add Other</p>
                                                 </div>
 
-                                                <div class="col-md-12 add-other-field d-none mt-3 add-other-field1">
+                                                <div class="col-md-12 add-other-field d-none mt-3 add-other-field1" id="other_badroom_option">
                                                     <div class="row">
-                                                        <div class="col-md-5 pe-0">
-                                                            <input type="text" name="no_of_bedrooms_other" id="no_of_bedrooms_other" class="form-control form-control2 w-100 text-dark">
+                                                        <div class="col-md-3 pe-0">
+                                                        
                                                         </div>
-                                                    </div>
-                                                </div>
+                                                    </div>       
+                                                </div> -->
 
                                             </div>
                                         </div>
-                                        <div class="col-md-3 mt-4 show-apartment">
+                                        <div class="col-md-3 mt-4 show-apartment" style="display:none;">
 
                                             <div class="mb-3">
                                                 <label class="col-form-label">No. of Dining Room </label>
@@ -345,7 +420,7 @@
 
                                         <div class="col-md-3 mt-5">
                                             <div class="mb-3">
-                                                <label class="col-form-label">No. of Bathrooms </label>
+                                                <label class="col-form-label">No. of Bathrooms / Toilets </label>
                                                 <div class="row">
                                                     <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bathrooms" value="1"> <span class="span-padding">1</span> </label> </div>
                                                     <div class="col-md-2 me-1"> <label class="radio"> <input type="radio" name="no_of_bathrooms" value="2"> <span class="span-padding">2</span> </label> </div>
@@ -386,8 +461,27 @@
                                             <div class="mb-3">
                                                 <label class="col-form-label fw-bolder p-0 fs-6 m-0">Add Area Details </label>
                                                 <p>Atleast one area type is mandatory </p>
+                                                 
+                                                <div class="row mx-auto mt-3 super-built-up-area-field">
+                                                    <div class="col-md-8 p-0">
+                                                        <input type="text" name="txt_super_build_up_area" id="txt_super_build_up_area" class="form-control form-control2 w-100 text-dark" placeholder="Super built-up Area" required>
+                                                    </div>
+                                                    <div class="col-md-4 p-0">
 
-                                                <div class="row mx-auto">
+                                                        <select class="form-select py-2 w-100 text-dark input-border" id="txt_super_build_up_area_unit" name="txt_super_build_up_area_unit" required>
+                                                            <option selected="" disabled="">Select...
+                                                            </option>
+                                                            <?php if (!empty($units)) : ?>
+                                                                <?php foreach ($units as $key => $value) : ?>
+                                                                    <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
+                                                                <?php endforeach; ?>
+                                                            <?php endif; ?>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+
+                                                <div class="row mx-auto mt-3 carpet-area-class d-none">
                                                     <div class="col-md-8 p-0">
                                                         <input type="text" name="txt_carpetarea" id="txt_carpetarea" class="form-control form-control2 w-100 text-dark" placeholder="Carpet Area">
                                                     </div>
@@ -426,28 +520,9 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="row mx-auto mt-3 super-built-up-area-field d-none">
-                                                    <div class="col-md-8 p-0">
-                                                        <input type="text" name="txt_super_build_up_area" id="txt_super_build_up_area" class="form-control form-control2 w-100 text-dark" placeholder="Super built-up Area">
-                                                    </div>
-                                                    <div class="col-md-4 p-0">
-
-                                                        <select class="form-select py-2 w-100 text-dark input-border" id="txt_super_build_up_area_unit" name="txt_super_build_up_area_unit">
-                                                            <option selected="" disabled="">Select...
-                                                            </option>
-                                                            <?php if (!empty($units)) : ?>
-                                                                <?php foreach ($units as $key => $value) : ?>
-                                                                    <option value="<?= $value['id'] ?>"><?= $value['title'] ?></option>
-                                                                <?php endforeach; ?>
-                                                            <?php endif; ?>
-                                                        </select>
-
-                                                    </div>
-                                                </div>
-
                                                 <div class="d-flex">
                                                     <p class="fw-bold red-text pt-3 me-3 built-up-area added cursor">+ Add Build-up Area</p>
-                                                    <p class="fw-bold red-text pt-3 super-built-up-area added1 cursor">+ Add Super Build-up Area</p>
+                                                    <p class="fw-bold red-text pt-3 carpet-area added1 cursor">+ Add Carpet Area</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -470,11 +545,8 @@
                                                             <?php endforeach; ?>
                                                         <?php endif; ?>
                                                     </select>
-
                                                 </div>
                                             </div>
-
-
                                         </div>
 
                                         <div class="col-md-7 mt-4">
@@ -664,9 +736,9 @@
                                                     <div class="col-md-6 mb-3">
                                                         <div class="d-flex ">
                                                             <span class="pt-1 pe-2">Cover Parking</span>
-                                                            <button type="button" class="decrement decrement1" disabled>-</button>
-                                                            <input type="number" class="input-field" value="0" name="parking_cover">
-                                                            <button type="button" class="increment">+</button>
+                                                            <button type="button" class="decrement decrement1" disabled onclick="parking_cover_decrement();">-</button>
+                                                            <input type="number" class="input-field" value="0" id="parking_cover" name="parking_cover">
+                                                            <button type="button" class="increment" onclick="parking_cover_increment();">+</button>
 
                                                         </div>
                                                     </div>
@@ -674,12 +746,34 @@
                                                     <div class="col-md-6 mb-3">
                                                         <div class="d-flex ">
                                                             <span class="pt-1 pe-2">Open Parking</span>
-                                                            <button type="button" class="decrement decrement1" disabled>-</button>
-                                                            <input type="number" class="input-field" value="0" name="parking_open">
-                                                            <button type="button" class="increment">+</button>
+                                                            <button type="button" class="decrement decrement1" disabled onclick="parking_open_decrement();">-</button>
+                                                            <input type="number" class="input-field" value="0" id="parking_open" name="parking_open">
+                                                            <button type="button" class="increment" onclick="parking_open_increment();">+</button>
                                                         </div>
                                                     </div>
-
+                                                </div>                                               
+                                            </div>
+                                        </div>
+                                        <div class="col-md-7" id="parking_option_row" style="display:none;">
+                                            <div>
+                                                <label class="col-form-label fw-bold fs-6">Parking Options</label>
+                                                <div class="row">
+                                                    <div class="col-md-6 mb-3">
+                                                        <div class="d-flex ">                                                           
+                                                            <div class="form-check">
+                                                                <input type="radio" class="form-check-input" id="side_by_side_radio" name="parking_option" value="side_by_side">Side By Side
+                                                                <label class="form-check-label" for="side_by_side_radio"></label>
+                                                            </div>                                                             
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6 mb-3">
+                                                        <div class="d-flex ">    
+                                                            <div class="form-check">
+                                                                <input type="radio" class="form-check-input" id="back_to_back_radio" name="parking_option" value="back_to_back">Back to Back
+                                                                <label class="form-check-label" for="back_to_back_radio"></label>
+                                                            </div> 
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -754,11 +848,10 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div>            
+
                                     </div>
-                                </section>
-                                <h3>Photos</h3>
-                                <section>
+
                                     <div class="row g3">
                                         <div class="col-md-12 mt-3 ">
                                             <div class="d-flex">
@@ -805,9 +898,8 @@
                                                 </div>
                                             </div>
 
-                                        </div>
-                                </section>
-
+                                    </div>
+                                </section>     
                                 <h3>Pricing & Others</h3>
                                 <section>
                                     <div class="row g-3">
@@ -1034,8 +1126,6 @@
                                         </div>
                                     </div>
                                 </section>
-
-
                                 <!-- -----------Ameneties---------- -->
                                 <h3>Ameneties Section</h3>
                                 <section>
@@ -1106,7 +1196,7 @@
                                                                 <?php endif; ?>
                                                             </div>
                                                         </div>
-                                            <?php
+                                                    <?php
                                                     endif;
                                                 endforeach;
                                             endif; ?>
@@ -1165,39 +1255,7 @@
 
                                         </div>
                                     </div>
-                                </section>
-                                <!-- Property owner section -->
-                                <h3>Property Owner</h3>
-                                <section>
-                                    <div class="row g-3">
-                                        <div class="col-12 mt-2">
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="col-form-label fw-bold">Full Name (Optional)</label>
-                                                    <input type="text" name="owner-name" id="owner-name" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Full Name">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="col-form-label fw-bold">Email (Optional)</label>
-                                                    <input type="email" name="owner-email" id="owner-email" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Email">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="col-form-label fw-bold">Phone (Optional)</label>
-                                                    <input type="phone" name="owner-phone" id="owner-phone" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Phone">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="mb-3">
-                                                    <label class="col-form-label fw-bold">Alternate Phone Number (Optional)</label>
-                                                    <input type="phone" name="owner-alt-number" id="owner-alt-number" class="form-control form-control2 w-100 text-dark" placeholder="Please Enter Alternate Phone Number">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </section>
+                                </section>                                
                             </div>
                         </form>
                     </div>
