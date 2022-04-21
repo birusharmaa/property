@@ -143,7 +143,11 @@ class AppController extends BaseController
             'StatesModel',
             'SubPropertyTypes',
             'RoleModel',
-            'TowerModel'
+            'TowerModel',
+            'Modules',
+            'SubModules',
+            'SubSubmodules'
+           
 
         ];
     }

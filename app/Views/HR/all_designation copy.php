@@ -32,7 +32,7 @@ helper('general');
                         <h1 class=" fw-bolder">All Designation</h1>
                     </div> -->
                     <div class="card p-4">
-                        <table id="designation" class="table display dataTable table-hover" style="width:100%">
+                        <!-- <table id="designation" class="table display dataTable table-hover" style="width:100%">
                             <div class="align1 pb-2">
                                 <button class="btn btn-primary" id="btnAddDesignation" data-bs-toggle="modal" href="#designationmodal2" >Add Designation</button>
                             </div>
@@ -58,7 +58,7 @@ helper('general');
                                 </tr>
 
                             </tbody>
-                        </table>
+                        </table> -->
                     </div> <!-- .card end -->
                 </div>
             </div>
@@ -75,7 +75,7 @@ helper('general');
 <div class="modal fade" id="designationmodal2" aria-hidden="true" aria-labelledby="designationmdl2" tabindex="-1">
     <div class="modal-dialog modal-dialog-centered modal-xl">
         <div class="modal-content card">
-            <form id="designationFormRoles">
+            <form id="designationForm">
                 <div class="modal-header red-bg">
                     <h5 class="modal-title text-white" id="designationmdl2">Add Designation</h5>
                     <button type="button" class="btn-close-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -107,11 +107,11 @@ helper('general');
                             <?php if($main_menu["name"] =="Dashboard" || $main_menu["name"]=="dashboard") :?>
                             <?php else: ?>
                                 <div class="form-check">
-                                <input class="form-check-input" name="main_menu[]" type="checkbox" value="<?php echo getMenuId($main_menu["name"]);?>" onclick="getCheckValue(<?= $mainMenu?>);" id="checkboxMainMenu<?= $mainMenu?>">
+                                <input class="form-check-input" type="checkbox" value="<?= $main_menu["name"];?>" onclick="getCheckValue(<?= $mainMenu?>);" id="checkboxMainMenu<?= $mainMenu?>">
                                 <label class="form-check-label" for="checkboxMainMenu<?= $mainMenu?>" onclick="getCheckValue(<?= $mainMenu?>);">
                                     <span class="text-primary"><strong><?= $main_menu["name"];?></strong></span>
                                 </label>                               
-                                <!-- <input type="hidden" value="<?php // echo getMenuId($main_menu["name"]);?>" name="MainMenu_<?php //echo $main_menu["name"]?>" id="MainMenu_<?php echo $main_menu["name"]?>"> -->
+                                <input type="hidden" value="<?php echo getMenuId($main_menu["name"]);?>" name="MainMenu_<?php echo $main_menu["name"]?>" id="MainMenu_<?php echo $main_menu["name"]?>">
                             </div>  
                             
                             <?php endif; ?>    
@@ -121,11 +121,11 @@ helper('general');
                                     <div class="row d-none submenu<?= $mainMenu?>">
                                         <div class="col-md-3">
                                             <div class="form-check sub_menus">
-                                                <input class="form-check-input" name="sub_menu[]" type="checkbox" value="<?= $sub["name"];?>" id="sub_menu<?= $mainMenu?><?= $submenus_id?>">
+                                                <input class="form-check-input" type="checkbox" value="<?= $sub["name"];?>" id="sub_menu<?= $mainMenu?><?= $submenus_id?>">
                                                 <label class="form-check-label" for="sub_menu<?= $mainMenu?><?= $submenus_id?>">
                                                     <?= $sub["name"];?>
                                                 </label>                                                                                           
-                                                <!-- <input type="hidden" value="<?php // echo getSubMenuId($sub["name"]);?>" name="SubMainMenu_<?php // echo $main_menu["name"]?>" id="SubMainMenu_<?php // echo $main_menu["name"]?>"> -->
+                                                <input type="hidden" value="<?php echo getSubMenuId($sub["name"]);?>" name="SubMainMenu_<?php echo $main_menu["name"]?>" id="SubMainMenu_<?php echo $main_menu["name"]?>">
                                             </div>
                                         </div>
                                         <div class="col-md-9">     
@@ -133,8 +133,8 @@ helper('general');
                                             <?php if($roles): foreach($roles as $roleId):?>                                              
                                                 <div class="col-sm-2">
                                                     <div class="form-check sub_menus">
-                                                        <input class="form-check-input" name="roles_<?= $mainMenu?>.'_'.<?= $submenus_id?>[]" type="checkbox" value="<?= $roleId['r_id']; ?>" id="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
-                                                        <label class="form-check-label" for="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
+                                                        <input class="form-check-input" type="checkbox" value="1" id="add<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
+                                                        <label class="form-check-label" for="add<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
                                                             <?php echo $roleId['name']; ?>
                                                         </label>
                                                     </div>
@@ -144,7 +144,7 @@ helper('general');
                                         </div>
                                     </div>   
                                 <?php $submenus_id++; $count++; endforeach;  endif; ?>    
-                                 <!-- <input type="hidden" value="<?= $count;?>" id="SubMenuCount<?php // echo $mainMenu?>" name="SubMenuCount<?php //  echo $mainMenu?>">   -->
+                                 <input type="hidden" value="<?= $count;?>" id="SubMenuCount<?= $mainMenu?>" name="SubMenuCount<?= $mainMenu?>">  
                             <?php
                             endif; $mainMenu++;
                         endforeach;  

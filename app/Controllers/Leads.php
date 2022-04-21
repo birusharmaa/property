@@ -245,7 +245,7 @@ class Leads extends Security_Controller
        
         if (! $this->validate([
             'firstName' => 'required',
-            'number' => 'required|max_length[10]',
+            'number' => 'required|max_length[10]|min_length[10]',
             'email'    => 'required|valid_email',
             'noOfBed'    => 'required',
             'noOfBathroom'    => 'required',

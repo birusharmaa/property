@@ -418,26 +418,9 @@ for ($i = 0; $i <= 10; $i++) {
                 error: function(jqxhr, eception) {
                     if (jqxhr.status == 404) {
                         alert('No data found');
-                    }else if(jqxhr.status == 400){
-                       if(jqxhr.responseJSON.messages.firstName){
-                        $('#firstName_error').text(jqxhr.responseJSON.messages.firstName);
-                       } else{
-                        $('#firstName_error').text('');
-                       }
-                     //$('#firstName_error').text(jqxhr.responseJSON.messages.firstName);
-                      $('#email_error').text(jqxhr.responseJSON.messages.email);
-                      $('#city_error').text(jqxhr.responseJSON.messages.city);
-                      $('#facing_error').text(jqxhr.responseJSON.messages.facing);
-                      $('#floor_error').text(jqxhr.responseJSON.messages.floor);
-                      $('#location_error').text(jqxhr.responseJSON.messages.location);
-                      $('#lookingFor_error').text(jqxhr.responseJSON.messages.lookingFor);
-                      $('#noOfBathroom_error').text(jqxhr.responseJSON.messages.noOfBathroom);
-                      $('#noOfBed_error').text(jqxhr.responseJSON.messages.noOfBed);
-                      $('#number_error').text(jqxhr.responseJSON.messages.number);
-                      $('#propertySubType_error').text(jqxhr.responseJSON.messages.propertySubType);
-                      $('#propertyType_error').text(jqxhr.responseJSON.messages.propertyType);
-                      $('#state_error').text(jqxhr.responseJSON.messages.state);
-
+                    }else if(jqxhr.status == 400){                                             
+                        var errors = jqxhr.responseJSON.messages;
+                        validation_errors(errors);  
                     }
                     if (jqxhr.responseJSON.messages.category) {
                         Swal.fire({
@@ -500,22 +483,9 @@ for ($i = 0; $i <= 10; $i++) {
                     console.log(jqxhr.status);
                     if (jqxhr.status == 404) {
                         alert('No data found');
-                    }else if(jqxhr.status == 400){
-                      
-                        $('#firstName_error').text(jqxhr.responseJSON.messages.firstName);
-                        $('#email_error').text(jqxhr.responseJSON.messages.email);
-                        $('#city_error').text(jqxhr.responseJSON.messages.city);
-                        $('#facing_error').text(jqxhr.responseJSON.messages.facing);
-                        $('#floor_error').text(jqxhr.responseJSON.messages.floor);
-                        $('#location_error').text(jqxhr.responseJSON.messages.location);
-                        $('#lookingFor_error').text(jqxhr.responseJSON.messages.lookingFor);
-                        $('#noOfBathroom_error').text(jqxhr.responseJSON.messages.noOfBathroom);
-                        $('#noOfBed_error').text(jqxhr.responseJSON.messages.noOfBed);
-                        $('#number_error').text(jqxhr.responseJSON.messages.number);
-                        $('#propertySubType_error').text(jqxhr.responseJSON.messages.propertySubType);
-                        $('#propertyType_error').text(jqxhr.responseJSON.messages.propertyType);
-                        $('#state_error').text(jqxhr.responseJSON.messages.state);
-
+                    }else if(jqxhr.status == 400){                      
+                        var errors = jqxhr.responseJSON.messages;
+                        validation_errors(errors); 
                     }
                     if (jqxhr.responseJSON.messages.category) {
                         Swal.fire({
@@ -661,4 +631,74 @@ for ($i = 0; $i <= 10; $i++) {
             }
         });
     });
+
+
+    function validation_errors(errors){
+       
+        if(errors.firstName){
+            $('#firstName_error').text(errors.firstName);
+        } else{
+            $('#firstName_error').text('');
+        }
+        if(errors.email){
+            $('#email_error').text(errors.email);            
+        } else{
+            $('#email_error').text('');
+        }
+        if(errors.city){
+            $('#city_error').text(errors.city);           
+        } else{
+            $('#city_error').text('');
+        }
+        if(errors.facing_error){
+            $('#facing_error').text(errors.facing_error);    
+        } else{
+            $('#facing_error').text('');
+        }
+        if(errors.floor){
+            $('#floor_error').text(errors.floor);              
+        } else{
+            $('#floor_error').text('');
+        }
+        if(errors.location_error){
+            $('#location_error').text(errors.location);              
+        } else{
+            $('#location_error').text('');
+        }
+        if(errors.lookingFor){
+            $('#lookingFor_error').text(errors.lookingFor);                        
+        } else{
+            $('#lookingFor_error').text('');
+        }
+        if(errors.noOfBathroom){
+            $('#noOfBathroom_error').text(errors.noOfBathroom);                        
+        } else{
+            $('#noOfBathroom_error').text('');
+        }
+        if(errors.noOfBed){
+            $('#noOfBed_error').text(errors.noOfBed);                        
+        } else{
+            $('#noOfBed_error').text('');
+        }
+        if(errors.number){
+            $('#number_error').text(errors.number);                        
+        } else{
+            $('#number_error').text('');
+        }
+        if(errors.propertySubType){
+            $('#propertySubType_error').text(errors.propertySubType); 
+        } else{
+            $('#propertySubType_error').text('');
+        }
+        if(errors.propertyType){
+            $('#propertyType_error').text(errors.propertyType); 
+        } else{
+            $('#propertyType_error').text('');
+        }
+        if(errors.state){
+            $('#state_error').text(errors.state); 
+        } else{
+            $('#state_error').text('');
+        }
+    }
 </script>

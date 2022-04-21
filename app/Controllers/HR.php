@@ -51,8 +51,9 @@ class HR extends Security_Controller
     }
 
     public function all_designation()
-    {
-        return $this->template->rander('HR/all_designation');
+    {   
+        $pageData['roles'] = $this->RoleModel->findAll();        
+        return $this->template->rander('HR/all_designation',$pageData);
     }
 
     public function all_roles()
@@ -138,8 +139,28 @@ class HR extends Security_Controller
      *
      * @return array
      */
+    public function saveDesignation_old()
+    {        
+        // $formData = [
+        //     'title' => xss_clean($this->request->getVar('designationname')),
+        //     'status' => true,
+        //     'created_at' => $this->timestamp,
+        //     'created_by' => $this->userid,
+        // ];
+        // $data = $this->DesignationModel->save($formData);
+
+        // print_r($data);
+        // die();
+        // if ($data) {
+        //     return $this->respond(['message' => 'Successfully Added', 'data' => $data], 201);
+        // } else {
+        //     return $this->respond(['message' => 'Not found', 'data' => $data], 500);
+        // }
+    }
+
     public function saveDesignation()
-    {
+    {        
+        
         $formData = [
             'title' => xss_clean($this->request->getVar('designationname')),
             'status' => true,
@@ -147,7 +168,10 @@ class HR extends Security_Controller
             'created_by' => $this->userid,
         ];
         $data = $this->DesignationModel->save($formData);
-        if ($data) {
+        $id = $this->DesignationModel->getInsertID();
+        // print_r($id);
+        // die();
+        if ($id) {
             return $this->respond(['message' => 'Successfully Added', 'data' => $data], 201);
         } else {
             return $this->respond(['message' => 'Not found', 'data' => $data], 500);

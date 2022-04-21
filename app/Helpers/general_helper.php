@@ -2238,4 +2238,32 @@ if (!function_exists('getPossessionTitle')) {
 }
 
 
+if (!function_exists('getMenuId')) {
+
+    function getMenuId($name = null)
+    {
+        $ci = new AppController();
+        $data = $ci->Modules->where(['mod_name' => $name])->find();
+        if ($data)
+            return $data[0]['mod_id'];
+        else
+            return false;
+    }
+}
+
+
+if (!function_exists('getSubMenuId')) {
+
+    function getSubMenuId($name = null)
+    {
+        $ci = new AppController();
+        $data = $ci->SubModules->where(['sm_name' => $name])->find();
+        if ($data)
+            return $data[0]['sm_id'];
+        else
+            return false;
+    }
+}
+
+
 

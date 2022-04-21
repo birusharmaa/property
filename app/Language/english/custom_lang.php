@@ -190,7 +190,7 @@ $lang["gallery"] = "Gallery";
 
 
 
-
+$lang["Add Roles & Permissions"] = "Add Designations";
 
 
 //$lang["dashboard"] = "Dashboard";

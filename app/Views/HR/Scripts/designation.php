@@ -1,4 +1,9 @@
-<script script>
+<script>
+    // $(document).ready(function() { 
+    //     $(".custommenu").select2();
+    // });
+
+
     const DrawTable = (obj) => {
         var table = $('#designation').DataTable();
         let data = [];
@@ -40,6 +45,51 @@
          * Event is used to assign the property to user
          */
         $(document).on('submit', '#designationForm', function(e) {
+
+            //     e.preventDefault();
+
+            //     let url = "<?= base_url('api/hr/designation/save'); ?>";
+            //     let formData = $(this).serialize();
+            //     if ($('#rowid').length) {
+            //         url = "<?= base_url('api/hr/designation/update'); ?>";
+            //     }
+
+            //     if (formData) {
+            //         $.ajax({
+            //             url: url,
+            //             type: 'POST',
+            //             data: formData,
+            //             beforeSend: function() {},
+            //             success: function(res) {
+
+            //                 Swal.fire({
+            //                     icon: 'success',
+            //                     text: res.message,
+            //                     showConfirmButton: false,
+            //                     timer: 1500
+            //                 })
+            //                 loadTableData();
+            //             },
+            //             error: function(res, data) {
+
+            //                 Swal.fire({
+            //                     icon: 'info',
+            //                     title: 'Oops...',
+            //                     text: res.responseJSON.message,
+            //                     showConfirmButton: false,
+            //                     timer: 1500
+            //                 })
+            //                 loadTableData();
+            //             }
+            //         });
+
+            //     }
+
+        });
+
+        
+        
+         $(document).on('submit', '#designationFormRoles', function(e) {
             e.preventDefault();
 
             let url = "<?= base_url('api/hr/designation/save'); ?>";
@@ -172,4 +222,37 @@
             $('#designationForm').trigger("reset");
         });
     })
+
+    $(document).ready(function(){
+       
+        $('#modulescheckbox').click(function(){
+            if($(this).prop("checked") == true){                         
+                $('#modulemenu').removeClass('d-none');
+            }
+            else if($(this).prop("checked") == false){                
+                $('#modulemenu').addClass('d-none');
+            }
+        });
+    });
+
+    function getCheckValue(value){
+        
+        if(document.getElementById("checkboxMainMenu"+value).checked == true){
+          
+            let submenu_display = 'submenu'+value;
+            $('.'+submenu_display).removeClass('d-none');
+            $(".custommenu").select2();
+        }else{
+            var count = $('#SubMenuCount'+value).val();
+            // for (let i=1; i<=count; i++){
+            //     document.getElementById("sub_menu"+value+i).checked = false;                
+            // }
+            let submenu_display = 'submenu'+value;
+            $('.'+submenu_display).addClass('d-none');
+        }
+
+      
+    }
+    
+
 </script>

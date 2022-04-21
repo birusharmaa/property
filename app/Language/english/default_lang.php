@@ -2102,4 +2102,8 @@ $lang["time"] = "Time";
 $lang["actions"] = "Actions";
 $lang["action"] = "Action";
 
+# new additions
+
+$lang["Add Roles & Permissions"] = "Add Designations";
+
 return $lang;
