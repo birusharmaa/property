@@ -101,6 +101,8 @@ helper('general');
                         if (!$is_preview) {
                             $sidebar_menu = get_active_menu($sidebar_menu);
                         }
+                        
+                        
                         $mainMenu=1;
                         foreach ($sidebar_menu as $main_menu) :?>    
                             
@@ -118,29 +120,56 @@ helper('general');
                             <?php if (isset($main_menu["name"])) :
                                 $submenu = get_array_value($main_menu, "submenu"); ?> 
                                 <?php $submenus_id=1;   if($submenu): $count=0; foreach ($submenu as $sub) :?>
+                                   
                                     <div class="row d-none submenu<?= $mainMenu?>">
                                         <div class="col-md-3">
                                             <div class="form-check sub_menus">
-                                                <input class="form-check-input" name="sub_menu[]" type="checkbox" value="<?= $sub["name"];?>" id="sub_menu<?= $mainMenu?><?= $submenus_id?>">
+                                                <input class="form-check-input" name="sub_menu[]" type="checkbox" value="<?php echo getSubMenuId($sub["name"]);?>" id="sub_menu<?= $mainMenu?><?= $submenus_id?>">
                                                 <label class="form-check-label" for="sub_menu<?= $mainMenu?><?= $submenus_id?>">
                                                     <?= $sub["name"];?>
                                                 </label>                                                                                           
                                                 <!-- <input type="hidden" value="<?php // echo getSubMenuId($sub["name"]);?>" name="SubMainMenu_<?php // echo $main_menu["name"]?>" id="SubMainMenu_<?php // echo $main_menu["name"]?>"> -->
                                             </div>
                                         </div>
-                                        <div class="col-md-9">     
-                                        <div class="row">                                  
-                                            <?php if($roles): foreach($roles as $roleId):?>                                              
-                                                <div class="col-sm-2">
-                                                    <div class="form-check sub_menus">
-                                                        <input class="form-check-input" name="roles_<?= $mainMenu?>.'_'.<?= $submenus_id?>[]" type="checkbox" value="<?= $roleId['r_id']; ?>" id="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
-                                                        <label class="form-check-label" for="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
-                                                            <?php echo $roleId['name']; ?>
-                                                        </label>
+                                        <div class="col-md-9">  
+                                        <?php  $subsubmenu = get_array_value($sub, "sub_sub_menu"); ?> 
+                                                <?php $subsubmenu_id=1;   if($subsubmenu): $count=0; foreach ($subsubmenu as $subsub) :?> 
+                                                    <div class="row mt-3">
+                                                        <div class="col-md-3">
+                                                            <lable><?= $subsub['name']; ?></lable>
+                                                        </div>
+                                                        <div class="col-md-9">
+                                                            <div class="row">                                  
+                                                                <?php if($roles): foreach($roles as $roleId): ?>                                                                                         
+                                                                    <div class="col-sm-2">
+                                                                        <div class="form-check sub_menus">                                                    
+                                                                            <input class="form-check-input" name="checkedroles[]" type="checkbox" value="<?php echo getMenuId($main_menu["name"]);?>,<?php echo getSubMenuId($subsub["name"]);?>,<?php echo getSubSubMenuId($sub["name"]);?>,<?= $roleId['r_id']; ?>" id="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
+                                                                            <label class="form-check-label" for="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
+                                                                                <?php echo $roleId['name']; ?>
+                                                                            </label>                                                       
+                                                                        </div>
+                                                                    </div>
+                                                                <?php endforeach; endif;?>    
+                                                            </div>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            <?php endforeach; endif;?>    
-                                        </div>                                                                                        
+
+                                                <?php endforeach; else: ?>
+                                                    <div class="row">                                  
+                                                        <?php if($roles): foreach($roles as $roleId): ?>                                                                                         
+                                                            <div class="col-sm-2">
+                                                                <div class="form-check sub_menus">                                                    
+                                                                    <input class="form-check-input" name="checkedroles[]" type="checkbox" value="<?php echo getMenuId($main_menu["name"]);?>,<?php echo getSubMenuId($sub["name"]);?>,<?= $roleId['r_id']; ?>" id="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
+                                                                    <label class="form-check-label" for="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
+                                                                        <?php echo $roleId['name']; ?>
+                                                                    </label>                                                       
+                                                                </div>
+                                                            </div>
+                                                        <?php endforeach; endif;?>    
+                                                    </div>
+
+                                                <?php endif;?>    
+                                                                                                                                    
                                         </div>
                                     </div>   
                                 <?php $submenus_id++; $count++; endforeach;  endif; ?>    

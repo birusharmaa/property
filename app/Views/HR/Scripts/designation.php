@@ -105,7 +105,6 @@
                     data: formData,
                     beforeSend: function() {},
                     success: function(res) {
-
                         Swal.fire({
                             icon: 'success',
                             text: res.message,
@@ -115,14 +114,14 @@
                         loadTableData();
                     },
                     error: function(res, data) {
-
-                        Swal.fire({
-                            icon: 'info',
-                            title: 'Oops...',
-                            text: res.responseJSON.message,
-                            showConfirmButton: false,
-                            timer: 1500
-                        })
+                        console.log(res);
+                        // Swal.fire({
+                        //     icon: 'info',
+                        //     title: 'Oops...',
+                        //     text: res.responseJSON.message,
+                        //     showConfirmButton: false,
+                        //     timer: 1500
+                        // })
                         loadTableData();
                     }
                 });
@@ -241,6 +240,7 @@
           
             let submenu_display = 'submenu'+value;
             $('.'+submenu_display).removeClass('d-none');
+            $('.subsubmenu'+value).removeClass('d-none');
             $(".custommenu").select2();
         }else{
             var count = $('#SubMenuCount'+value).val();
@@ -249,6 +249,7 @@
             // }
             let submenu_display = 'submenu'+value;
             $('.'+submenu_display).addClass('d-none');
+            $('.subsubmenu'+value).addClass('d-none');
         }
 
       

@@ -146,7 +146,8 @@ class AppController extends BaseController
             'TowerModel',
             'Modules',
             'SubModules',
-            'SubSubmodules'
+            'SubSubmodules',
+            'PermissionsModel'
            
 
         ];

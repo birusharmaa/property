@@ -159,8 +159,7 @@ class HR extends Security_Controller
     }
 
     public function saveDesignation()
-    {        
-        
+    {     
         $formData = [
             'title' => xss_clean($this->request->getVar('designationname')),
             'status' => true,
@@ -169,10 +168,29 @@ class HR extends Security_Controller
         ];
         $data = $this->DesignationModel->save($formData);
         $id = $this->DesignationModel->getInsertID();
-        // print_r($id);
-        // die();
-        if ($id) {
-            return $this->respond(['message' => 'Successfully Added', 'data' => $data], 201);
+        if ($id) {    
+            $main_menu = $_POST['main_menu'];
+            $main_menu  = json_encode($main_menu);
+            $sub_menu = $_POST['sub_menu'];
+            $sub_menu  = json_encode($sub_menu);
+            $checkedroles = $_POST['checkedroles'];
+            $checkedroles  = json_encode($checkedroles);   
+            $RolesData = array(
+                'designation_id' => $id,
+                'menu_id' =>  $main_menu,
+                'sub_menu_id' => $sub_menu,                
+                'roles_id' => $checkedroles,
+                'created_at' => $this->timestamp,
+                'created_by' => $this->userid
+            );  
+           
+            $data2 = $this->PermissionsModel->save($RolesData);            
+            $save_id = $this->PermissionsModel->getInsertID();
+            if($save_id){
+                return $this->respond(['message' => 'Successfully Added', 'data' => $data2], 201);
+            }else{
+                return $this->respond(['message' => 'Not found inroles', 'data' => $data2], 500);
+            }            
         } else {
             return $this->respond(['message' => 'Not found', 'data' => $data], 500);
         }

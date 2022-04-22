@@ -2265,5 +2265,19 @@ if (!function_exists('getSubMenuId')) {
     }
 }
 
+if (!function_exists('getSubSubMenuId')) {
+
+    function getSubSubMenuId($name = null)
+    {
+        $ci = new AppController();
+        $data = $ci->SubSubmodules->where(['ssm_name' => $name])->find();
+        if ($data)
+            return $data[0]['ssm_id'];
+        else
+            return false;
+    }
+}
+
+
 
 
