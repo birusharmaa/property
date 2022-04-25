@@ -4,6 +4,8 @@ namespace App\Controllers;
 use App\Libraries\Common;
 use App\Libraries\Employees;
 
+use function PHPUnit\Framework\matches;
+
 class HR extends Security_Controller
 {
     protected $common;
@@ -52,6 +54,7 @@ class HR extends Security_Controller
 
     public function all_designation()
     {   
+        
         $pageData['roles'] = $this->RoleModel->findAll();        
         return $this->template->rander('HR/all_designation',$pageData);
     }
@@ -158,41 +161,83 @@ class HR extends Security_Controller
         // }
     }
 
-    public function saveDesignation()
-    {     
-        $formData = [
-            'title' => xss_clean($this->request->getVar('designationname')),
-            'status' => true,
-            'created_at' => $this->timestamp,
-            'created_by' => $this->userid,
-        ];
-        $data = $this->DesignationModel->save($formData);
-        $id = $this->DesignationModel->getInsertID();
-        if ($id) {    
-            $main_menu = $_POST['main_menu'];
-            $main_menu  = json_encode($main_menu);
-            $sub_menu = $_POST['sub_menu'];
-            $sub_menu  = json_encode($sub_menu);
-            $checkedroles = $_POST['checkedroles'];
-            $checkedroles  = json_encode($checkedroles);   
-            $RolesData = array(
-                'designation_id' => $id,
-                'menu_id' =>  $main_menu,
-                'sub_menu_id' => $sub_menu,                
-                'roles_id' => $checkedroles,
+    public function saveDesignation(){   
+        $validation =  \Config\Services::validation();
+        $validation->setRules([
+            'designationName' => ['label' => 'designation name', 'rules' => 'required'],
+            'subMenu' => ['label' => 'menu', 'rules' => 'required'],
+            'menu'  => ['label' => 'sub menu', 'rules' => 'required'],
+        ]);
+        if($validation->withRequest($this->request)->run()){
+            $formData = [
+                'title' => xss_clean($this->request->getVar('designationname')),
+                'status' => true,
                 'created_at' => $this->timestamp,
-                'created_by' => $this->userid
-            );  
+                'created_by' => $this->userid,
+            ];
+            // $data = $this->DesignationModel->save($formData);
+            // $id = $this->DesignationModel->getInsertID();
+            $designation_name = $this->request->getVar('designationName');
+            $menu        = $this->request->getVar('menu');
+            //$sub_menu         = $this->request->getVar('subMenu');
+            //$checkedroles     = $this->request->getVar('checkedroles');
+
+            // $final_menu = [];
+            // $menu = [];
+            // foreach($main_menu as $key=>$value){
+            //     foreach($value as $v){
+            //         $int = (int) filter_var($v, FILTER_SANITIZE_NUMBER_INT);
+            //         array_push($final_menu, $int);
+            //     }
+            //     if (($key = array_search(0, $final_menu)) !== false) {
+            //         unset($final_menu[$key]);
+            //     }
+
+            //     foreach($value as $v){
+            //         $menu_str = preg_replace('/[0-9]+/', '', $v);
+            //         array_push($menu, $menu_str);
+            //     }
+            // }
+
            
-            $data2 = $this->PermissionsModel->save($RolesData);            
-            $save_id = $this->PermissionsModel->getInsertID();
-            if($save_id){
-                return $this->respond(['message' => 'Successfully Added', 'data' => $data2], 201);
-            }else{
-                return $this->respond(['message' => 'Not found inroles', 'data' => $data2], 500);
-            }            
-        } else {
-            return $this->respond(['message' => 'Not found', 'data' => $data], 500);
+            print_r($menu);
+
+            echo "\n\n";
+
+
+
+
+            $id=false;
+            if ($id) {    
+                $main_menu = $_POST['main_menu'];
+                $main_menu  = json_encode($main_menu);
+                $sub_menu = $_POST['sub_menu'];
+                $sub_menu  = json_encode($sub_menu);
+                $checkedroles = $_POST['checkedroles'];
+                $checkedroles  = json_encode($checkedroles);   
+                $RolesData = array(
+                    'designation_id' => $id,
+                    'menu_id' =>  $main_menu,
+                    'sub_menu_id' => $sub_menu,                
+                    'roles_id' => $checkedroles,
+                    'created_at' => $this->timestamp,
+                    'created_by' => $this->userid
+                );  
+            
+                $data2 = $this->PermissionsModel->save($RolesData);            
+                $save_id = $this->PermissionsModel->getInsertID();
+                if($save_id){
+                    return $this->respond(['message' => 'Successfully Added', 'data' => $data2], 201);
+                }else{
+                    return $this->respond(['message' => 'Not found inroles', 'data' => $data2], 500);
+                }            
+            } else {
+                return $this->respond(['message' => 'Not found', 'data' => $data], 500);
+            }
+        }else{
+            $errors = $validation->getErrors();
+            return $this->fail($errors, 400); 
+
         }
     }
 

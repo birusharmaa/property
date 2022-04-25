@@ -89,15 +89,113 @@
 
         
         
-         $(document).on('submit', '#designationFormRoles', function(e) {
+        $(document).on('submit', '#designationFormRoles', function(e) {
             e.preventDefault();
+            $(".validation").remove();
+
+            var menu = [];
+            var submenu = [];
+            // var k =1;
+            // var l = 1;
+            // $(".custom-menu-class").each(function(i, v) {
+            //     // console.log(i);
+            //     const check = $(this).find('input:checked');
+            //     k++;
+            //     // console.log(check);
+            //     // if(check.checked)
+            //     // if(check){
+            //     //     var modId = $(this).val();
+            //     //     $(".sub-menu-class-custom").each(function(j) {
+            //     //         const check2 = $(this).find('input:checked');
+            //     //         if(check2){
+            //     //             // console.log(this.checked);
+            //     //             submenu.push({'id':$(this).val(), 'role_id':3});
+            //     //         }
+            //     //         l++;
+            //     //     })
+            //     //     menu.push({'module_id':modId, 'full_access':false, 'submodule':submenu});
+            //     // }
+            // });
+            // console.log(menu);
+            // console.log(k);
+            // console.log(l);
+            // console.log(submenu);
+            
+            
+            // $(".custom-menu-class").each(function(i) {
+            //     const check = $(this).find('input:checked');
+            //     console.log(check);
+            //     if(check){
+            //         menu.push($(this).val());
+            //     }
+            // });
+            // $(".sub-menu-class-custom input[type=checkbox]").each(function(j) {
+            //     if((this.checked)){
+            //         submenu.push($(this).val());
+            //     }
+            // })
+            // console.log(menu);
+            // console.log(submenu);
+
+            // var menu = [];
+            // $('.custom-menu-class input[type=checkbox]').each(function () {
+            //     if(this.checked){
+            //         menu.push({'moduleId':$(this).val(), 'moduleName':$(this).data('name') });
+            //     }
+            // });
+
+            // var subMenu = [];
+            // $('.sub-menu-class-custom input[type=checkbox]').each(function () {
+            //     if(this.checked){
+            //         subMenu.push({'subMenuId':$(this).val(), 'subMenuName':$(this).data('name') });
+            //     }
+            // });
+            
+            // var designationName = $("#designationname").val();
+            // let formData = {
+            //     designationName: designationName,
+            //     subMenu        : subMenu,
+            //     menu           : menu
+            // };
+
+            var menu = [];
+            
+            $('.custom-menu-class input[type=checkbox]').each(function () {
+                if(this.checked){
+                    var subMenu = [];
+                    var id = $(this).val();
+                    $('.sub-menu-class-custom input[type=checkbox]').each(function () {
+                        if(this.checked){
+                            var subMenuId = $(this).val();
+                            if($(this).data('menuid')==id){
+                                var radioName = "checkedroles"+subMenuId;
+                                var radio = $('input[name='+radioName+']:checked').val();
+                                if(!radio){
+                                    radio = '1';
+                                }
+                                var check = {'id':subMenuId, 'role_id':radio };
+                                subMenu.push(check);
+                            }
+                        }
+                    });
+                    menu.push({'moduleId':id, 'full_access':false, 'role_id':4, 'submodule':subMenu });
+                }
+            });
+            console.log(menu);
+            return false;
+            
+            var designationName = $("#designationname").val();
+            let formData = {
+                designationName: designationName,
+                menu           : menu
+            };
+
 
             let url = "<?= base_url('api/hr/designation/save'); ?>";
-            let formData = $(this).serialize();
+            //let formData = $(this).serialize();
             if ($('#rowid').length) {
                 url = "<?= base_url('api/hr/designation/update'); ?>";
             }
-
             if (formData) {
                 $.ajax({
                     url: url,
@@ -114,7 +212,12 @@
                         loadTableData();
                     },
                     error: function(res, data) {
-                        console.log(res);
+                        if(res.responseJSON.messages.main_menu){
+                            $("#designationname").parent().append('<p class="mb-0"><span class="text-danger validation">'+res.responseJSON.messages.main_menu+'</p></span>')
+                        }
+                        if(res.responseJSON.messages.sub_menu){
+                            $("#designationname").parent().append('<p class="mb-0"><span class="text-danger validation">'+res.responseJSON.messages.sub_menu+'</p></span>')
+                        }
                         // Swal.fire({
                         //     icon: 'info',
                         //     title: 'Oops...',
@@ -125,7 +228,6 @@
                         loadTableData();
                     }
                 });
-
             }
         });
 
@@ -223,7 +325,6 @@
     })
 
     $(document).ready(function(){
-       
         $('#modulescheckbox').click(function(){
             if($(this).prop("checked") == true){                         
                 $('#modulemenu').removeClass('d-none');
@@ -251,9 +352,14 @@
             $('.'+submenu_display).addClass('d-none');
             $('.subsubmenu'+value).addClass('d-none');
         }
-
-      
     }
+
+    var myModalEl = document.getElementById('designationmodal2')
+    myModalEl.addEventListener('hidden.bs.modal', function (event) {
+        location.reload();
+        //$('#designationFormRoles').find(':input').val('').prop('checked', false).prop('selected', false);
+    })
+    
     
 
 </script>

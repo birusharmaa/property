@@ -35,7 +35,7 @@ class Database extends Config
         'hostname' => 'localhost',
         'username' => 'root',
         'password' => '',
-        'database' => 'thewings_vishalproperty',
+        'database' => 'thewings_vishalproperty_new',
         'DBDriver' => 'MySQLi',
         'DBPrefix' => '',
         'pConnect' => false,
