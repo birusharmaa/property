@@ -85,7 +85,7 @@ helper('general');
                     <!-- Name input -->
                     <div class="form-outline mb-4">
                         <label class="form-label fw-bold" for="designationname">Designation Name</label>
-                        <input type="text" value="ss" name="designationname" id="designationname" class="form-control form-control1" required />
+                        <input type="text" name="designationname" id="designationname" class="form-control form-control1" required />
                     </div>
                     <?php // print_r($roles);?>
                         <div class="form-check">
@@ -125,7 +125,7 @@ helper('general');
                                         <div class="row d-none submenu<?= $mainMenu?>">
                                             <div class="col-md-3">
                                                 <div class="form-check sub-menu-class-custom sub_menus">
-                                                    <input class="form-check-input" data-menuId="<?php echo getMenuId($main_menu["name"]);?>" name="sub_menu[]" type="checkbox" value="<?php echo getSubMenuId($sub["name"]);?>" id="sub_menu<?= $mainMenu?><?= $submenus_id?>">
+                                                    <input class="form-check-input" data-submadulenamej="<?= $sub["name"];?>" data-menuid="<?php echo getMenuId($main_menu["name"]);?>" name="sub_menu[]" type="checkbox" value="<?php echo getSubMenuId($sub["name"]);?>" id="sub_menu<?= $mainMenu?><?= $submenus_id?>">
                                                     <label class="form-check-label" for="sub_menu<?= $mainMenu?><?= $submenus_id?>">
                                                         <?= $sub["name"];?>
                                                     </label>                                                                                           
@@ -133,19 +133,19 @@ helper('general');
                                                 </div>
                                             </div>
                                             <div class="col-md-9">  
-                                            <?php  $subsubmenu = get_array_value($sub, "sub_sub_menu"); ?> 
+                                            <?php $subsubmenu = get_array_value($sub, "sub_sub_menu"); ?> 
                                                     <?php $subsubmenu_id=1;   if($subsubmenu): $count=0; foreach ($subsubmenu as $subsub) :?> 
                                                         <div class="row">
-                                                            <div class="col-md-3 p-0">
-                                                                <input class="form-check-input" data-ssmid="<?= getSubSubMenuId($subsub["name"]);?>" name="subSubChecked<?= getSubSubMenuId($subsub["name"]);?>" type="checkbox" value="<?= $subsub['ssm_id']; ?>" id="roles<?= $roleId['ssm_id']; ?>">  
+                                                            <div class="col-md-3 sub-sub-menu-class p-0">
+                                                                <input class="form-check-input" data-ssmid="<?php echo getSubMenuId($sub["name"]);?>" name="subSubChecked<?= getSubSubMenuId($subsub["name"]);?>" type="checkbox" value="<?= getSubSubMenuId($subsub["name"])?>" >  
                                                                 <lable><?= $subsub['name']; ?></lable>
                                                             </div>
                                                             <div class="col-md-9 p-0">
                                                                 <div class="row">                                  
                                                                     <?php if($roles): foreach($roles as $roleId): ?>                                                                                         
                                                                         <div class="col-sm-3 p-0">
-                                                                            <div class="form-check sub-sub-menu-class sub_menus">                                                    
-                                                                                <input class="form-check-input" data-name="<?= $main_menu["name"];?>" name="checkedroles<?php echo getMenuId($main_menu["name"]); echo "_".getSubSubMenuId($subsub["name"]);?>" type="radio" value="<?php echo getMenuId($main_menu["name"]);?>,<?php echo getSubMenuId($subsub["name"]);?>,<?php echo getSubSubMenuId($sub["name"]);?>,<?= $roleId['r_id']; ?>" id="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
+                                                                            <div class="form-check sub_menus">                                                    
+                                                                                <input class="form-check-input" data-name="<?= $main_menu["name"];?>" name="checkedroles<?php echo "_".getSubSubMenuId($subsub["name"]);?>" type="radio" value="<?= $roleId['r_id']; ?>" id="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
                                                                                 <label class="form-check-label" for="roles<?= $mainMenu?><?= $submenus_id?><?= $roleId['r_id']; ?>">
                                                                                     <?php echo $roleId['name']; ?>
                                                                                 </label>                                                       

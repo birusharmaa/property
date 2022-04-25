@@ -9,8 +9,7 @@ class Employees extends Security_Controller
 {
     protected $Emplib;
 
-    function __construct()
-    {
+    function __construct(){
         $this->Emplib = new EMPLIB();
     }
 

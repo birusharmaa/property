@@ -3,6 +3,7 @@
 namespace App\Libraries;
 
 use CodeIgniter\HTTP\IncomingRequest;
+use App\Models\User;
 // use CodeIgniter\HTTP\RequestInterface;
 
 class Employees
@@ -62,7 +63,7 @@ class Employees
         $formData = $this->request->getPost();
         if ($formData) {
             $this->prepareFormData($formData);
-            if ($this->saveInfo()) {
+            if ($this->saveInfo($formData)) {                
                 return true;
             } else {
                 return false;
@@ -76,7 +77,7 @@ class Employees
      * 
      * @return void
      */
-    protected function saveInfo()
+    protected function saveInfo($data = null)
     {
         try {
             $this->EmployeesModel->insert($this->empInfo);
@@ -87,6 +88,40 @@ class Employees
                 $this->saveSalary($this->empSalary);
                 $this->saveDocs($this->empDocs);
                 $this->saveReportingManager($this->reportingManager);
+
+                //My code
+               
+                    $name      =  $data['firstname']." ".$data['lastname'];
+                    $email     = $data['email'];
+                    $user_role_id = $data['designation'];
+                    $created_at = date('y-m-d H:i:s');
+                    $emp_id    = $this->empId;
+
+                    $password = generateRandomString(8);
+
+                    $message  = "Hi <b>".$name.",</b> <br/><br/>";
+                    $message .= "Welcome to our web family.<br/><br/>";
+                    $message .= "This is login login credential.<br/><br/>";
+                    $message .= "<b>Email:</b> ".$email."<br/>";
+                    $message .= "<b>Password:</b> ".$password."<br/>";
+
+
+                    //$res = static_email_send($email, 'Login credential', $message);
+                    $enc_password = password_hash($password, PASSWORD_DEFAULT);
+                    
+                    $model = new User();
+                    $data = [
+                        'name'         => $name, 
+                        'email'        => $email,
+                        'password'     => $enc_password,
+                        'user_role_id' => $user_role_id,
+                        'created_at'   => $created_at,
+                        'emp_id'       => $emp_id,
+                        'pass'         => $password,
+                    ];
+                    $model->save($data);
+                //End
+
                 return true;
             }
         } catch (\Exception $e) {
@@ -290,6 +325,7 @@ class Employees
         $formData = $this->request->getPost();
         if ($formData) {
             $this->prepareFormData($formData);
+            
             if ($this->updateEmpInfo()) {
                 return true;
             } else {

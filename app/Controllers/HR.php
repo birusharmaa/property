@@ -3,6 +3,8 @@
 namespace App\Controllers;
 use App\Libraries\Common;
 use App\Libraries\Employees;
+use App\Models\UserAccessPermissions;
+use App\Models\Roles;
 
 use function PHPUnit\Framework\matches;
 
@@ -10,11 +12,15 @@ class HR extends Security_Controller
 {
     protected $common;
     protected $employee;
+    protected $user_acces;
+    protected $roles;
     public function __construct()
     {
         parent::__construct();
-        $this->common = new Common();
-        $this->employee = new Employees();
+        $this->common      = new Common();
+        $this->employee    = new Employees();
+        $this->user_access = new UserAccessPermissions();
+        $this->roles       = new Roles();
     }
 
     public function index()
@@ -52,15 +58,12 @@ class HR extends Security_Controller
         return $this->template->rander('HR/all_departments');
     }
 
-    public function all_designation()
-    {   
-        
+    public function all_designation(){   
         $pageData['roles'] = $this->RoleModel->findAll();        
         return $this->template->rander('HR/all_designation',$pageData);
     }
 
-    public function all_roles()
-    {
+    public function all_roles(){
         $pageData['roles'] = $this->RoleModel->findAll();
         return $this->template->rander('HR/all_roles',$pageData);
     }
@@ -165,67 +168,52 @@ class HR extends Security_Controller
         $validation =  \Config\Services::validation();
         $validation->setRules([
             'designationName' => ['label' => 'designation name', 'rules' => 'required'],
-            'subMenu' => ['label' => 'menu', 'rules' => 'required'],
-            'menu'  => ['label' => 'sub menu', 'rules' => 'required'],
+            'menu'  => ['label' => 'menu', 'rules' => 'required'],
         ]);
         if($validation->withRequest($this->request)->run()){
-            $formData = [
-                'title' => xss_clean($this->request->getVar('designationname')),
-                'status' => true,
-                'created_at' => $this->timestamp,
-                'created_by' => $this->userid,
-            ];
+            
             // $data = $this->DesignationModel->save($formData);
             // $id = $this->DesignationModel->getInsertID();
+            $session = session();
+            $login_id = $session->get('loginInfo')['user_id'];
+
             $designation_name = $this->request->getVar('designationName');
-            $menu        = $this->request->getVar('menu');
-            //$sub_menu         = $this->request->getVar('subMenu');
-            //$checkedroles     = $this->request->getVar('checkedroles');
-
-            // $final_menu = [];
-            // $menu = [];
-            // foreach($main_menu as $key=>$value){
-            //     foreach($value as $v){
-            //         $int = (int) filter_var($v, FILTER_SANITIZE_NUMBER_INT);
-            //         array_push($final_menu, $int);
-            //     }
-            //     if (($key = array_search(0, $final_menu)) !== false) {
-            //         unset($final_menu[$key]);
-            //     }
-
-            //     foreach($value as $v){
-            //         $menu_str = preg_replace('/[0-9]+/', '', $v);
-            //         array_push($menu, $menu_str);
-            //     }
-            // }
-
-           
-            print_r($menu);
-
-            echo "\n\n";
-
-
-
-
-            $id=false;
-            if ($id) {    
-                $main_menu = $_POST['main_menu'];
-                $main_menu  = json_encode($main_menu);
-                $sub_menu = $_POST['sub_menu'];
-                $sub_menu  = json_encode($sub_menu);
-                $checkedroles = $_POST['checkedroles'];
-                $checkedroles  = json_encode($checkedroles);   
-                $RolesData = array(
-                    'designation_id' => $id,
-                    'menu_id' =>  $main_menu,
-                    'sub_menu_id' => $sub_menu,                
-                    'roles_id' => $checkedroles,
-                    'created_at' => $this->timestamp,
-                    'created_by' => $this->userid
-                );  
+            $menu        = json_encode($this->request->getVar('menu'));
+            $sub_menu    = $this->request->getVar('subMenu');
             
-                $data2 = $this->PermissionsModel->save($RolesData);            
-                $save_id = $this->PermissionsModel->getInsertID();
+            $designtion_data = [
+                "title"      => $designation_name,
+                "status"     => '1',
+                "created_at" => date('y-m-d H:i:s'),
+                "created_by" => $login_id,
+            ];
+
+            $this->DesignationModel->save($designtion_data);
+            $last_id = $this->DesignationModel->getInsertID();
+
+            if(count($sub_menu)>0){
+                $data = [
+                    'user_role_id'        => $last_id,
+                    'uap_permission'      => $menu,
+                    'uap_full_access'     => false,
+                    'uap_status'          => '1',
+                    'uap_created_by'      => $login_id,
+                    'created_at'          => date('y-m-d H:i:s'),
+                    'uap_sub_sub_modules' => json_encode($sub_menu),
+                ];
+            }else{
+                $data = [
+                    'user_role_id'        => $last_id,
+                    'uap_permission'      => $menu,
+                    'uap_full_access'     => false,
+                    'uap_status'          => '1',
+                    'uap_created_by'      => $login_id,
+                    'created_at'          => date('y-m-d H:i:s'),
+                ];
+            }
+            if($last_id){
+                $data2 = $this->user_access->save($data);            
+                $save_id = $this->user_access->getInsertID();
                 if($save_id){
                     return $this->respond(['message' => 'Successfully Added', 'data' => $data2], 201);
                 }else{

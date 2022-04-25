@@ -322,7 +322,7 @@
                                         </div>
                                     </section>
                                     <h3>Bank Details</h3>
-                                    <section>
+                                    <section> 
                                         <div class="row gx-4">
                                             <div class="col-md-3">
                                                 <label for="bank-name" class="form-label">Bank Name</label>

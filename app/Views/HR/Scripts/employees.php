@@ -159,9 +159,9 @@
                             icon: status,
                             text: data.message,
                         })
-                        setTimeout(()=>{
-                            window.location.href="<?= base_url('all-employees')?>";
-                        },1000)
+                        // setTimeout(()=>{
+                        //     window.location.href="<?= base_url('all-employees')?>";
+                        // },1000)
                     },
                     error: function(jqxhr, status) {
                         let res = JSON.parse(jqxhr.responseText);

@@ -159,11 +159,11 @@
             // };
 
             var menu = [];
-            
             $('.custom-menu-class input[type=checkbox]').each(function () {
                 if(this.checked){
                     var subMenu = [];
                     var id = $(this).val();
+                    var check = true;
                     $('.sub-menu-class-custom input[type=checkbox]').each(function () {
                         if(this.checked){
                             var subMenuId = $(this).val();
@@ -173,23 +173,50 @@
                                 if(!radio){
                                     radio = '1';
                                 }
-                                var check = {'id':subMenuId, 'role_id':radio };
+                                check = {'id':subMenuId, 'role_id':radio };
                                 subMenu.push(check);
+                                check = false;
                             }
                         }
                     });
-                    menu.push({'moduleId':id, 'full_access':false, 'role_id':4, 'submodule':subMenu });
+                    menu.push({'module_id':id, 'full_access':check, 'role_id':1, 'submodule':subMenu });
                 }
             });
-            console.log(menu);
-            return false;
+
+            var subMenu = [];
+            $('.sub-menu-class-custom input[type=checkbox]').each(function () {
+                if(this.checked){
+                    var subSubMenu = [];
+                    var subId = $(this).val();
+                    var subName = $(this).data('submadulenamej');
+                    var check = "";
+                    $('.sub-sub-menu-class input[type=checkbox]').each(function () {
+                        if(this.checked){
+                            
+                            var subSubMenuId = $(this).val();
+                            if($(this).data('ssmid')==subId){
+                                var radioName = "checkedroles_"+subSubMenuId;
+                                var radio = $('input[name='+radioName+']:checked').val();
+                                if(!radio){
+                                    radio = '1';
+                                }
+                                check = {'id':subSubMenuId, 'role_id':radio };
+                                subSubMenu.push(check);
+                            }
+                        }
+                    });
+                    if(check){
+                        subMenu.push({'submodule_id':subId, 'role_id':4, 'sub_mod_name':subName, 'sub_submodule':subSubMenu });
+                    }
+                }
+            });
             
             var designationName = $("#designationname").val();
             let formData = {
                 designationName: designationName,
-                menu           : menu
+                menu           : menu,
+                subMenu        : subMenu
             };
-
 
             let url = "<?= base_url('api/hr/designation/save'); ?>";
             //let formData = $(this).serialize();
@@ -212,11 +239,11 @@
                         loadTableData();
                     },
                     error: function(res, data) {
-                        if(res.responseJSON.messages.main_menu){
+                        if(res.responseJSON.messages.designationname){
                             $("#designationname").parent().append('<p class="mb-0"><span class="text-danger validation">'+res.responseJSON.messages.main_menu+'</p></span>')
                         }
-                        if(res.responseJSON.messages.sub_menu){
-                            $("#designationname").parent().append('<p class="mb-0"><span class="text-danger validation">'+res.responseJSON.messages.sub_menu+'</p></span>')
+                        if(res.responseJSON.messages.menu){
+                            $("#designationname").parent().append('<p class="mb-0"><span class="text-danger validation">'+res.responseJSON.messages.menu+'</p></span>')
                         }
                         // Swal.fire({
                         //     icon: 'info',
@@ -299,7 +326,6 @@
                             loadTableData();
                         },
                         error: function(res, data) {
-
                             Swal.fire({
                                 icon: 'info',
                                 title: 'Oops...',
@@ -314,7 +340,6 @@
                 }
             })
         });
-
 
         $('#btnAddDesignation').on('click', function(e) {
             e.preventDefault();

@@ -11,7 +11,7 @@ class User extends Model
     protected $primaryKey           = 'id';
     protected $useAutoIncrement     = true;
     protected $protectFields        = true;
-    protected $allowedFields        = ['name', 'email', 'password', 'user_role_id', 'user_role_id', 'updated_at', 'created_at'];
+    protected $allowedFields        = ['emp_id', 'pass', 'name', 'email', 'password', 'user_role_id', 'updated_at', 'created_at'];
 
     // Dates
     protected $useTimestamps        = false;
