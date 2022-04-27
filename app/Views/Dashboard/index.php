@@ -4,6 +4,16 @@
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center py-2">
                     <ol class="breadcrumb rounded-0 mb-0 ps-0 bg-transparent flex-grow-1">
+                        <li>
+                            <div class="text text-danger">
+                                <?php
+                                    $session = session();
+                                    echo "<pre>";
+                                    print_r($session->getFlashdata());
+                                ?>
+                            </div>
+                        
+                        </li>
                         <li class="breadcrumb-item">
                             <a href="<?= base_url(); ?>/dashboard">Home</a>
                         </li>

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 use CodeIgniter\RESTful\ResourceController;
 use CodeIgniter\API\ResponseTrait;
+use App\Libraries\Access;
 
 class Security_Controller extends AppController {
 
@@ -20,6 +21,7 @@ class Security_Controller extends AppController {
         parent::__construct();
         //check user's login status, if not logged in redirect to signin page
         $login_user_id = $this->User->login_user_id();
+        
         if (!$login_user_id && $redirect) {
             $uri_string = uri_string();
 
@@ -29,7 +31,17 @@ class Security_Controller extends AppController {
                 return view('login');
             }
         }
+        $page_access = new Access();
 
+        if($login_user_id !="1"){
+            if(!$page_access->check_user_access_page($login_user_id, $_SERVER['REQUEST_URI'])){
+                echo view('404');
+                exit;
+            }
+        }
+        $res = $page_access->check_user_access_page_type($login_user_id, $_SERVER['REQUEST_URI']);
+
+        
         app_hooks()->do_action('app_hook_before_app_access', array(
             "login_user_id" => $login_user_id,
             "redirect" => $redirect

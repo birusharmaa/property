@@ -392,6 +392,9 @@ class Left_menu
                 }
             }
         }
+        // echo "<pre>";
+        // print_r($sidebar_menu);
+        // exit;
         return $sidebar_menu;
     }
 

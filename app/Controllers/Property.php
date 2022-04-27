@@ -31,7 +31,6 @@ class Property extends Security_Controller
      */
     public function index()
     {
-
         $pageData['propertyList'] =   $this->property->getPropertyInfo(10, 0);
         return $this->template->rander("Property/index", $pageData);
     }
@@ -43,6 +42,16 @@ class Property extends Security_Controller
      */
     public function property_detail($propId = null)
     {
+        $session = session();
+        if($session->has('action_type')){
+            $action_type = $session->get('action_type');
+        }
+        
+        if(!check_action_type('d')){
+            $session->setFlashdata('error-access', 'Access Denied!');
+            return redirect()->back();
+        }
+
         $pageData =   $this->property->getPropertyDetails(base64_decode($propId));
         return $this->template->rander('Property/property_detail', $pageData);
     }

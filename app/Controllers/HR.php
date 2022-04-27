@@ -15,8 +15,7 @@ class HR extends Security_Controller
     protected $employee;
     protected $user_acces;
     protected $roles;
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
         $this->common      = new Common();
         $this->employee    = new Employees();
