@@ -38,7 +38,9 @@ class AppController extends BaseController
         $this->User = new User();
 
         $login_user_id   = $this->User->login_user_id();
+        
         $login_user_type = $this->User->get_user_type($login_user_id);
+       
         if ($login_user_type) {
             $session->set('login_type', $login_user_type->type);
         }

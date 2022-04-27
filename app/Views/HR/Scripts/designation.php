@@ -20,7 +20,8 @@
         }
         table.destroy();
         $('#designation').DataTable({
-            data: data
+            data: data,
+            order: [[ 0, "desc" ]]
         });
     }
 
@@ -221,6 +222,13 @@
             let url = "<?= base_url('api/hr/designation/save'); ?>";
             //let formData = $(this).serialize();
             if ($('#rowid').length) {
+                formData = "";
+                formData = {
+                    designationName: designationName,
+                    menu           : menu,
+                    subMenu        : subMenu,
+                    rowid          : $("#rowid").val()
+                };
                 url = "<?= base_url('api/hr/designation/update'); ?>";
             }
             if (formData) {
@@ -230,6 +238,7 @@
                     data: formData,
                     beforeSend: function() {},
                     success: function(res) {
+                        $('#designationmodal2').modal('hide');
                         Swal.fire({
                             icon: 'success',
                             text: res.message,
@@ -262,23 +271,86 @@
          * Event is used to update assiged data
          */
         $(document).on('click', '.edit', function(e) {
-            e.preventDefault();
+            e.preventDefault(); 
             let id = $(this).attr('data-id');
             let url = '<?= base_url('api/hr/designation/show') ?>' + '/' + id;
             $.ajax({
                 url: url,
                 type: 'get',
-                success: function(res) {
-                    res = res.data[0];
+                success: function(response) {
+                    let res = response.data.designation[0];
+                    let user_access_module = response.data.user_access;
                     if (res) {
                         let rowId = `<input type='hidden' id='rowid' value=${res.id} name='rowid'>`;
                         $(`#designationname`).val(res.title);
                         $(`#btnSubmit`).text('Update');
                         $(`#designationmdl2`).text('Update Designation');
 
-                        $('#designationForm').append(rowId);
+                        $('#designationFormRoles').append(rowId);
+                    }
+                    let menuModule = JSON.parse(user_access_module[0].uap_permission);
+                    let subSubModule  = JSON.parse(user_access_module[0].uap_sub_sub_modules);
+                    // console.log(menuModule);
+                    // console.log(subSubModule);
+
+                    if(menuModule){
+                        $("#modulescheckbox").prop("checked", true);
+                        $("#modulemenu").removeClass("d-none");
+                        //console.log(menuModule);
+                        menuModule.map(( value,index )=> (
+                            //console.log(value.module_id)
+                            $('.custom-menu-class input[type=checkbox]').each(function () {
+                                var id = $(this).val();
+                                if(id==value.module_id){
+                                    $(this).prop("checked", true);
+                                    let ls = "submenu"+(parseInt(value.module_id)+1);
+                                    $("."+ls).removeClass("d-none");
+                                }
+                            })
+                        ))
                     }
 
+                    menuModule.map(( value,index )=> {
+                        if(value.submodule){
+                            value.submodule.map(( v,index )=> (
+                                $('.sub-menu-class-custom input[type=checkbox]').each(function () {
+                                    var id = $(this).val();
+                                    if(id==v.id){
+                                        $(this).prop("checked", true);
+                                        var rName = "checkedroles"+v.id;
+                                        $('input:radio[name='+rName+']').each(function(){
+                                            if($(this).val()==v.role_id){
+                                                $(this).attr('checked', true);
+                                            }
+                                        });
+                                    }
+                                })
+                            ))
+                        }
+                    })
+
+                    if(subSubModule){
+                        for(var i = 0; i<subSubModule.length; i++){
+                            let subSub = subSubModule[i].sub_submodule;
+                            if(subSub){
+                                subSub.map(( value,index )=> (
+                                    $('.sub-sub-menu-class input[type=checkbox]').each(function () {
+                                        var id = $(this).val();
+                                        if(id==value.id){
+                                            $(this).prop("checked", true);
+                                            var rName = "checkedroles_"+value.id;
+                                            $('input:radio[name='+rName+']').each(function(){
+                                                if($(this).val()==value.role_id){
+                                                    $(this).attr('checked', true);
+                                                }
+                                            });
+                                        }
+                                    })
+                                    
+                                ))
+                            }
+                        }
+                    }
                     $('#designationmodal2').modal('show');
                 },
                 error: function(res, data) {

@@ -8,7 +8,7 @@ class UserAccessPermissions extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'user_access_permissions';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'uap_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';

@@ -4,6 +4,8 @@ namespace App\Libraries;
 
 use CodeIgniter\HTTP\IncomingRequest;
 use App\Models\User;
+use App\Models\UserAccessPermissions;
+
 // use CodeIgniter\HTTP\RequestInterface;
 
 class Employees
@@ -91,9 +93,11 @@ class Employees
 
                 //My code
                
-                    $name      =  $data['firstname']." ".$data['lastname'];
-                    $email     = $data['email'];
-                    $user_role_id = $data['designation'];
+                    $name         = $data['firstname']." ".$data['lastname'];
+                    $email        = $data['email'];
+                    $user_role_id = $data['role'];
+                    $designation  = $data['designation'];
+                    
                     $created_at = date('y-m-d H:i:s');
                     $emp_id    = $this->empId;
 
@@ -119,9 +123,37 @@ class Employees
                         'emp_id'       => $emp_id,
                         'pass'         => $password,
                     ];
-                    $model->save($data);
+                    
+                    $abc = $model->save($data);
+                    
+                    $last_id = $model->getInsertID();
+                    $session = session();
+                    $this->user_access = new UserAccessPermissions();
+                    if(!empty($last_id)){
+                        $user_role = $this->user_access->where('user_role_id', $designation)->first();
+                        if(empty($user_role['uap_user_id'])){
+                            $new_data = [
+                                "uap_user_id"        => $last_id,
+                                "updated_at"         => date("y-m-d H:i:s"),
+                                "uap_update_by"      => $session->loginInfo['user_id'],
+                            ];
+                            $this->user_access->update($user_role['uap_id'], $new_data);
+                        }else{
+                            $new_data = [
+                                "uap_user_id"        => $last_id,
+                                "user_role_id"       => $user_role['user_role_id'],
+                                "uap_permission"     => $user_role['uap_permission'],
+                                "uap_full_access"    => $user_role['uap_full_access'],
+                                "uap_status"         => $user_role['uap_status'],
+                                "uap_sub_sub_modules"=> $user_role['uap_sub_sub_modules'],
+                                "created_at"         => date("y-m-d H:i:s"),
+                                "uap_created_by"     => $session->loginInfo['user_id'],
+                            ];
+                            $this->user_access->save($new_data);
+                        }
+                        
+                    }
                 //End
-
                 return true;
             }
         } catch (\Exception $e) {
@@ -323,7 +355,9 @@ class Employees
     public function updateEmployee($id = null)
     {
         $formData = $this->request->getPost();
+        
         if ($formData) {
+            
             $this->prepareFormData($formData);
             
             if ($this->updateEmpInfo()) {

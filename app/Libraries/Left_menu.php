@@ -97,17 +97,11 @@ class Left_menu
         return $s_menu;
     }
 
-    private function _get_left_menu_from_setting_for_rander($is_preview = false, $type = "default")
-    {
-
+    private function _get_left_menu_from_setting_for_rander($is_preview = false, $type = "default"){
 
         $user_left_menu = get_setting("user_" . $this->ci->login_user->id . "_left_menu");
-
-
         $default_left_menu = ($type == "default" || $this->ci->login_user->type == "Admin" || $this->ci->login_user->type == "Super Admin") ? get_setting("default_dealer_left_menu") : get_setting("default_left_menu");
-
         $custom_left_menu = "";
-
         //for preview, show the edit type preview
         if ($is_preview) {
             $custom_left_menu = $default_left_menu; //default preview
@@ -116,10 +110,9 @@ class Left_menu
             }
         } else {
             $custom_left_menu = $user_left_menu ? $user_left_menu : $default_left_menu; //page rander
-
         }
-
         return $custom_left_menu ? json_decode(json_encode(@unserialize($custom_left_menu)), true) : array();
+        
     }
 
     private function _get_left_menu_from_setting($type)
@@ -198,14 +191,13 @@ class Left_menu
         return $items;
     }
 
-    function rander_left_menu($is_preview = false, $type = "default")
-    {
+    function rander_left_menu($is_preview = false, $type = "default"){
 
         $final_left_menu_items = array();
         $custom_left_menu_items = $this->_get_left_menu_from_setting_for_rander($is_preview, $type);
-
-        if ($custom_left_menu_items) {
-
+       
+        if($custom_left_menu_items){
+            
             $left_menu_items = $this->_prepare_sidebar_menu_items($type);
             $last_final_menu_item = ""; //store the last menu item of final left menu to add submenu to this item
             foreach ($custom_left_menu_items as $custom_left_menu_item) {
@@ -222,11 +214,14 @@ class Left_menu
                 }
             }
         }
-        if (count($final_left_menu_items)) {
+        if (count($final_left_menu_items)) {           
             $view_data["sidebar_menu"] = $final_left_menu_items;
         } else {
             $view_data["sidebar_menu"] = $this->_get_sidebar_menu_items($type);
         }
+        // echo "<pre>";
+        // print_r($view_data);
+        // exit;
 
         $view_data["is_preview"] = $is_preview;
         $view_data["login_user"] = $this->ci->login_user;
@@ -262,28 +257,27 @@ class Left_menu
         $sidebar_menu = ["dashboard" => $dashboard_menu];
 
         if ($this->ci->login_user) {
-
-
+           
             if ($this->ci->login_user->access_right) {
-
                 $sidebar_menu = $this->getMenusListByPermission($this->ci->login_user->access_right);
             }
-
-            if ($this->ci->login_user->type == "Admin" || $this->ci->login_user->type == "Super Admin") {
-
+            //if ($this->ci->login_user->type == "Admin" || $this->ci->login_user->type == "Super Admin") {
+            if ($this->ci->login_user->type == "Super Admin") {
                 $sidebar_menu = $this->getDefaultAdminMenus();
+            }else{
+                $sidebar_menu = $this->getCustomMenu($this->ci->login_user->id);
             }
         } else {
-
             $sidebar_menu = app_hooks()->apply_filters('app_filter_client_left_menu', $sidebar_menu);
         }
-
+        
         return $this->position_items_for_default_left_menu($sidebar_menu);
     }
 
     //position items for plugins
     private function position_items_for_default_left_menu($sidebar_menu = [])
     {
+        
         foreach ($sidebar_menu as $key => $menu) {
             $position = get_array_value($menu, "position");
             if ($position) {
@@ -293,6 +287,7 @@ class Left_menu
                     array_slice($sidebar_menu, $position, NULL, true);
             }
         }
+        
         return $sidebar_menu;
     }
 
@@ -454,5 +449,113 @@ class Left_menu
             $submenu[] = $menuItem;
         }
         return $submenu;
+    }
+
+
+    public function getCustomMenu($id = null){        
+        
+        $dashboard_menu = ["name" => "dashboard", "url" => "dashboard", "class" => "uil-dashboard"];
+        $sidebar_menu = array("dashboard" => $dashboard_menu);
+        $access =  json_decode($this->ci->login_user->access_right);
+        $access_ss_modules =  json_decode($this->ci->login_user->uap_sub_sub_modules);
+
+        $moduleObj = new Modules();
+        $subModuleObj = new SubModules();
+        $sub_sub_module_obj = new SubSubmodules();
+        $i = 0;
+        $a = 0;
+        foreach ($access as $key => $val) {
+            
+            if ($val->full_access!="false") {
+                $submenu = [];
+                $module =  $moduleObj->where(['mod_status' => 1, 'mod_id' => $val->module_id])
+                    ->first();
+                $menuName = ["name" => $module['mod_name'], "url" => $module['mod_url'], "class" => $module['mod_class']];
+                $subModule = $subModuleObj->where(['sm_status' => 1, 'sm_mod_id' => $val->module_id])
+                    ->findAll();
+                if($subModule){
+                    foreach ($subModule as $key => $sval) {
+                        //$submenu[] = $menuItem;
+                        //Making sub sub modules
+                        $sub_sub_menu = [];
+                        if (count($access_ss_modules) > 0) {
+                            foreach ($access_ss_modules as $key => $ssm_val) {
+                                if ($ssm_val->sub_mod_name == $sval['sm_name']) {
+                                    $sub_submodule = $ssm_val->sub_submodule;
+                                    $final_sub_sub_mod = json_decode($sub_submodule);
+                                    foreach ($final_sub_sub_mod as $key => $ssm_value) {
+                                        $sub_sub_id = $ssm_value->id;
+                                        //sub_sub_module_obj
+                                        $sub_menu_item = $sub_sub_module_obj->where(['ssm_status' => 1, 'ssm_id' => $sub_sub_id])->first();
+
+                                        $sub_menu_items = ["name" => $sub_menu_item['ssm_name'], "url" => $sub_menu_item['ssm_url'], "class" => $sub_menu_item['ssm_class']];
+
+                                        $sub_sub_menu[] = $sub_menu_items;
+                                    }
+                                }
+                            }
+                        }
+                        $menuItem = [
+                            "name" => $sval['sm_name'], "url" => $sval['sm_url'], "class" => $sval['sm_class'],
+                            'sub_sub_menu' => $sub_sub_menu
+                        ];
+                        $submenu[] = $menuItem;
+                    }
+                }
+                $menuName['submenu'] = $submenu;
+                $sidebar_menu[$module['mod_name']] = $menuName;
+                
+            } else {
+                $submenu = [];
+
+                $module =  $moduleObj->where(['mod_status' => 1, 'mod_id' => $val->module_id])
+                    ->first();
+
+                $menuName = ["name" => $module['mod_name'], "url" => $module['mod_url'], "class" => $module['mod_class']];
+                if ($val->submodule) {
+                    foreach ($val->submodule as $key => $sval) {
+                        $sub = [];
+                       
+                        $menuItem = $subModuleObj->where(['sm_status' => 1, 'sm_mod_id' => $val->module_id, 'sm_id' => $sval->id])
+                            ->first();
+                        $sub = $menuItem;
+                        
+                        $sub_sub_menu = [];
+                        if (count($access_ss_modules) > 0) {                            
+                            foreach ($access_ss_modules as $key => $ssm_val) {
+                                
+                                if ($ssm_val->sub_mod_name == $sub['sm_name']) {
+                                    $sub_submodule = $ssm_val->sub_submodule;
+                                    //$final_sub_sub_mod = json_decode($sub_submodule);
+                                    $final_sub_sub_mod = $sub_submodule;
+
+                                    foreach ($final_sub_sub_mod as $key => $ssm_value) {
+                                        $sub_sub_id = $ssm_value->id;
+
+                                        //sub_sub_module_obj
+                                        $sub_menu_item = $sub_sub_module_obj->where(['ssm_status' => 1, 'ssm_id' => $sub_sub_id])->first();
+
+                                        $sub_menu_items = ["name" => $sub_menu_item['ssm_name'], "url" => $sub_menu_item['ssm_url'], "class" => $sub_menu_item['ssm_class']];
+
+                                        $sub_sub_menu[] = $sub_menu_items;
+                                    }
+                                    
+                                }
+                            }
+                        }
+                        
+                        $menuItem = [
+                            "name" => $sub['sm_name'], "url" => $sub['sm_url'], "class" => $sub['sm_class'],
+                            'sub_sub_menu' => $sub_sub_menu
+                        ];
+                        $submenu[] = $menuItem;
+                    }
+                }
+                
+                $menuName['submenu'] = $submenu;
+                $sidebar_menu[$module['mod_name']] = $menuName;
+            }
+        }
+        return $sidebar_menu;
     }
 }

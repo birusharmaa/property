@@ -300,6 +300,20 @@
                                                     endif ?>
                                                 </select>
                                             </div>
+                                            <div class="col-md-3">
+                                                <label class="form-label">Role</label>
+                                                <select class="form-select form-control1" name="role" aria-label="Default select example">
+                                                    <option>Select</option>
+                                                    <?php if (!empty($roles)) : ?>
+                                                        <?php foreach ($roles as $key => $item) :
+                                                            // $id = isset($employee->emp_designation) ? $employee->emp_designation : '';
+                                                            // $selected = $item->id == $id ? 'selected' : '';
+                                                        ?>
+                                                            <option value="<?= $item['r_id'] ?>"><?= $item['name'] ?></option>
+                                                    <?php endforeach;
+                                                    endif ?>
+                                                </select>
+                                            </div>
 
                                             <div class="col-md-3">
                                                 <label for="worklocation" class="form-label">Work

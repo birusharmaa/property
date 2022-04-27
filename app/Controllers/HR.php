@@ -5,6 +5,7 @@ use App\Libraries\Common;
 use App\Libraries\Employees;
 use App\Models\UserAccessPermissions;
 use App\Models\Roles;
+use App\Models\RoleModel;
 
 use function PHPUnit\Framework\matches;
 
@@ -20,7 +21,7 @@ class HR extends Security_Controller
         $this->common      = new Common();
         $this->employee    = new Employees();
         $this->user_access = new UserAccessPermissions();
-        $this->roles       = new Roles();
+        $this->role_model      = new RoleModel();
     }
 
     public function index()
@@ -36,6 +37,7 @@ class HR extends Security_Controller
         $pageData['departments'] = $this->DepartmentModel->where(['status' => true])->findAll();
         $pageData['designations'] = $this->DesignationModel->where(['status' => true])->findAll();
         $pageData['superwisers'] = $this->DesignationModel->where(['status' => true])->findAll();
+        $pageData['roles'] = $this->role_model->where(['status' => true])->findAll();
         return $this->template->rander('HR/add_employees',$pageData);
     }
 
@@ -110,8 +112,10 @@ class HR extends Security_Controller
      * @return array
      */
     public function showDesignation($id = null)
-    {
-        $data = $this->DesignationModel->where(['status' => true, 'id' => $id])->findAll();
+    {   
+        
+        $data['designation'] = $this->DesignationModel->where(['status' => true, 'id' => $id])->findAll();
+        $data['user_access'] = $this->user_access->where(['uap_status' => true, 'user_role_id' => $id])->findAll(1);
         if ($data) {
             return $this->respond(['message' => 'Success', 'data' => $data], 200);
         } else {
@@ -127,16 +131,67 @@ class HR extends Security_Controller
     public function updateDesignation()
     {
         $id = $this->request->getVar('rowid');
-        $formData = [
-            'title' => xss_clean($this->request->getVar('designationname')),
-            'update_at' => $this->timestamp,
-            'created_by' => $this->userid,
-        ];
-        $data = $this->DesignationModel->update($id, $formData);
-        if ($data) {
-            return $this->respond(['message' => 'Successfully updated', 'data' => $data], 202);
-        } else {
-            return $this->respond(['message' => 'Not found', 'data' => false], 404);
+        if(!empty($id)){
+            $session = session();
+            $login_id = $session->get('loginInfo')['user_id'];
+
+            $designation_name = $this->request->getVar('designationName');
+            $menu        = json_encode($this->request->getVar('menu'));
+            $sub_menu    = $this->request->getVar('subMenu');
+
+            $designtion_data = [
+                "title"      => $designation_name,
+                "status"     => '1',
+                "updated_at" => date('y-m-d H:i:s'),
+                "updated_by" => $login_id,
+            ];
+
+            $this->DesignationModel->update($id, $designtion_data);
+
+            if(count($sub_menu)>0){
+                $data = [
+                    'user_role_id'        => $id,
+                    'uap_permission'      => $menu,
+                    'uap_full_access'     => false,
+                    'uap_status'          => '1',
+                    'uap_update_by'      => $login_id,
+                    'updated_at'          => date('y-m-d H:i:s'),
+                    'uap_sub_sub_modules' => json_encode($sub_menu),
+                ];
+            }else{
+                $data = [
+                    'user_role_id'        => $id,
+                    'uap_permission'      => $menu,
+                    'uap_full_access'     => false,
+                    'uap_status'          => '1',
+                    'uap_update_by'      => $login_id,
+                    'updated_at'          => date('y-m-d H:i:s'),
+                ];
+            }
+            if($id){
+                $this->user_access->select('uap_id');
+                $user = $this->user_access->where(['user_role_id'=>$id])->findAll();
+                $final_role_id = [];
+                if(count($user)>1){
+                    for($i=0; $i<count($user); $i++){
+                        array_push($final_role_id, $user[$i]['uap_id']);
+                    }
+                    $data2 = $this->user_access->update($final_role_id, $data);  
+                }else{
+                    $role_id = $user[0]['uap_id'];
+                    $data2 = $this->user_access->update($role_id, $data);  
+                }
+               
+                if($id){
+                    return $this->respond(['message' => 'Record updated successfully.', 'data' => $data2], 201);
+                }else{
+                    return $this->respond(['message' => 'Not found inroles', 'data' => $data2], 500);
+                }            
+            } else {
+                return $this->respond(['message' => 'Not found', 'data' => $data], 500);
+            }
+        }else{
+            return $this->respond(['message' => 'Not found', 'data' => '' ], 500);
         }
     }
 
@@ -270,6 +325,7 @@ class HR extends Security_Controller
     public function showDepartment($id = null)
     {
         $data = $this->DepartmentModel->where(['status' => true, 'id' => $id])->findAll();
+        
         if ($data) {
             return $this->respond(['message' => 'Success', 'data' => $data], 200);
         } else {
