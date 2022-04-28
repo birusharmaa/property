@@ -1,8 +1,10 @@
 <?php  
     $session = session(); 
+    
     $session->read_action_type=="No"?$read_action="disabled":$read_action="";
     $session->update_action_type=="No"?$update_action="disabled":$update_action="";
     $session->delete_action_type=="No"?$delete_action="disabled":$delete_action="";
+    
 ?>
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
@@ -71,7 +73,7 @@
                                                         <?php endif; ?>
                                                     </td>
                                                     <td>
-                                                        <a href="<?= base_url('property-detail/') . '/' . base64_encode($item->id) ?>" class="<?= $read_action;?>">
+                                                        <a href="<?= base_url('property-detail/') . '/' . base64_encode($item->id) ?>" class="<?= $update_action;?>">
                                                             <i class="fa fa-eye view-details text-white me-1 text-center rounded"></i>
                                                         </a>
                                                         <!-- <a href="<?= base_url('edit-property-detail/') .'/'. base64_encode($item->id) ?>" >

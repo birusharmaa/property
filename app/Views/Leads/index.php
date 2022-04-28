@@ -167,10 +167,10 @@ function getAllLeads(data){
             var finalDate =day+"-"+month+"-"+year;
 
             if (first == 0) { first = e.id; }
-            let action = `<a class="edit-allow-b" href="<?=base_url();?>/show-lead/${e.id}">`+
+            let action = `<a class="edit edit-allow-b" href="<?=base_url();?>/show-lead/${e.id}">`+
                         `<i class="fa fa-eye view-details text-white me-1 text-center rounded"></i>`+
                                     `</a>`+
-                        ` &nbsp&nbsp<a class="edit-allow-b" href="javascript:void(0)" onclick="deleteLead(${e.id},  '${e.first_name+" "+e.last_name}')" >`+
+                        ` &nbsp&nbsp<a class="delete delete-allow-b" href="javascript:void(0)" onclick="deleteLead(${e.id},  '${e.first_name+" "+e.last_name}')" >`+
                             `<i class="fas fa-trash delete-details text-white bg-danger text-center rounded"></i>`+
                         `</a>`;
             let row = [e.id, e.first_name+" "+e.last_name, e.email, e.phone, 'Source', e.user_name, finalDate, action];
@@ -372,13 +372,13 @@ function closeModal(){
     $('#leadModelImport').modal('hide');
 }
 
-const hideActionbtn = () => {
-    if($("#createActionType").val()=="Yes"){
-        $(".edit-allow-b").addClass("disabled");
-    }
-    if($("#createActionType").val()=="Yes"){
-        $(".delete-allow-b").addClass("disabled");
-    }
-}
+// const hideActionbtn = () => {
+//     if($("#createActionType").val()=="Yes"){
+//         $(".edit-allow-b").addClass("disabled");
+//     }
+//     if($("#createActionType").val()=="Yes"){
+//         $(".delete-allow-b").addClass("disabled");
+//     }
+// }
 </script>
     

@@ -105,6 +105,7 @@ $routes->get('/logout', 'Login::logout');
 
 $routes->group('api', function ($routes) {
     $routes->group('property', function ($routes) {
+        
         $routes->post('save', 'Property::save');
         $routes->post('update', 'Property::update');
         $routes->post('uploadimages', 'Property::uploadImages');

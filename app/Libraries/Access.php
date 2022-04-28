@@ -25,7 +25,7 @@ class Access{
     
 
     public function check_user_access_page($id=null, $url=null){
-        return true;
+        //return true;
         if(!empty($id) && !empty($url)){
             $user           = $this->model->get_access_info($id);
             $access_right   = $user->access_right;
@@ -104,7 +104,11 @@ class Access{
             $arr_roles   = unserialize($data);
             $final_roles = str_split($arr_roles[0]);
             $session = session();
-            
+            $session->set('create_action_type', "No");
+            $session->set('read_action_type', "No");
+            $session->set('update_action_type', "No");
+            $session->set('delete_action_type', "No");
+
             for($i=0; $i<count($final_roles); $i++){
                 if($final_roles[$i]=="c"){
                     $final_roles[$i]=="c"?$session->set('create_action_type', "Yes"):$session->set('create_action_type', "No");

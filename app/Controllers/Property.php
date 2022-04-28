@@ -291,13 +291,14 @@ class Property extends Security_Controller
     {
         $limit = 10;
         $offset = 1;
-
         $res = $this->property->getAssignPropertyList($limit, $offset);
     }
 
     public function getAssignedAllList()
     {
+        
         $res = $this->PropertyUserRelationModel->getAssignedAllList();
+        
         if ($res) {
             return $this->respond(['data' => $res], 200);
         } else {

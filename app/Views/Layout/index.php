@@ -12,14 +12,20 @@
 <body>
 <?php  
     $session = session(); 
-    $session->create_action_type=="Yes"?$create_action="disabled":$create_action="";
-    $session->read_action_type=="Yes"?$read_action="disabled":$read_action="";
-    $session->update_action_type=="Yes"?$update_action="disabled":$update_action="";
-    $session->delete_action_type=="Yes"?$delete_action="disabled":$delete_action="";
+            // echo $session->get('create_action_type')."<br>";
+            // echo $session->get('read_action_type')."<br>";
+            // echo $session->get('update_action_type')."<br>";
+            // echo $session->get('delete_action_type')."<br>";
+            // exit;
+
+    $session->create_action_type=="No"?$create_action="disabled":$create_action="";
+    $session->read_action_type=="No"?$read_action="disabled":$read_action="";
+    $session->update_action_type=="No"?$update_action="disabled":$update_action="";
+    $session->delete_action_type=="No"?$delete_action="disabled":$delete_action="";
 ?>
 <input type="hidden" id="createActionType" value="<?= $create_action=="disabled"?"Yes":"No";?>" />
-<input type="hidden" id="readActionType" value="<?= $update_action=="disabled"?"Yes":"No";?>" />
-<input type="hidden" id="updateActionType" value="<?= $delete_action=="disabled"?"Yes":"No";?>" />
+<input type="hidden" id="readActionType" value="<?= $read_action=="disabled"?"Yes":"No";?>" />
+<input type="hidden" id="updateActionType" value="<?= $update_action=="disabled"?"Yes":"No";?>" />
 <input type="hidden" id="deleteActionType" value="<?= $delete_action=="disabled"?"Yes":"No";?>" />
 <input type="hidden" id="addButtonHide" value="<?php echo $create_action=="disabled"?"Yes":"No"; ?>"/>
 
