@@ -42,6 +42,7 @@ class Property extends Security_Controller
      */
     public function property_detail($propId = null)
     {
+       
         if($this->session->has('action_type')){
             $action_type = $this->session->get('action_type');
         }

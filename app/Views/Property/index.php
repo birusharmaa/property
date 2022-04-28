@@ -73,7 +73,7 @@
                                                         <?php endif; ?>
                                                     </td>
                                                     <td>
-                                                        <a href="<?= base_url('property-detail/') . '/' . base64_encode($item->id) ?>" class="<?= $update_action;?>">
+                                                        <a href="<?= base_url('property-detail/') . '/' . base64_encode($item->id) ?>" class="<?= $read_action;?>">
                                                             <i class="fa fa-eye view-details text-white me-1 text-center rounded"></i>
                                                         </a>
                                                         <!-- <a href="<?= base_url('edit-property-detail/') .'/'. base64_encode($item->id) ?>" >

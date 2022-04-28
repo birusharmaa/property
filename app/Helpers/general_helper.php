@@ -2358,6 +2358,7 @@ if (!function_exists('check_action_type')) {
         if($session->has('action_type')){
             $action_type = $session->get('action_type');
         }
+   
         if (in_array($type, $action_type)){
             return true;
         }

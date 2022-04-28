@@ -23,11 +23,11 @@
     $session->update_action_type=="No"?$update_action="disabled":$update_action="";
     $session->delete_action_type=="No"?$delete_action="disabled":$delete_action="";
 ?>
-<input type="hidden" id="createActionType" value="<?= $create_action=="disabled"?"Yes":"No";?>" />
-<input type="hidden" id="readActionType" value="<?= $read_action=="disabled"?"Yes":"No";?>" />
-<input type="hidden" id="updateActionType" value="<?= $update_action=="disabled"?"Yes":"No";?>" />
-<input type="hidden" id="deleteActionType" value="<?= $delete_action=="disabled"?"Yes":"No";?>" />
-<input type="hidden" id="addButtonHide" value="<?php echo $create_action=="disabled"?"Yes":"No"; ?>"/>
+<input type="hidden" id="createActionType" value="<?= $create_action=="disabled"?"No":"Yes";?>" />
+<input type="hidden" id="readActionType" value="<?= $read_action=="disabled"?"No":"Yes";?>" />
+<input type="hidden" id="updateActionType" value="<?= $update_action=="disabled"?"No":"Yes";?>" />
+<input type="hidden" id="deleteActionType" value="<?= $delete_action=="disabled"?"No":"Yes";?>" />
+<input type="hidden" id="addButtonHide" value="<?php echo $create_action=="disabled"?"No":"Yes"; ?>"/>
 
 
     <div id="layout-p" class="theme-navy">

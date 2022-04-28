@@ -3,7 +3,7 @@
      * This function is used to property images into the db.
      */
     $(document).ready(function(){
-        if($("#addButtonHide").val()=="Yes"){
+        if($("#addButtonHide").val()=="No"){
             setTimeout(function(){
                 let afsdf = $(document).find("a[href='#next']").parent('li').addClass('disabled');
             },2000)

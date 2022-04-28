@@ -27,6 +27,43 @@ class Access{
     public function check_user_access_page($id=null, $url=null){
         //return true;
         if(!empty($id) && !empty($url)){
+
+            $this->module->select('mod_url');
+            $all_module_url = $this->module->findAll();
+
+            $this->sub_module->select('sm_url');
+            $all_sub_module_url = $this->sub_module->findAll();
+
+            $this->sub_sub_module->select('ssm_url');
+            $all_sub_sub_module_url = $this->sub_sub_module->findAll();
+            $final_all_module_url = [];;
+            if(count($all_module_url)>0){
+                foreach($all_module_url as $value){
+                    if(!empty($value['mod_url'])){
+                        $final_all_module_url[] = $value['mod_url'];
+                    }
+                }
+            }
+            
+
+            if(count($all_sub_module_url)>0){
+                foreach($all_sub_module_url as $value){
+                    if(!empty($value['sm_url'])){
+                        $final_all_module_url[] = $value['sm_url'];
+                    }
+                }
+            }
+           
+
+            if(count($all_sub_sub_module_url)>0){
+                foreach($all_sub_sub_module_url as $value){
+                    if(!empty($value['ssm_url'])){
+                        $final_all_module_url[] = $value['ssm_url'];
+                    }
+                }
+            }
+            
+            
             $user           = $this->model->get_access_info($id);
             $access_right   = $user->access_right;
             $access_right   = json_decode($access_right);
@@ -82,10 +119,19 @@ class Access{
                 $allow_url = array_unique($allow_url);
                 $allow_url = array_values($allow_url);
                 $url = str_replace("/","", $url);
-                
+                $res = false;
                 if (in_array($url, $allow_url)){
-                    return true;
+                    $res = true;
+                }               
+
+                if (!in_array($url, $final_all_module_url) ){
+                    $res = true;
                 }
+                if($res){
+                    return $res;
+                }
+                //echo $url."<br/>";
+                
                 return false;
             }
             return false;
@@ -113,6 +159,7 @@ class Access{
                 if($final_roles[$i]=="c"){
                     $final_roles[$i]=="c"?$session->set('create_action_type', "Yes"):$session->set('create_action_type', "No");
                 }
+
                 if($final_roles[$i]=="r"){
                     $final_roles[$i]=="r"?$session->set('read_action_type', "Yes"):$session->set('create_action_type', "No");
                 }
@@ -120,10 +167,17 @@ class Access{
                 if($final_roles[$i]=="u"){
                     $final_roles[$i]=="u"?$session->set('update_action_type', "Yes"):$session->set('update_action_type', "No");
                 }
+
                 if($final_roles[$i]=="d"){
                     $final_roles[$i]=="d"?$session->set('delete_action_type', "Yes"):$session->set('delete_action_type', "No");
                 }
             }
+            // echo $session->get('create_action_type');
+            // echo $session->get('read_action_type');
+            // echo $session->get('update_action_type');
+            // echo $session->get('delete_action_type');
+            
+            // exit;
             
             $session->set('action_type', $final_roles);
             return true;

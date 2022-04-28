@@ -32,14 +32,17 @@ class Security_Controller extends AppController {
             }
         }
         $page_access = new Access();
+        if($this->session->has('action_type')){
+            $action_type = $this->session->get('action_type');
+        }
+       
+        if($this->session->loginInfo['user_role_type'] !="Super Admin"){
+            if(!$page_access->check_user_access_page($login_user_id, $_SERVER['REQUEST_URI'])){               
+                echo view('404');
+                exit;
+            }
+        }
 
-        // if($login_user_id !="1"){
-        //     if(!$page_access->check_user_access_page($login_user_id, $_SERVER['REQUEST_URI'])){
-        //         echo view('404');
-        //         exit;
-        //     }
-        // }
-        
         $res = $page_access->check_user_access_page_type($login_user_id, $_SERVER['REQUEST_URI']);
 
         

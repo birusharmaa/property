@@ -57,7 +57,8 @@ class User extends Model
         if (!$user_id) {
             $user_id = 0;
         }
-        if($user_id=='1'){
+        $session = \Config\Services::session();
+        if($session->loginInfo['user_role_type'] =="Super Admin"){
             $builder = $this->db->table('users');
             $builder->select('users.id, users.name,users.email,
             users.user_role_id,user_roles.type, user_roles.role_permission, user_access_permissions.uap_permission as access_right, user_access_permissions.uap_full_access, user_access_permissions.uap_sub_sub_modules');

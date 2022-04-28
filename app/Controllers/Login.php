@@ -58,7 +58,11 @@ class Login extends AppController
                 ]);
             } else {
                 $model = new User();
-                $user = $model->where('email', $email)->first();
+                $model->select('*');
+                $model->select('user_roles.name as user_role_type');
+                $model->join('user_roles','user_roles.r_id=users.user_role_id', 'left');
+                $user = $model->where('users.email', $email)->first();
+                
                 //Check email is exists or not
                 if (!empty($user)) {
                     //password verify
@@ -71,7 +75,8 @@ class Login extends AppController
                             'user_email' => $user['email'],
                             'user_role_id' => $user['user_role_id'],
                             'emp_id' => $user['emp_id'],
-                            'logged_in' => true
+                            'logged_in' => true,
+                            'user_role_type' => $user['user_role_type']
                         ];
 
                         $this->session->set('loginInfo', $newdata);
