@@ -1,18 +1,24 @@
-
-            <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
-                <div class="container-fluid">
-                    <div class="row pt-2">
-                        <div class="col-12">
-                            <div class="d-flex justify-content-between align-items-center py-2">
-                                <ol class="breadcrumb rounded-0 mb-0 ps-0 bg-transparent flex-grow-1">
-                                    <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">All Properties</li>
-                                </ol>
-                            </div>
-                        </div>
-                    </div>
+<?php  
+    $session = session(); 
+    $session->read_action_type=="No"?$read_action="disabled":$read_action="";
+    $session->update_action_type=="No"?$update_action="disabled":$update_action="";
+    $session->delete_action_type=="No"?$delete_action="disabled":$delete_action="";
+?>
+<div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
+    <div class="container-fluid">
+        <div class="row pt-2">
+            <div class="col-12">
+                <div class="d-flex justify-content-between align-items-center py-2">
+                    <ol class="breadcrumb rounded-0 mb-0 ps-0 bg-transparent flex-grow-1">
+                        <li class="breadcrumb-item"><a href="<?= base_url(); ?>">Home</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">All Properties</li>
+                    </ol>
                 </div>
             </div>
+        </div>
+    </div>
+</div>
+
             <div class="body mb-2 px-xl-4 px-md-2">
                 <div class="container-fluid my-4">
                     <div class="row">
@@ -21,8 +27,19 @@
                             <!-- <div class="red-bg text-center text-white rounded py-2 mb-3">
                                 <h1 class=" fw-bolder">All Properties</h1>
                             </div> -->
+                            
+                            <?php
+                                $session = session();
+                                if($session->getFlashdata('error-name')){
+                                    echo '<div class="alert alert-danger alert-dismissible fade show fw-bold text-dark" role="alert">';
+                                    echo $session->getFlashdata('error-name');
+                                    echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
+                                  echo '</div>';
+                                }
+                            ?>
+                            
 
-                            <div class="card p-4">
+                            <div class="card p-4 <?php echo $session->delete_action_type;?>">
                                 <table id="allProperties" class="table display dataTable table-hover" style="width:100%">
                                     <thead>
                                         <tr class="py-3">
@@ -48,19 +65,19 @@
                                                     </td>
                                                     <td>
                                                         <?php if (($item->isPublished == 1)) : ?>
-                                                            <input id="chkToggle<?= $item->isPublished ?>" class="is-published" data-prop-id="<?= $item->id ?>" data-status='<?= $item->isPublished ?>' checked type="checkbox" data-toggle="toggle" data-on="On" data-off="Off" data-size="sm">
+                                                            <input <?= $update_action;?> id="chkToggle<?= $item->isPublished ?>" class="is-published" data-prop-id="<?= $item->id ?>" data-status='<?= $item->isPublished ?>' checked type="checkbox" data-toggle="toggle" data-on="On" data-off="Off" data-size="sm">
                                                         <?php else : ?>
-                                                            <input id="chkToggle<?= $item->isPublished ?>" class="is-published" data-prop-id="<?= $item->id ?>" data-status='<?= $item->isPublished ?>' type="checkbox" data-toggle="toggle" data-on="On" data-off="Off" data-size="sm">
+                                                            <input <?= $update_action;?> id="chkToggle<?= $item->isPublished ?>" class="is-published" data-prop-id="<?= $item->id ?>" data-status='<?= $item->isPublished ?>' type="checkbox" data-toggle="toggle" data-on="On" data-off="Off" data-size="sm">
                                                         <?php endif; ?>
                                                     </td>
                                                     <td>
-                                                        <a href="<?= base_url('property-detail/') . '/' . base64_encode($item->id) ?>">
+                                                        <a href="<?= base_url('property-detail/') . '/' . base64_encode($item->id) ?>" class="<?= $read_action;?>">
                                                             <i class="fa fa-eye view-details text-white me-1 text-center rounded"></i>
                                                         </a>
-                                                        <!-- <a href="<?= base_url('edit-property-detail/') .'/'. base64_encode($item->id) ?>">
+                                                        <!-- <a href="<?= base_url('edit-property-detail/') .'/'. base64_encode($item->id) ?>" >
                                                             <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i>
                                                         </a> -->
-                                                        <a href="#" class="delete-property" data-prop-id="<?= $item->id ?>">
+                                                        <a href="#" class="delete-property <?= $delete_action;?>" data-prop-id="<?= $item->id ?>" >
                                                             <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i>
                                                         </a>
                                                     </td>
@@ -80,4 +97,4 @@
             </div>
         </div>
     </div>
-    <script src="<?= base_url('/public/assets/js/custom/prop-list.js') ?>"></script>
+    <script src="<?= base_url('/assets/js/custom/prop-list.js') ?>"></script>

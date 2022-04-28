@@ -107,4 +107,18 @@ class User extends Model
             log_message('error', $e->getMessage());
         }
     }
+
+    public function getUserAccessPermission($id= null){
+        if(!empty($id)){
+            $builder = $this->db->table('user_roles');
+            $builder->select('user_roles.role_permission');
+            $builder->join('users', 'user_roles.r_id=users.user_role_id');
+            $builder->where('users.id', $id);
+            $query = $builder->get();
+            return $query->getRowArray();
+        }else{
+            return '0';
+        }
+
+    }
 }

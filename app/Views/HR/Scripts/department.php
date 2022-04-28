@@ -5,7 +5,7 @@
         if (obj.length) {
             obj.forEach((el, i) => {
                 let TeamSize = 0;
-                let action = `<a href="#" class="edit" data-id="${el.id}"> <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i></a> <a href="#" class="delete" data-id="${el.id}"> <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i> </a>`;
+                let action = `<a href="#" class="edit edit-allow-b" data-id="${el.id}"> <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i></a> <a href="#" class="delete delete-allow-b" data-id="${el.id}"> <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i> </a>`;
                 let rowData = [
                     ++i,
                     el.title,
@@ -20,6 +20,7 @@
         $('#departments').DataTable({
             data: data
         });
+        hideActionbtn();
     }
 
     const loadTableData = () => {

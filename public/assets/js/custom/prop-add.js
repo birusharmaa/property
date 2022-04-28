@@ -1,6 +1,7 @@
 /**
- * This function is used to property images into the db.
+ * This function is used to property images into the db. safsafsafasfsaf
  */
+
  const uploadFiles = () => {
     let form_data = new FormData();
     var ins = document.getElementById('propertyImg').files.length;

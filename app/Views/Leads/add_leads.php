@@ -5,6 +5,8 @@ for ($i = 0; $i <= 10; $i++) {
     $option .= "<option value=" . $i . ">" . (($i == 0) ? $i : $j - 5) . '-' . ($j) . "</option>";
     $j = $j + 5;
 }
+$session = session(); 
+$session->create_action_type=="No"?$create_action="disabled":$create_action="";
 ?>
 
 
@@ -234,8 +236,8 @@ for ($i = 0; $i <= 10; $i++) {
                                 </div>                            
                             </div>
                              <div class="text-end mt-3">
-                                 <Button class="btn btn-primary" id="addLeadCont">Save & Continue</Button>
-                                 <Button class="btn btn-primary" id="addLeadSave">Save</Button>
+                                 <Button class="btn btn-primary <?= $create_action;?>" id="addLeadCont">Save & Continue</Button>
+                                 <Button class="btn btn-primary <?= $create_action;?>" id="addLeadSave">Save</Button>
                                  <a href="<?php echo base_url('all-leads')?>" class="btn btn-secondary">Close</a>
                              </div>               
                             
@@ -371,10 +373,11 @@ for ($i = 0; $i <= 10; $i++) {
         $(".price-buyers-range-input7").val("Sq" + $(".price-buyers-range7").slider("values", 0) +
             " - Sq" + $(".price-buyers-range7").slider("values", 1));
     });
-
-     //new addLeadSave
-     $("#addLeadSave").click(function(e) {
+     
+    //new addLeadSave
+    $("#addLeadSave").click(function(e) {
         e.preventDefault();
+
         $(".validation").remove();
         let firstName = "";
         let email = "";

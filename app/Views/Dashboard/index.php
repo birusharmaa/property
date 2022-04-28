@@ -8,8 +8,7 @@
                             <div class="text text-danger">
                                 <?php
                                     $session = session();
-                                    echo "<pre>";
-                                    print_r($session->getFlashdata());
+                                    echo $session->getFlashdata('item');
                                 ?>
                             </div>
                         

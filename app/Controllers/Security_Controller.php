@@ -34,6 +34,7 @@ class Security_Controller extends AppController {
         $page_access = new Access();
 
         if($login_user_id !="1"){
+            
             if(!$page_access->check_user_access_page($login_user_id, $_SERVER['REQUEST_URI'])){
                 echo view('404');
                 exit;

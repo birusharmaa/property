@@ -1,3 +1,7 @@
+<?php  
+    $session = session(); 
+    $session->create_action_type=="No"?$create_action="disabled":$create_action="";    
+?>
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
@@ -8,7 +12,7 @@
                         <li class="breadcrumb-item active" aria-current="page">Allot Properties</li>
                     </ol>
                 </div>
-            </div>
+            </div> 
         </div>
     </div>
 </div>
@@ -20,13 +24,12 @@
                 <!-- <div class="red-bg text-center text-white rounded py-2 mb-3">
                     <h1 class=" fw-bolder">Allot Properties</h1>
                 </div> -->
-
-
+                
                 <div class="card p-4">
                     <div class="text-end mb-3">
                         <!-- <button class="btn red-bg border text-white fw-bold" data-toggle="modal">Allot</button> -->
 
-                        <button type="button" class="btn red-bg fw-bold text-white me-2" data-bs-toggle="modal" data-bs-target="#allotpropertyModal">
+                        <button type="button" class="btn red-bg fw-bold text-white me-2 <?= $create_action;?>" data-bs-toggle="modal" data-bs-target="#allotpropertyModal">
                             Allot
                         </button>
 
@@ -57,10 +60,11 @@
                                         </td>
                                         <td><?= date("d/m/Y", strtotime($item->pur_created_at)); ?></td>
                                         <td>
+                                        
                                             <a href="#" class="edit" data-id="<?= $item->pur_id ?>">
                                                 <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i>
                                             </a>
-                                            <a href="#" class="delete" data-id="<?= $item->pur_id ?>">
+                                            <a href="#" class="delete <?= $delete_action;?>" data-id="<?= $item->pur_id ?>">
                                                 <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i>
                                             </a>
                                         </td>

@@ -51,6 +51,7 @@ $(document).ready(function () {
                     url: url,
                     data: formData,
                     success: function (data, status) {
+                        
                         Swal.fire({
                             icon: status,
                             text: data.message,

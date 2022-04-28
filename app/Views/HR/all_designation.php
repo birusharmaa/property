@@ -6,6 +6,8 @@ if ($session->has('login_type')) {
     $type = $session->get('login_type');
 }
 helper('general');
+$session = session(); 
+$session->create_action_type=="No"?$create_action="disabled":$create_action="";
 
 ?>
 
@@ -34,7 +36,7 @@ helper('general');
                     <div class="card p-4">
                         <table id="designation" class="table display dataTable table-hover" style="width:100%">
                             <div class="align1 pb-2">
-                                <button class="btn btn-primary" id="btnAddDesignation" data-bs-toggle="modal" href="#designationmodal2" >Add Designation</button>
+                                <button class="btn btn-primary <?= $create_action;?>" id="btnAddDesignation" data-bs-toggle="modal" href="#designationmodal2" >Add Designation</button>
                             </div>
                             <thead>
                                 <tr class="py-3">

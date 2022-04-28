@@ -7,7 +7,7 @@ use App\Libraries\Common;
 use CodeIgniter\API\ResponseTrait;
 
 class Property extends Security_Controller
-{
+{ 
     use ResponseTrait;
     protected $property;
     protected $Common;
@@ -42,14 +42,13 @@ class Property extends Security_Controller
      */
     public function property_detail($propId = null)
     {
-        $session = session();
-        if($session->has('action_type')){
-            $action_type = $session->get('action_type');
+        if($this->session->has('action_type')){
+            $action_type = $this->session->get('action_type');
         }
         
-        if(!check_action_type('d')){
-            $session->setFlashdata('error-access', 'Access Denied!');
-            return redirect()->back();
+        if(!check_action_type('r')){
+            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+            return redirect()->route('properties');
         }
 
         $pageData =   $this->property->getPropertyDetails(base64_decode($propId));
@@ -155,6 +154,11 @@ class Property extends Security_Controller
      */
     public function save()
     {
+        if(!check_action_type('c')){
+            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+            return redirect()->route('properties');
+        }
+
         $res = $this->property->saveProperty();
         if ($res) {
             return $this->respondCreated(['message' => 'Property successfully Added.'], 201);
@@ -186,7 +190,12 @@ class Property extends Security_Controller
      * @return void
      */
     public function deleteImage()
-    {
+    {   
+        if(!check_action_type('d')){
+            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+            return redirect()->route('properties');
+        }
+
         try {
             $path =  $this->request->getVar('path');
             $status = unlink("." . $path);
@@ -238,6 +247,11 @@ class Property extends Security_Controller
      */
     public function delete()
     {
+        if(!check_action_type('d')){
+            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+            return redirect()->route('properties');
+        }
+        
         $propId = $this->request->getVar('propId');
         if ($this->property->delete($propId)) {
             return $this->respondCreated(['message' =>  'Property successfully deleted'], 200);
@@ -251,8 +265,13 @@ class Property extends Security_Controller
      *
      * @return mixed
      */
-    public function assignProperty()
-    {
+    public function assignProperty(){
+
+        if(!check_action_type('c')){
+            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+            return redirect()->route('properties');
+        }
+
         $res = $this->property->assignProperty();
         if ($res['isAssigned']) {
             return $this->respondCreated(['data' => $res, 'message' => 'Property successfully assigned'], 200);
@@ -309,6 +328,11 @@ class Property extends Security_Controller
      */
     public function editProperty()
     {
+        if(!check_action_type('u')){
+            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+            return redirect()->route('properties');
+        }
+
         $formData = [
             'pur_prop_id' => xss_clean($this->request->getVar('property')),
             'pur_user_id' => xss_clean($this->request->getVar('user')),
@@ -339,7 +363,11 @@ class Property extends Security_Controller
     public function deleteProperty()
     {
         $id = $this->request->getVar('id');
-
+        if(!check_action_type('d')){
+            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+            return redirect()->route('properties');
+        }
         $data = $this->PropertyUserRelationModel->update($id, ['pur_status' => false]);
         if ($data) {
             return $this->respond(['message' => 'Successfully deleted', 'data' => true], 200);

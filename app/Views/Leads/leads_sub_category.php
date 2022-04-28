@@ -1,4 +1,10 @@
 
+<?php  
+    $session = session(); 
+    $session->create_action_type=="No"?$create_action="disabled":$create_action="";
+    $session->update_action_type=="No"?$update_action="disabled":$update_action="";
+
+?>
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
@@ -25,7 +31,7 @@
                         <table id="subcategory" class="table table-striped display dataTable table-hover"
                             style="width:100%">
                             <div class="align1 pb-2">
-                                <button class="btn btn-primary" data-bs-toggle="modal"
+                                <button class="btn btn-primary <?= $create_action;?>" data-bs-toggle="modal"
                                     href="#categorymodal2" type="submit">Add Sub Category</button>
                             </div>
                             <thead>
@@ -214,16 +220,16 @@ function getAllSubCategory(data){
     if (data) {
         data.forEach(e => {
             if (first == 0) { first = e.id; }
-            let edit =`<a href= "#" class="text-info"  onclick="editSubCategoy(${e.id}, '${e.title}', ${e.category_id})"><i class="fas fa-edit"></i></a>`;
-            let del =`<a href= "#" class="text-danger ml-2"  onclick="deleteSubCategory(${e.id}, '${e.title}')"><i class="fas fa-trash"></i></a>`;
+            let edit =`<a href= "#" class="text-info edit-allow-b" onclick="editSubCategoy(${e.id}, '${e.title}', ${e.category_id})"><i class="fas fa-edit"></i></a>`;
+            let del =`<a href= "#" class="text-danger ml-2 delete-allow-b"  onclick="deleteSubCategory(${e.id}, '${e.title}')"><i class="fas fa-trash"></i></a>`;
             let swith = '';
             if(e.status=='1'){
-                swith = `<div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" `+
+                swith = `<div class="custom-control custom-switch status-allow-b <?= $update_action;?>"><input type="checkbox" class="custom-control-input" `+
                     `onchange="changeSubStatus(${e.id})" checked>`+
                     `<label class="custom-control-label" for="customSwitches">&nbsp&nbspActive</label>`+
                     `</div>`;
             }else{
-                swith = `<div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" `+
+                swith = `<div class="custom-control custom-switch status-allow-b <?= $update_action;?>"><input type="checkbox" class="custom-control-input" `+
                     `onchange="changeSubStatus(${e.id})">`+
                     `<label class="custom-control-label" for="customSwitches">&nbsp&nbspDeactive</label>`+
                     `</div>`;
@@ -251,6 +257,7 @@ function getAllSubCategory(data){
             }
         ],
     });
+    hideActionbtn();
 }
 
 function changeSubStatus(id){

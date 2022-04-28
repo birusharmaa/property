@@ -1,3 +1,8 @@
+<?php  
+    $session = session(); 
+    $session->create_action_type=="No"?$create_action="disabled":$create_action="";
+?>
+
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
@@ -25,7 +30,7 @@
                                     
                                     <div class="col-md-6 offset-6">
                                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                            <button class="btn btn-primary me-md-2"
+                                            <button class="<?php echo $create_action;?> btn btn-primary me-md-2"
                                                 type="button" id="importLeadModaL">Import Lead</button>
                                         </div> 
                                     </div>
@@ -162,10 +167,10 @@ function getAllLeads(data){
             var finalDate =day+"-"+month+"-"+year;
 
             if (first == 0) { first = e.id; }
-            let action = `<a href="<?=base_url();?>/show-lead/${e.id}">`+
+            let action = `<a class="edit-allow-b" href="<?=base_url();?>/show-lead/${e.id}">`+
                         `<i class="fa fa-eye view-details text-white me-1 text-center rounded"></i>`+
                                     `</a>`+
-                        ` &nbsp&nbsp<a href="javascript:void(0)" onclick="deleteLead(${e.id},  '${e.first_name+" "+e.last_name}')" >`+
+                        ` &nbsp&nbsp<a class="edit-allow-b" href="javascript:void(0)" onclick="deleteLead(${e.id},  '${e.first_name+" "+e.last_name}')" >`+
                             `<i class="fas fa-trash delete-details text-white bg-danger text-center rounded"></i>`+
                         `</a>`;
             let row = [e.id, e.first_name+" "+e.last_name, e.email, e.phone, 'Source', e.user_name, finalDate, action];
@@ -191,6 +196,7 @@ function getAllLeads(data){
             }
         ],
     });
+    hideActionbtn();
 }
 
 function deleteLead(id, name){
@@ -364,6 +370,15 @@ $('#import_form').on('submit', function (e) {
 
 function closeModal(){
     $('#leadModelImport').modal('hide');
+}
+
+const hideActionbtn = () => {
+    if($("#createActionType").val()=="Yes"){
+        $(".edit-allow-b").addClass("disabled");
+    }
+    if($("#createActionType").val()=="Yes"){
+        $(".delete-allow-b").addClass("disabled");
+    }
 }
 </script>
     

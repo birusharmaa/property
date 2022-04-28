@@ -4,7 +4,7 @@
         let data = [];
         if (obj.length) {
             obj.forEach(el => {
-                let action = `<a href="#" class="edit" data-id="${el.pur_id}"> <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i></a> <a href="#" class="delete" data-id="${el.pur_id}"> <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i> </a>`;
+                let action = `<a href="#" class="edit edit-allow-b" data-id="${el.pur_id}"> <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i></a> <a href="#" class="delete delete-allow-b" data-id="${el.pur_id}"> <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i> </a>`;
                 let rowData = [
                     el.pur_id,
                     el.property_title,
@@ -20,6 +20,7 @@
         $('#allotProperties').DataTable({
             data: data
         });
+        hideActionbtn();
     }
 
     const loadTableData = () => {
@@ -32,7 +33,6 @@
                 DrawTable(res.data);
             },
             error: function(res, data) {
-
                 DrawTable(res.responseJSON.messages.data);
             }
         });
@@ -50,7 +50,7 @@
             if ($('#rowid').length) {
                 url = "<?= base_url('api/property/edit-assign'); ?>";
             }
-
+ 
             if (formData) {
                 $.ajax({
                     url: url,
@@ -58,7 +58,8 @@
                     data: formData,
                     beforeSend: function() {},
                     success: function(res) {
-
+                        //$("#allotpropertyModal").model("hide");
+                        
                         Swal.fire({
                             icon: 'success',
                             text: res.message,
@@ -165,5 +166,14 @@
                 }
             })
         });
-    });
+    }); 
+
+    // const hideActionbtn = () => {
+    //     if($("#createActionType").val()=="Yes"){
+    //         $(".edit-allow-b").addClass("disabled");
+    //     }
+    //     if($("#createActionType").val()=="Yes"){
+    //         $(".delete-allow-b").addClass("disabled");
+    //     }
+    // }
 </script>

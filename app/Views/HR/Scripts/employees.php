@@ -1,10 +1,17 @@
 <script>
+    $(document).ready(function(){
+        if($("#addButtonHide").val()=="Yes"){
+            setTimeout(function(){
+                let afsdf = $(document).find("a[href='#next']").parent('li').addClass('disabled');
+            },2000)
+        }
+    });
     const DrawTable = (obj) => {
         var table = $('#employees').DataTable();
         let data = [];
         if (obj.length) {
             obj.forEach((el, i) => {
-                let action = `<a href="<?= base_url('api/hr/employee/edit'); ?>/${el.id}" class="edit" data-id="${el.id}"> <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i></a> <a href="#" class="delete" data-id="${el.id}"> <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i> </a>`;
+                let action = `<a href="<?= base_url('api/hr/employee/edit'); ?>/${el.id}" class="edit edit-allow-b" data-id="${el.id}"> <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i></a> <a href="#" class="delete delete-allow-b" data-id="${el.id}"> <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i> </a>`;
                 let rowData = [
                     ++i,
                     el.name,
@@ -22,6 +29,7 @@
         $('#employees').DataTable({
             data: data
         });
+        hideActionbtn();
     }
 
     const loadTableData = () => {

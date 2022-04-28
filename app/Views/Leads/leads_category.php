@@ -1,25 +1,7 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Property Admin - Leads Category</title>
-    <?php //include __DIR__ . '/../Layout/cssLinks.php'; ?>
-</head>
-
-<body>
-
-    <body>
-        <div id="layout-p" class="theme-navy">
-            <?php //include __DIR__ . '/../Layout/header.php'; ?>
-            <?php //include __DIR__ . '/../Layout/sidebar.php'; ?>
-            <div class="main"> -->
-<style type="text/css">
-    
-</style>
-
+<?php  
+    $session = session(); 
+    $session->create_action_type=="No"?$create_action="disabled":$create_action="";
+?>
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
@@ -45,7 +27,7 @@
                     <div class="card p-4">
                             <table id="category" class="table table-striped display dataTable table-hover" style="width:100%">
                                 <div class="align1 pb-2">
-                                    <button class="btn btn-primary" data-bs-toggle="modal"
+                                    <button class="btn btn-primary <?= $create_action; ?>" data-bs-toggle="modal"
                                         href="#categorymodal1" type="submit">Leads Category
                                     </button>
                                 </div>
@@ -154,16 +136,16 @@ function getAllCategory(data){
     if (data) {
         data.forEach(e => {
             if (first == 0) { first = e.id; }
-            let edit =`<a href= "#" class="text-info"  onclick="editCategoy(${e.id}, '${e.title}')"><i class="fas fa-edit"></i></a>`;
-            let del =`<a href= "#" class="text-danger ml-2"  onclick="deleteCategory(${e.id}, '${e.title}')"><i class="fas fa-trash"></i></a>`;
+            let edit =`<a href= "#" class="text-info edit-allow-b" onclick="editCategoy(${e.id}, '${e.title}')"><i class="fas fa-edit"></i></a>`;
+            let del =`<a href= "#" class="text-danger ml-2 delete-allow-b"  onclick="deleteCategory(${e.id}, '${e.title}')"><i class="fas fa-trash"></i></a>`;
             let swith = '';
             if(e.status=='1'){
-                swith = `<div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" `+
+                swith = `<div class="custom-control custom-switch status-allow-b"><input type="checkbox" class="custom-control-input" `+
                     `onchange="changeStatus(${e.id})" checked>`+
                     `<label class="custom-control-label" for="customSwitches">&nbsp&nbspActive</label>`+
                     `</div>`;
             }else{
-                swith = `<div class="custom-control custom-switch"><input type="checkbox" class="custom-control-input" `+
+                swith = `<div class="custom-control custom-switch status-allow-b"><input type="checkbox" class="custom-control-input" `+
                     `onchange="changeStatus(${e.id})">`+
                     `<label class="custom-control-label" for="customSwitches">&nbsp&nbspDeactive</label>`+
                     `</div>`;
@@ -191,6 +173,7 @@ function getAllCategory(data){
             }
         ],
     });
+    hideActionbtn();
 }
 
 

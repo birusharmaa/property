@@ -832,8 +832,8 @@ video.img-fluid {
 .wizard > .actions .disabled a,
 .wizard > .actions .disabled a:active,
 .wizard > .actions .disabled a:hover {
-  background: #eee;
-  color: #aaa;
+  background: #eee!important;
+  color: #aaa!important;
 }
 .tabcontrol > .steps {
   position: relative;
@@ -1111,4 +1111,10 @@ button.increment {
   grid-column-gap: 10px;
   flex-wrap: wrap;
   justify-content: flex-start;
+}
+.disabled{
+  pointer-events: none;
+}
+.disabled i{
+  background-color: gray!important;
 }

@@ -1,7 +1,7 @@
 <?php
 
 namespace Config;
-
+ 
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
@@ -108,7 +108,7 @@ $routes->group('api', function ($routes) {
         $routes->post('save', 'Property::save');
         $routes->post('update', 'Property::update');
         $routes->post('uploadimages', 'Property::uploadImages');
-        $routes->post('isPublished', 'Property::isPublished');
+        $routes->post('isPublished', 'Property::isPublished'); 
         $routes->post('delete', 'Property::delete');
         $routes->post('delete-image', 'Property::deleteImage');
         $routes->get('assign-property-list', 'Property::getAssignedAllList');

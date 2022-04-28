@@ -2,6 +2,15 @@
     /**
      * This function is used to property images into the db.
      */
+    $(document).ready(function(){
+        if($("#addButtonHide").val()=="Yes"){
+            setTimeout(function(){
+                let afsdf = $(document).find("a[href='#next']").parent('li').addClass('disabled');
+            },2000)
+        }
+    });
+
+
     const uploadFiles = () => {
 
         let form_data = new FormData();

@@ -1,3 +1,8 @@
+<?php  
+    $session = session(); 
+    $session->create_action_type=="No"?$create_action="disabled":$create_action="";
+?>
+ 
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
@@ -23,7 +28,7 @@
                     <div class="card p-4 mb-1">
                         <table id="departments" class="table display dataTable table-hover" style="width:100%">
                             <div class="align1 pb-2">
-                                <button class="btn btn-primary" id="btnAddDepartment" data-bs-toggle="modal" href="#departmentsmodal2" type="submit">Add Department</button>
+                                <button class="btn btn-primary <?= $create_action;?>" id="btnAddDepartment" data-bs-toggle="modal" href="#departmentsmodal2" type="submit">Add Department</button>
                             </div>
                             <thead>
                                 <tr class="py-3">
