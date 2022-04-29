@@ -238,10 +238,10 @@ class Leads extends Security_Controller
 
     function addLeads()
     {
-        if(!check_action_type('c')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('c')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
         $created_by   = '';
         if ($this->session->has('loginInfo')) {
             $created_by = $this->session->get('loginInfo')['user_id'];
@@ -539,10 +539,10 @@ class Leads extends Security_Controller
 
     function show_lead($id = null)
     {
-        if(!check_action_type('v')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('v')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
         $result['lead_details'] = $this->leads->getLeadsById($id);
         if ($result['lead_details']) {
             return $this->template->rander('Leads/lead_details', $result);
@@ -553,9 +553,9 @@ class Leads extends Security_Controller
 
     function deletelead($id = null)
     {
-        if(!check_action_type('d')){
+        if($this->session->delete_action_type!="Yes"){
             $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
+            return $this->fail('Access denied!', 400);
         }
 
         $this->validation->setRules([
@@ -567,7 +567,7 @@ class Leads extends Security_Controller
             if ($data) {
                 if ($this->leads->delete($id)) {
                     $msg = [
-                        'success' => true,
+                        'success' => true, 
                         'message' => "Lead deleted successfully.",
                     ];
                     return $this->respond($msg, 201);
@@ -601,10 +601,10 @@ class Leads extends Security_Controller
 
     public function import()
     {
-        if(!check_action_type('c')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('c')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
         $this->validation->setRules([
             'categoryImport' => ['label' => 'category ', 'rules' => 'required'],
             'file_csv'   => ['label' => 'csv', 'rules' => 'uploaded[file_csv]|ext_in[file_csv,csv]']

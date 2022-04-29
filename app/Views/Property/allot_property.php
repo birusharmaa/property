@@ -1,6 +1,9 @@
 <?php  
     $session = session(); 
-    $session->create_action_type=="No"?$create_action="disabled":$create_action="";    
+    $session->create_action_type=="No"?$create_action="disabled":$create_action=""; 
+    $session->delete_action_type=="No"?$delete_action="disabled":$delete_action="";
+    
+   
 ?>
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
@@ -64,7 +67,7 @@
                                             <a href="#" class="edit" data-id="<?= $item->pur_id ?>">
                                                 <i class="fa fa-edit edit-details text-white me-1  text-center rounded"></i>
                                             </a>
-                                            <a href="#" class="delete <?= $delete_action;?>" data-id="<?= $item->pur_id ?>">
+                                            <a href="#" class="delete" <?= $delete_action;?> data-id="<?= $item->pur_id ?>">
                                                 <i class="fa fa-trash-o delete-details text-white bg-danger text-center rounded"></i>
                                             </a>
                                         </td>

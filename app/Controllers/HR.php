@@ -42,11 +42,11 @@ class HR extends Security_Controller
 
     public function edit_employees($id = null)
     {
-        if(!check_action_type('u')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('u')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
         $pageData['employee'] = $this->employee->getEmployee($id);
         $pageData['countries'] = $this->common->getCountries();
         $pageData['states'] = $this->common->getStates();
@@ -115,11 +115,11 @@ class HR extends Security_Controller
      */
     public function showDesignation($id = null)
     {   
-        if(!check_action_type('v')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('v')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
         $data['designation'] = $this->DesignationModel->where(['status' => true, 'id' => $id])->findAll();
         $data['user_access'] = $this->user_access->where(['uap_status' => true, 'user_role_id' => $id])->findAll(1);
         if ($data) {
@@ -136,11 +136,11 @@ class HR extends Security_Controller
      */
     public function updateDesignation()
     {
-        if(!check_action_type('u')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('u')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
         $id = $this->request->getVar('rowid');
         if(!empty($id)){
             $session = session();
@@ -231,11 +231,11 @@ class HR extends Security_Controller
     }
 
     public function saveDesignation(){   
-        if(!check_action_type('c')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('c')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
 
         $validation =  \Config\Services::validation();
         $validation->setRules([
@@ -308,11 +308,11 @@ class HR extends Security_Controller
      */
     public function deleteDesignation()
     {
-        if(!check_action_type('d')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('d')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
         $id = $this->request->getVar('id');
         $data = $this->DesignationModel->update($id, ['status' => false, 'deleted_at' => $this->timestamp, 'deleted_by' => $this->userid]);
         if ($data) {
@@ -346,11 +346,11 @@ class HR extends Security_Controller
      */
     public function showDepartment($id = null)
     {
-        if(!check_action_type('u')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('u')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
         $data = $this->DepartmentModel->where(['status' => true, 'id' => $id])->findAll();
         
         if ($data) {
@@ -368,11 +368,11 @@ class HR extends Security_Controller
     public function updateDepartment()
     {
 
-        if(!check_action_type('u')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('u')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
         $val = $this->validate([
             'department-name' => 'required',
             'department-head' => 'required',
@@ -407,11 +407,11 @@ class HR extends Security_Controller
      */
     public function saveDepartment()
     {
-        if(!check_action_type('c')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('c')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        // }
         $val = $this->validate([
             'department-name' => 'required',
             'department-head' => 'required',
@@ -446,11 +446,11 @@ class HR extends Security_Controller
      */
     public function deleteDepartment()
     {
-        if(!check_action_type('d')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('d')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        //}
         $id = $this->request->getVar('id');
         $data = $this->DepartmentModel->update($id, ['status' => false, 'deleted_at' => $this->timestamp, 'deleted_by' => $this->userid]);
         if ($data) {

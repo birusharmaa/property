@@ -6,9 +6,20 @@
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
+            <div class="col-12"> 
+                <?php
+                    $session = session();
+                    if($session->getFlashdata('error-name')){
+                        echo '<div class="alert alert-danger alert-dismissible fade show fw-bold text-dark p-2" role="alert">';
+                        echo '<marquee><span >'.$session->getFlashdata('error-name').'</span></marquee>';
+                        echo '<button type="button" class="btn-close p-3" data-bs-dismiss="alert" aria-label="Close"></button>';
+                        echo '</div>';
+                    }
+                ?>
+            </div>
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center py-2">
-                    <ol class="breadcrumb rounded-0 mb-0 ps-0 bg-transparent flex-grow-1">
+                <ol class="breadcrumb rounded-0 mb-0 ps-0 bg-transparent flex-grow-1">
                         <li class="breadcrumb-item"><a href="<?=base_url();?>">Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">All Leads</li>
                     </ol>
@@ -245,6 +256,9 @@ function deleteLead(id, name){
                             position: 'top-right',
                             icon: 'error'
                         });
+                    }
+                    if(jqxhr.responseJSON.messages.error=="Access denied!"){
+                        location.reload();
                     }
                 }
             });

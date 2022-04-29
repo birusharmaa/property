@@ -8,7 +8,7 @@ class SubModules extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'sub_modules';
-    protected $primaryKey       = 'id';
+    protected $primaryKey       = 'sm_id';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';

@@ -22,7 +22,7 @@
             data: data,
             order: [[ 0, "desc" ]]
         });
-        hideActionbtn();
+        //hideActionbtn();
     }
 
     const loadTableData = () => {

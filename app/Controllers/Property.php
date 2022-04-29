@@ -47,10 +47,10 @@ class Property extends Security_Controller
             $action_type = $this->session->get('action_type');
         }
         
-        if(!check_action_type('r')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('r')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
 
         $pageData =   $this->property->getPropertyDetails(base64_decode($propId));
         return $this->template->rander('Property/property_detail', $pageData);
@@ -155,10 +155,10 @@ class Property extends Security_Controller
      */
     public function save()
     {
-        if(!check_action_type('c')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('c')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
 
         $res = $this->property->saveProperty();
         if ($res) {
@@ -192,10 +192,10 @@ class Property extends Security_Controller
      */
     public function deleteImage()
     {   
-        if(!check_action_type('d')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('d')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
 
         try {
             $path =  $this->request->getVar('path');
@@ -229,8 +229,7 @@ class Property extends Security_Controller
      *
      * @return boolean
      */
-    public function isPublished()
-    {
+    public function isPublished(){
         $status = $this->request->getVar('status');
         $propId = $this->request->getVar('propId');
         if ($this->property->updatePublishedStatus($propId, $status)) {
@@ -248,9 +247,13 @@ class Property extends Security_Controller
      */
     public function delete()
     {
-        if(!check_action_type('d')){
+        // if(!check_action_type('d')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
+        if($this->session->delete_action_type!="Yes"){
             $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
+            exit;
         }
         
         $propId = $this->request->getVar('propId');
@@ -268,10 +271,10 @@ class Property extends Security_Controller
      */
     public function assignProperty(){
 
-        if(!check_action_type('c')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('c')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
 
         $res = $this->property->assignProperty();
         if ($res['isAssigned']) {
@@ -330,10 +333,10 @@ class Property extends Security_Controller
      */
     public function editProperty()
     {
-        if(!check_action_type('u')){
-            $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('u')){
+        //     $this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return redirect()->route('properties');
+        // }
 
         $formData = [
             'pur_prop_id' => xss_clean($this->request->getVar('property')),
@@ -365,11 +368,11 @@ class Property extends Security_Controller
     public function deleteProperty()
     {
         $id = $this->request->getVar('id');
-        if(!check_action_type('d')){
-            //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
-            return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
-            return redirect()->route('properties');
-        }
+        // if(!check_action_type('d')){
+        //     //$this->session->setFlashdata("error-name", 'You are not authorized to perform this action.');
+        //     return $this->respond(['message' => 'You are not authorized to perform this action.', 'data' => true], 400);
+        //     return redirect()->route('properties');
+        //}
         $data = $this->PropertyUserRelationModel->update($id, ['pur_status' => false]);
         if ($data) {
             return $this->respond(['message' => 'Successfully deleted', 'data' => true], 200);

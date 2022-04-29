@@ -9,6 +9,17 @@
 <div class="body-header border-0 rounded-0 px-xl-4 px-md-2">
     <div class="container-fluid">
         <div class="row pt-2">
+            <div class="col-12"> 
+                <?php
+                    $session = session();
+                    if($session->getFlashdata('error-name')){
+                        echo '<div class="alert alert-danger alert-dismissible fade show fw-bold text-dark p-2" role="alert">';
+                        echo '<marquee><span >'.$session->getFlashdata('error-name').'</span></marquee>';
+                        echo '<button type="button" class="btn-close p-3" data-bs-dismiss="alert" aria-label="Close"></button>';
+                        echo '</div>';
+                    }
+                ?>
+            </div>
             <div class="col-12">
                 <div class="d-flex justify-content-between align-items-center py-2">
                     <ol class="breadcrumb rounded-0 mb-0 ps-0 bg-transparent flex-grow-1">
@@ -24,22 +35,10 @@
             <div class="body mb-2 px-xl-4 px-md-2">
                 <div class="container-fluid my-4">
                     <div class="row">
+                        
+
                         <!-- <div class="col-md-12"> -->
-                        <div class="col-md-12 mx-auto">
-                            <!-- <div class="red-bg text-center text-white rounded py-2 mb-3">
-                                <h1 class=" fw-bolder">All Properties</h1>
-                            </div> -->
-                            
-                            <?php
-                                $session = session();
-                                if($session->getFlashdata('error-name')){
-                                    echo '<div class="alert alert-danger alert-dismissible fade show fw-bold text-dark" role="alert">';
-                                    echo $session->getFlashdata('error-name');
-                                    echo '<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>';
-                                  echo '</div>';
-                                }
-                            ?>
-                            
+                        <div class="col-md-12 mx-auto">                          
 
                             <div class="card p-4 <?php echo $session->delete_action_type;?>">
                                 <table id="allProperties" class="table display dataTable table-hover" style="width:100%">

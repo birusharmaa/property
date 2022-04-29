@@ -41,9 +41,15 @@ class Security_Controller extends AppController {
                 echo view('404');
                 exit;
             }
-        }
+           
+            $result = $page_access->check_access_permission($login_user_id, $_SERVER['REQUEST_URI']);
+            if(!empty($result)){
+                $res = $page_access->check_user_access_page_type($result);                
+            }
+        } 
 
-        $res = $page_access->check_user_access_page_type($login_user_id, $_SERVER['REQUEST_URI']);
+        //$res = $page_access->check_user_access_page_type($login_user_id, $_SERVER['REQUEST_URI']);
+        
 
         
         app_hooks()->do_action('app_hook_before_app_access', array(

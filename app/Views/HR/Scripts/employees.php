@@ -29,7 +29,7 @@
         $('#employees').DataTable({
             data: data
         });
-        hideActionbtn();
+        //hideActionbtn();
     }
 
     const loadTableData = () => {
