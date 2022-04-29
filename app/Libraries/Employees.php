@@ -118,7 +118,7 @@ class Employees
                         'name'         => $name, 
                         'email'        => $email,
                         'password'     => $enc_password,
-                        'user_role_id' => $user_role_id,
+                        //'user_role_id' => $user_role_id,
                         'created_at'   => $created_at,
                         'emp_id'       => $emp_id,
                         'pass'         => $password,

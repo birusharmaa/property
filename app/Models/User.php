@@ -78,11 +78,11 @@ class User extends Model
             // $builder->join('designations', 'designations.id = user_access_permissions.user_role_id', 'left');
             $builder = $this->db->table('users');
             $builder->select('users.id, users.name, users.email,
-                                users.user_role_id, user_access_permissions.uap_id, 
+                                user_access_permissions.uap_id, 
                                 user_access_permissions.uap_permission as access_right, 
-                                user_access_permissions.uap_sub_sub_modules, user_roles.type, user_roles.role_permission');
+                                user_access_permissions.uap_sub_sub_modules');
             $builder->join('user_access_permissions', 'user_access_permissions.uap_user_id=users.id');
-            $builder->join('user_roles', 'user_roles.r_id=users.user_role_id');
+            //$builder->join('user_roles', 'user_roles.r_id=users.user_role_id');
             $builder->where('users.id', $user_id);
             $query = $builder->get();
             
